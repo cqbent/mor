@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MOR OG Views Content/Members feature.
+ */
+
+include_once 'mor_og_views_content_members.features.inc';

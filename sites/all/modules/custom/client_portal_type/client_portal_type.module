@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Client Portal Type feature.
+ */
+
+include_once 'client_portal_type.features.inc';

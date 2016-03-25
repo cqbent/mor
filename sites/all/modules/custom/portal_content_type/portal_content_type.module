@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Portal Content Type feature.
+ */
+
+include_once 'portal_content_type.features.inc';

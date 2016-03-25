@@ -1,0 +1,12 @@
+name = OG Content Notification
+description = MOR OG content notication rule for sending out emails when new content is added to group
+core = 7.x
+package = Features
+version = 7.x-1.0
+project = og_content_notification
+dependencies[] = entity
+dependencies[] = og
+dependencies[] = rules
+features[features_api][] = api:2
+features[rules_config][] = og_mor_og_new_content_notification
+features[rules_config][] = rules_test_rule

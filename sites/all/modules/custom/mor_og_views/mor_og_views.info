@@ -1,0 +1,14 @@
+name = MOR OG Views
+description = MOR OG views blocks that display on portal pages
+core = 7.x
+package = Features
+version = 7.x-1.1
+project = mor_og_views
+dependencies[] = og
+dependencies[] = og_context
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = client_portal_list
+features[views_view][] = og_post_reflection
+features_exclude[dependencies][ctools] = ctools

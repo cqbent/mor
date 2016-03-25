@@ -1,0 +1,23 @@
+<?php
+
+function fivestar_thumbs_fivestar_widgets() {
+	$widgets_directory = drupal_get_path('module', 'fivestar_thumbs').'/widgets';
+	$widgets = array(
+		$widgets_directory.'/fivestar_thumbs.css' => 'Thumbs Up icons',
+	);
+	return $widgets;
+}
+
+/*
+function fivestar_thumbs_fivestar_widgets() {
+	$widgets_directory = drupal_get_path('module', 'fivestar_thumbs').'/widgets';
+	$files = file_scan_directory($widgets_directory, '\.css$');
+	$widgets = array();
+	foreach ($files as $file) {
+		if (strpos($file->filename, '-rtl.css') === FALSE) {
+			$widgets[$file->filename] = drupal_ucfirst($file->name);
+		}
+	}
+	return $widgets;
+}
+*/

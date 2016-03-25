@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function mor_media_block_block_info() {
+  $blocks['mor_media_block'] = array(
+    // info: The name of the block.
+    'info' => t('Media Block Display'),
+    'cache' => DRUPAL_CACHE_PER_ROLE, // default
+	'region' => 'content',
+  );
+  return $blocks;
+}
+
+function mor_media_block_block_view($delta = '') {
+	// find media fields for current page, diplay according to how many fields exist (3 = thumbnail, 2 = medium, 1 = large), add colorbox fields and formatting
+	$node = node_load(arg(1));	// get node data from parent menu page
+	$display = array(
+		'label' => 'hidden',
+		'type' => 'image',
+		'settings' => array(
+			'image_style' => 'thumbnail',
+		),
+	);
+	$field = '';
+	if ($node) {
+		$field = field_get_items('node', $node, 'field_media_file');	// get the background image field data from this node
+	}
+	if ($field) {
+		$fieldval = field_view_field('node', $node, 'field_media_file', $field[1], $display);	
+		//$xx = file_load($fieldval['#items'][0]['fid']);
+		$fieldrend = render($fieldval);
+		//$fieldval = field_view_field('node', $node, 'field_media_file', $field[0]);	
+		//$fieldentity = field_attach_prepare_view('node',$field[0],'teaser');
+		// now get the view info for the image field
+	}
+	else { $fieldrend = ''; }
+	switch ($delta) {
+		case 'mor_media_block':
+			$block['subject'] = t('media file');
+			//$block['content'] = '<div>'.render($fieldval).'<div class="bbb"></div></div>';	// now render the damn thing
+			$block['content'] = $fieldrend;
+			//$block['content'] = dsm($fieldval);
+			break;
+	}
+	return $block;
+}
+

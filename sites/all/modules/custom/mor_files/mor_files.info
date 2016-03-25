@@ -1,0 +1,17 @@
+name = MOR Files
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = features
+dependencies[] = options
+dependencies[] = taxonomy
+dependencies[] = text
+features[features_api][] = api:2
+features[field_base][] = field_file_description
+features[field_base][] = field_file_title
+features[field_base][] = field_portal_file_type
+features[field_instance][] = file-document-field_file_description
+features[field_instance][] = file-document-field_file_title
+features[field_instance][] = file-document-field_portal_file_type
+features[taxonomy][] = portal_file_type
+project path = sites/all/modules/custom

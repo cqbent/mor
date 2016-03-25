@@ -1,0 +1,6 @@
+name = MOR Menu List
+description = List field for MOR
+version = "7.x-1.x-dev"
+core = "7.x"
+dependencies[] = menu_trail_by_path
+

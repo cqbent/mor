@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MOR Users feature.
+ */
+
+include_once 'mor_users.features.inc';

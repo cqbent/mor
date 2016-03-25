@@ -1,0 +1,7 @@
+name = Fivestar Thumbs Up
+description = Enables fivestar ratings on content, users, etc.
+package = Voting
+core = 7.x
+dependencies[] = fivestar
+version = "7.x-1.0"
+core = "7.x"

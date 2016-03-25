@@ -1,0 +1,15 @@
+name = MOR OG Views Content/Members
+description = views for og members and content
+core = 7.x
+package = Features
+version = 7.x-1.1
+project = mor_og_views_content_members
+dependencies[] = og
+dependencies[] = og_context
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = mor_og_content
+features[views_view][] = mor_og_members
+features[views_view][] = portal_topics
+features_exclude[dependencies][ctools] = ctools

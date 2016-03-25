@@ -1,0 +1,1714 @@
+/**
+ * @file
+ * Page Styling
+ *
+ * Style the markup found in page.tpl.php. Also includes some styling of
+ * miscellaneous Drupal elements that appear in the $content variable, such as
+ * ul.links, .pager, .more-link, etc.
+ */
+/*
+ * Body
+ */
+/* line 17, ../sass/pages.scss */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 21, ../sass/pages.scss */
+body.html {
+  background: url("/sites/default/files/about.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/* line 28, ../sass/pages.scss */
+#page {
+  max-width: 100%;
+  background-image: url("/sites/all/themes/morassociates/images/pattern.png");
+}
+
+/*
+ * The skip-link link will be completely hidden until a user tabs to the link.
+ * See the element-focusable rule in system.base.css.
+ */
+/* line 38, ../sass/pages.scss */
+#skip-link {
+  margin: 0;
+}
+/* line 41, ../sass/pages.scss */
+#skip-link a,
+#skip-link a:visited {
+  display: block;
+  width: 100%;
+  padding: 2px 0 3px 0;
+  text-align: center;
+  background-color: #666;
+  color: #3A77B5;
+  outline: 0;
+}
+
+/*
+ * Header
+ */
+/* line 57, ../sass/pages.scss */
+#header {
+  background-color: #000;
+  height: 70px;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+}
+
+/* line 65, ../sass/pages.scss */
+#logo {
+  /* Wrapping link for logo */
+  position: absolute;
+  top: 20px;
+  left: 0px;
+}
+/* line 69, ../sass/pages.scss */
+#logo img {
+  vertical-align: bottom;
+}
+
+/* line 74, ../sass/pages.scss */
+#name-and-slogan {
+  /* Wrapper for website name and slogan */
+  float: left;
+}
+
+/* line 78, ../sass/pages.scss */
+#site-name {
+  /* The name of the website */
+  margin: 0;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+/* line 83, ../sass/pages.scss */
+#site-name a:link,
+#site-name a:visited {
+  color: #000;
+  text-decoration: none;
+}
+/* line 89, ../sass/pages.scss */
+#site-name a:hover,
+#site-name a:focus {
+  text-decoration: underline;
+}
+
+/* line 95, ../sass/pages.scss */
+#site-slogan {
+  /* The slogan (or tagline) of a website */
+  margin: 0;
+  font-size: 1em;
+}
+
+/* line 100, ../sass/pages.scss */
+.region-header {
+  /* Wrapper for any blocks placed in the header region */
+  clear: both;
+  /* Clear the logo */
+}
+
+/*
+ * Main (container for everything else)
+ */
+/* line 108, ../sass/pages.scss */
+#main {
+  max-width: 1000px;
+  margin: 0px auto 0px auto;
+  border-top: 33px #70a4d8 solid;
+  padding: 0px;
+  color: #666666;
+  background-image: url(../images/main_bk2.png);
+  background-repeat: repeat-y;
+  /* Fallback for web browsers that doesn't support RGBa */
+  /* background: rgb(0, 0, 0); */
+  /* RGBa with 0.7 opacity */
+  /* background: rgba(0, 0, 0, 0.7); */
+  /* For IE 5.5 - 7*/
+  /* filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000, endColorstr=#b2000000); */
+  /* For IE 8*/
+  /* -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2000000, endColorstr=#b2000000)"; */
+}
+
+/*
+ * Content
+ */
+/* line 131, ../sass/pages.scss */
+#content {
+  padding-top: 20px;
+}
+
+/* line 138, ../sass/pages.scss */
+.breadcrumb {
+  /* The path to the current page in the form of a list of links */
+}
+/* line 139, ../sass/pages.scss */
+.breadcrumb ol {
+  margin: 0;
+  padding: 0;
+}
+/* line 143, ../sass/pages.scss */
+.breadcrumb li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 151, ../sass/pages.scss */
+h1.title,
+h2.node-title,
+h2.block-title,
+h2.title,
+h2.comment-form,
+h3.title {
+  /* Comment title */
+  margin: 0;
+  font-weight: normal;
+}
+
+/* line 161, ../sass/pages.scss */
+tr.even {
+  /* Some tables have rows marked even or odd. */
+  /* background-color: #eee; */
+  /* Drupal core uses a #eee background */
+}
+
+/* line 165, ../sass/pages.scss */
+tr.odd {
+  /* background-color: #eee; */
+  /* Drupal core uses a #eee background */
+}
+
+/* line 169, ../sass/pages.scss */
+div.messages {
+  /* Important messages (status, warning, and error) for the user. See also the declarations in messages.css. */
+  margin: 1.5em 0;
+  /* Drupal core uses "6px 0" margin */
+}
+/* line 172, ../sass/pages.scss */
+div.messages ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* line 178, ../sass/pages.scss */
+div.status {
+  /* Normal priority messages */
+}
+
+/* line 181, ../sass/pages.scss */
+div.warning,
+tr.warning {
+  /* Medium priority messages */
+  /* border: 1px solid #f0c020; */
+  /* Drupal core uses: 1px solid #f0c020 */
+}
+
+/* line 186, ../sass/pages.scss */
+div.error,
+tr.error {
+  /* High priority messages. See also the .error declaration below. */
+}
+
+/* line 190, ../sass/pages.scss */
+.error {
+  /* Errors that are separate from div.messages status messages. */
+  /* color: #e55; */
+  /* Drupal core uses a #e55 background */
+}
+
+/* line 194, ../sass/pages.scss */
+.warning {
+  /* Warnings that are separate from div.messages status messages. */
+  /* color: #e09010; */
+  /* Drupal core uses a #e09010 background */
+}
+
+/* line 198, ../sass/pages.scss */
+.tabs {
+  /* See also the tabs.css file. */
+}
+
+/* line 201, ../sass/pages.scss */
+.region-help {
+  /* Help text on a page */
+}
+
+/* line 204, ../sass/pages.scss */
+.more-help-link {
+  /* Link to more help */
+}
+
+/* line 207, ../sass/pages.scss */
+.region-content {
+  /* Wrapper for the actual page content */
+}
+
+/* line 210, ../sass/pages.scss */
+ul.inline {
+  /* List of links generated by theme_links() */
+  display: inline;
+  padding: 0;
+}
+/* line 214, ../sass/pages.scss */
+ul.inline li {
+  display: inline;
+  list-style-type: none;
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* line 220, ../sass/pages.scss */
+span.field-label {
+  /* The inline field label used by the Fences module */
+  padding: 0 1em 0 0;
+  /* LTR */
+}
+
+/* line 224, ../sass/pages.scss */
+.item-list .pager {
+  /* A list of page numbers when more than 1 page of content is available */
+  padding: 0;
+}
+/* line 227, ../sass/pages.scss */
+.item-list .pager li {
+  /* Each page number in the pager list */
+  padding: 0 0.5em;
+}
+
+/* line 232, ../sass/pages.scss */
+.feed-icon {
+  /* The link to the RSS or Atom feed for the current list of content */
+}
+
+/* line 235, ../sass/pages.scss */
+.more-link {
+  /* Aggregator, blog, and forum more link */
+}
+
+/*
+ * First sidebar (on left in LTR languages, on right in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-first
+ * (see the layout.css file.)
+ */
+/* line 245, ../sass/pages.scss */
+.region-sidebar-first {
+  color: #fff;
+  padding-top: 35px;
+  /*
+  width:18%;
+  margin-right:18%;
+  padding:18px;
+  */
+}
+
+/*
+ * Second sidebar (on right in LTR languages, on left in RTL)
+ *
+ * Remember to NOT add padding or margin to your .region-sidebar-second
+ * (see the layout.css file.)
+ */
+/* line 262, ../sass/pages.scss */
+.region-sidebar-second {
+  background-color: #fff;
+  padding-top: 50px;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 266, ../sass/pages.scss */
+.region-sidebar-second .quote, .region-sidebar-second .field-name-field-quote {
+  line-height: 18px;
+  font-weight: bold;
+}
+
+/*
+ * Footer
+ */
+/* line 273, ../sass/pages.scss */
+#footer {
+  background: none;
+  height: auto;
+  overflow: hidden;
+  color: #666666;
+  position: relative;
+  max-width: 1000px;
+  margin: 0px auto;
+  background-image: url("../images/main_bk2.png");
+  background-repeat: repeat-y;
+  padding: 0px;
+}
+
+/*
+ * Page bottom
+ */
+/* line 290, ../sass/pages.scss */
+.region-bottom {
+  /* Wrapper for any blocks placed in the page bottom region */
+  margin-top: 0;
+  background-color: #000;
+  height: 30px;
+  overflow: hidden;
+  color: #999;
+  font-size: 10.998px;
+  max-width: 100%;
+}
+/* line 297, ../sass/pages.scss */
+.region-bottom div {
+  max-width: 1000px;
+  margin: 5px auto;
+}
+/* line 298, ../sass/pages.scss */
+.region-bottom p {
+  margin: 0px;
+}
+
+/* MOR ASSOCIATES STYLES */
+/* line 303, ../sass/pages.scss */
+#subhead {
+  min-height: 188px;
+  max-width: 1000px;
+  margin: 0px auto;
+  position: relative;
+  z-index: 2;
+  padding-top: 70px;
+}
+
+/* line 306, ../sass/pages.scss */
+.field-collection-view {
+  padding: 0px;
+  margin: 0px;
+}
+
+/* input text styles */
+/* line 311, ../sass/pages.scss */
+p.caption {
+  margin-top: 0;
+}
+
+/* line 312, ../sass/pages.scss */
+.btn, a.btn {
+  background-color: #3a77b5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  margin-right: 1em;
+  font-size: 1.5em;
+  display: inline-block;
+}
+
+/* line 314, ../sass/pages.scss */
+.media-callout {
+  padding: 20px 0px;
+  border-top: 1px #bbbbbb solid;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 316, ../sass/pages.scss */
+.media-callout .media-element {
+  max-width: 345px;
+  float: right;
+  padding-left: 10px;
+}
+/* line 317, ../sass/pages.scss */
+.media-callout .field-name-field-file-image-title-text {
+  font-weight: bold;
+}
+
+/* line 319, ../sass/pages.scss */
+.separator {
+  padding: 20px 0px 0px 0px;
+  border-top: 1px #bbbbbb solid;
+}
+
+/* line 320, ../sass/pages.scss */
+#block-mor-menu-list-mor-section-block {
+  height: 188px;
+  font-size: 144px;
+  line-height: 95px;
+  display: table-cell;
+  font-family: GrapheinProLightRegular, Helvetica, Arial, sans-serif;
+  zoom: 1;
+  color: #fff;
+  margin: 0px;
+  filter: alpha(opacity=40);
+  opacity: 0.4;
+  vertical-align: bottom;
+}
+
+/* line 323, ../sass/pages.scss */
+#header .inner {
+  max-width: 1000px;
+  margin: 0px auto;
+  position: relative;
+}
+
+/* line 324, ../sass/pages.scss */
+h1.title {
+  color: #6699d1;
+}
+
+/* line 325, ../sass/pages.scss */
+.region-sidebar-first .menu {
+  margin: 0px;
+  padding: 0px;
+}
+/* line 327, ../sass/pages.scss */
+.region-sidebar-first .menu li {
+  font-weight: bold;
+  font-size: 10.998px;
+  margin: 0px 0px 5px 0px;
+  list-style: none;
+}
+/* line 332, ../sass/pages.scss */
+.region-sidebar-first .menu li a:link, .region-sidebar-first .menu li a:visited {
+  color: #fff;
+}
+/* line 333, ../sass/pages.scss */
+.region-sidebar-first .menu li a:focus, .region-sidebar-first .menu li a:hover, .region-sidebar-first .menu li a.active {
+  color: #70a4d8;
+}
+/* line 334, ../sass/pages.scss */
+.region-sidebar-first .menu li ul {
+  display: none;
+}
+/* line 335, ../sass/pages.scss */
+.region-sidebar-first .menu li li {
+  font-weight: normal;
+  margin-left: 10px;
+}
+/* line 337, ../sass/pages.scss */
+.region-sidebar-first .menu li.expanded > a:after {
+  content: " +";
+}
+/* line 339, ../sass/pages.scss */
+.region-sidebar-first .menu li.active-trail > a:after {
+  content: "";
+}
+/* line 340, ../sass/pages.scss */
+.region-sidebar-first .menu li.active-trail ul {
+  display: block;
+}
+
+/* line 344, ../sass/pages.scss */
+#content .inner {
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+  position: relative;
+}
+
+/* line 345, ../sass/pages.scss */
+.two-sidebars #content, .sidebar-second #content {
+  padding-right: 0px;
+}
+/* line 347, ../sass/pages.scss */
+.two-sidebars #content .inner, .sidebar-second #content .inner {
+  border-right: 1px #bbbbbb solid;
+  padding-right: 20px;
+}
+
+/* line 349, ../sass/pages.scss */
+#block-block-5 {
+  /* bottomlinks */
+  position: relative;
+  height: 50px;
+  font-size: 10.998px;
+  margin-bottom: 20px;
+  margin-left: 180px;
+  padding: 0px 20px;
+}
+/* line 351, ../sass/pages.scss */
+#block-block-5 .addthis_toolbox {
+  height: 16px;
+}
+/* line 352, ../sass/pages.scss */
+#block-block-5 #anchor-top {
+  margin-top: 20px;
+}
+/* line 353, ../sass/pages.scss */
+#block-block-5 #anchor-top a {
+  font-weight: bold;
+}
+
+/* line 357, ../sass/pages.scss */
+#block-menu-block-1 h2.block-title {
+  font-size: 10.998px;
+  font-weight: bold;
+}
+/* line 358, ../sass/pages.scss */
+#block-menu-block-1 h2.block-title a:link, #block-menu-block-1 h2.block-title a:visited {
+  color: #fff;
+}
+/* line 359, ../sass/pages.scss */
+#block-menu-block-1 h2.block-title a:focus, #block-menu-block-1 h2.block-title a:hover, #block-menu-block-1 h2.block-title a.active {
+  color: #70a4d8;
+}
+
+/* line 362, ../sass/pages.scss */
+#block-menu-block-2 {
+  position: relative;
+  bottom: 0px;
+  height: 20px;
+  margin: 0px 0px 20px 180px;
+  padding: 0px 20px;
+}
+/* line 364, ../sass/pages.scss */
+#block-menu-block-2 .menu {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+/* line 366, ../sass/pages.scss */
+#block-menu-block-2 .menu li {
+  float: left;
+  margin: 0px 10px 0px 0px;
+  padding: 0px;
+}
+/* line 367, ../sass/pages.scss */
+#block-menu-block-2 .menu a, #block-menu-block-2 .menu a:visited, #block-menu-block-2 .menu li a.active {
+  font-size: 10.998px;
+  color: #999;
+}
+
+/* no sidebars */
+/* line 374, ../sass/pages.scss */
+.no-sidebars #main, .no-sidebars #footer, .sidebar-second #main, .sidebar-second #footer {
+  background-image: none;
+  background-color: #fff;
+}
+/* line 375, ../sass/pages.scss */
+.no-sidebars #block-block-5, .no-sidebars #block-menu-block-2, .sidebar-second #block-block-5, .sidebar-second #block-menu-block-2 {
+  margin-left: 0px;
+}
+
+/* MEDIA thumbnails */
+/* line 378, ../sass/pages.scss */
+#block-views-media-thumbnails-block {
+  border-top: 1px #bbbbbb solid;
+}
+/* line 380, ../sass/pages.scss */
+#block-views-media-thumbnails-block .block-title {
+  padding: 10px 0px;
+}
+
+/* line 382, ../sass/pages.scss */
+.view-media-thumbnails .item-list {
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+  /* img:after { content:"this"; top:50%; left:50%; position:absolute; display:block; } */
+}
+/* line 384, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul {
+  margin: 0px;
+  list-style: none;
+  width: 100%;
+  padding: 0px;
+}
+/* line 385, ../sass/pages.scss */
+.view-media-thumbnails .item-list li {
+  margin: 0px;
+  float: left;
+  width: auto;
+  position: relative;
+  padding-right: 10px;
+}
+/* line 388, ../sass/pages.scss */
+.view-media-thumbnails .item-list .field-name-field-file-image-title-text {
+  font-weight: bold;
+}
+/* line 389, ../sass/pages.scss */
+.view-media-thumbnails .item-list li.views-row-last {
+  padding: 0px;
+}
+/* line 390, ../sass/pages.scss */
+.view-media-thumbnails .item-list img {
+  width: auto;
+}
+/* line 392, ../sass/pages.scss */
+.view-media-thumbnails .item-list a, .view-media-thumbnails .item-list a.active {
+  color: #666666;
+}
+/* line 393, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count1 li {
+  width: 100%;
+  margin: 0px;
+}
+/* line 394, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count1 li img {
+  max-width: 345px;
+  display: block;
+  float: left;
+  padding-right: 10px;
+}
+/* line 395, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count1 li .field-type-text {
+  float: left;
+  width: 140px;
+  /* left:360px; bottom:0px; */
+}
+/* line 397, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count2 li {
+  width: 49%;
+}
+/* line 398, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count2 li img {
+  max-width: 247px;
+}
+/* line 400, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count3 li {
+  width: 32%;
+}
+/* line 401, ../sass/pages.scss */
+.view-media-thumbnails .item-list ul.count3 li img {
+  max-width: 162px;
+}
+
+/* Team List Block */
+/* line 407, ../sass/pages.scss */
+#block-views-mor-team-list-block {
+  font-size: 11.999px;
+  font-weight: bold;
+  margin-left: 40px;
+}
+/* line 409, ../sass/pages.scss */
+#block-views-mor-team-list-block .view-header {
+  margin-bottom: 20px;
+}
+/* line 410, ../sass/pages.scss */
+#block-views-mor-team-list-block .item-list ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+/* line 411, ../sass/pages.scss */
+#block-views-mor-team-list-block .item-list ul li {
+  margin: 0px 0px 5px 0px;
+  padding: 0px;
+}
+
+/* Team Member Detail */
+/* line 416, ../sass/pages.scss */
+.page-about-team #page-title {
+  display: none;
+}
+
+/* line 418, ../sass/pages.scss */
+.view-mor-member-detail .views-field-picture, .view-mor-member-detail .user-picture, .page-user .views-field-picture, .page-user .user-picture {
+  float: left;
+  margin-right: 20px;
+}
+/* line 419, ../sass/pages.scss */
+.view-mor-member-detail .views-field-field-last-name, .page-user .views-field-field-last-name {
+  margin-bottom: 20px;
+}
+/* line 420, ../sass/pages.scss */
+.view-mor-member-detail .views-field-field-user-title, .view-mor-member-detail .field-name-field-user-title, .page-user .views-field-field-user-title, .page-user .field-name-field-user-title {
+  font-weight: bold;
+}
+
+/* sidebar quote styles */
+/* line 424, ../sass/pages.scss */
+.view-client-quotes .views-field-field-client-logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* line 425, ../sass/pages.scss */
+.field-name-field-quote-attribute {
+  margin-top: 1em;
+  font-weight: bold;
+}
+
+/* case study styles */
+/* line 428, ../sass/pages.scss */
+#block-views-case-study-block {
+  border-top: 14px #B7D1EB solid;
+  border-bottom: 14px #B7D1EB solid;
+}
+
+/* line 429, ../sass/pages.scss */
+#block-views-case-study-block .field {
+  margin-bottom: 1em;
+}
+
+/* blog section styles */
+/* line 432, ../sass/pages.scss */
+body.page-blog, body.node-type-blog, body.page-taxonomy, body.page-insight-search, body.page-insight, body.page-archive {
+  background: #999;
+  /* for non-css3 browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#999999', endColorstr='#ffffff');
+  /* for IE */
+  background: -webkit-gradient(linear, left top, left bottom, from(#999), to(#fff));
+  /* for webkit browsers */
+  background: -moz-linear-gradient(top, #999, #fff);
+  /* for firefox 3.6+ */
+}
+/* line 437, ../sass/pages.scss */
+body.page-blog #page, body.node-type-blog #page, body.page-taxonomy #page, body.page-insight-search #page, body.page-insight #page, body.page-archive #page {
+  background: none;
+}
+/* line 438, ../sass/pages.scss */
+body.page-blog #main, body.page-blog #footer, body.node-type-blog #main, body.node-type-blog #footer, body.page-taxonomy #main, body.page-taxonomy #footer, body.page-insight-search #main, body.page-insight-search #footer, body.page-insight #main, body.page-insight #footer, body.page-archive #main, body.page-archive #footer {
+  -webkit-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+  margin-top: 0px;
+  background-color: #fff;
+  background-image: none;
+}
+/* line 446, ../sass/pages.scss */
+body.page-blog #footer, body.node-type-blog #footer, body.page-taxonomy #footer, body.page-insight-search #footer, body.page-insight #footer, body.page-archive #footer {
+  background-image: none;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+}
+/* line 453, ../sass/pages.scss */
+body.page-blog #subhead .region-sub-head, body.node-type-blog #subhead .region-sub-head, body.page-taxonomy #subhead .region-sub-head, body.page-insight-search #subhead .region-sub-head, body.page-insight #subhead .region-sub-head, body.page-archive #subhead .region-sub-head {
+  position: absolute;
+  bottom: -14px;
+}
+/* line 456, ../sass/pages.scss */
+body.page-blog #content .inner, body.node-type-blog #content .inner, body.page-taxonomy #content .inner, body.page-insight-search #content .inner, body.page-insight #content .inner, body.page-archive #content .inner {
+  margin-left: 150px;
+  padding-left: 20px;
+  border-left: 1px #bbbbbb solid;
+  margin-bottom: 20px;
+}
+/* line 458, ../sass/pages.scss */
+body.page-blog #content .inner article, body.node-type-blog #content .inner article, body.page-taxonomy #content .inner article, body.page-insight-search #content .inner article, body.page-insight #content .inner article, body.page-archive #content .inner article {
+  position: relative;
+  border-bottom: 1px #bbbbbb solid;
+}
+/* line 459, ../sass/pages.scss */
+body.page-blog #content .inner .node, body.node-type-blog #content .inner .node, body.page-taxonomy #content .inner .node, body.page-insight-search #content .inner .node, body.page-insight #content .inner .node, body.page-archive #content .inner .node {
+  position: relative;
+}
+/* line 460, ../sass/pages.scss */
+body.page-blog #content .inner .blog-left-sidebar, body.node-type-blog #content .inner .blog-left-sidebar, body.page-taxonomy #content .inner .blog-left-sidebar, body.page-insight-search #content .inner .blog-left-sidebar, body.page-insight #content .inner .blog-left-sidebar, body.page-archive #content .inner .blog-left-sidebar {
+  position: absolute;
+  left: -150px;
+  top: 25px;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 462, ../sass/pages.scss */
+body.page-blog #content .inner .submitted, body.node-type-blog #content .inner .submitted, body.page-taxonomy #content .inner .submitted, body.page-insight-search #content .inner .submitted, body.page-insight #content .inner .submitted, body.page-archive #content .inner .submitted {
+  font-weight: bold;
+  margin: 5px 0px;
+  color: #999999;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 463, ../sass/pages.scss */
+body.page-blog #content .inner .comment-author, body.node-type-blog #content .inner .comment-author, body.page-taxonomy #content .inner .comment-author, body.page-insight-search #content .inner .comment-author, body.page-insight #content .inner .comment-author, body.page-archive #content .inner .comment-author {
+  margin-bottom: 1em;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 464, ../sass/pages.scss */
+body.page-blog #content .inner article.comment, body.node-type-blog #content .inner article.comment, body.page-taxonomy #content .inner article.comment, body.page-insight-search #content .inner article.comment, body.page-insight #content .inner article.comment, body.page-archive #content .inner article.comment {
+  padding-top: 1em;
+  border-top: 1px #bbbbbb solid;
+}
+/* line 466, ../sass/pages.scss */
+body.page-blog #content .inner article.comment .blog-left-sidebar, body.node-type-blog #content .inner article.comment .blog-left-sidebar, body.page-taxonomy #content .inner article.comment .blog-left-sidebar, body.page-insight-search #content .inner article.comment .blog-left-sidebar, body.page-insight #content .inner article.comment .blog-left-sidebar, body.page-archive #content .inner article.comment .blog-left-sidebar {
+  display: block;
+  left: -170px;
+  top: 1em;
+}
+/* line 468, ../sass/pages.scss */
+body.page-blog #content .inner article.comment .blog-left-sidebar span, body.node-type-blog #content .inner article.comment .blog-left-sidebar span, body.page-taxonomy #content .inner article.comment .blog-left-sidebar span, body.page-insight-search #content .inner article.comment .blog-left-sidebar span, body.page-insight #content .inner article.comment .blog-left-sidebar span, body.page-archive #content .inner article.comment .blog-left-sidebar span {
+  display: block;
+}
+/* line 469, ../sass/pages.scss */
+body.page-blog #content .inner article.comment .blog-left-sidebar .commenttime, body.node-type-blog #content .inner article.comment .blog-left-sidebar .commenttime, body.page-taxonomy #content .inner article.comment .blog-left-sidebar .commenttime, body.page-insight-search #content .inner article.comment .blog-left-sidebar .commenttime, body.page-insight #content .inner article.comment .blog-left-sidebar .commenttime, body.page-archive #content .inner article.comment .blog-left-sidebar .commenttime {
+  color: #999999;
+}
+/* line 473, ../sass/pages.scss */
+body.page-blog #content .inner .node-teaser img, body.node-type-blog #content .inner .node-teaser img, body.page-taxonomy #content .inner .node-teaser img, body.page-insight-search #content .inner .node-teaser img, body.page-insight #content .inner .node-teaser img, body.page-archive #content .inner .node-teaser img {
+  width: 143px;
+  float: left;
+  padding-right: 20px;
+}
+/* line 474, ../sass/pages.scss */
+body.page-blog #content .inner .node-teaser .user-picture, body.page-blog #content .inner .node-teaser .field-name-field-post-icon, body.node-type-blog #content .inner .node-teaser .user-picture, body.node-type-blog #content .inner .node-teaser .field-name-field-post-icon, body.page-taxonomy #content .inner .node-teaser .user-picture, body.page-taxonomy #content .inner .node-teaser .field-name-field-post-icon, body.page-insight-search #content .inner .node-teaser .user-picture, body.page-insight-search #content .inner .node-teaser .field-name-field-post-icon, body.page-insight #content .inner .node-teaser .user-picture, body.page-insight #content .inner .node-teaser .field-name-field-post-icon, body.page-archive #content .inner .node-teaser .user-picture, body.page-archive #content .inner .node-teaser .field-name-field-post-icon {
+  display: block;
+}
+/* line 476, ../sass/pages.scss */
+body.page-blog #content .inner .node-teaser .user-picture img, body.page-blog #content .inner .node-teaser .field-name-field-post-icon img, body.node-type-blog #content .inner .node-teaser .user-picture img, body.node-type-blog #content .inner .node-teaser .field-name-field-post-icon img, body.page-taxonomy #content .inner .node-teaser .user-picture img, body.page-taxonomy #content .inner .node-teaser .field-name-field-post-icon img, body.page-insight-search #content .inner .node-teaser .user-picture img, body.page-insight-search #content .inner .node-teaser .field-name-field-post-icon img, body.page-insight #content .inner .node-teaser .user-picture img, body.page-insight #content .inner .node-teaser .field-name-field-post-icon img, body.page-archive #content .inner .node-teaser .user-picture img, body.page-archive #content .inner .node-teaser .field-name-field-post-icon img {
+  width: auto;
+}
+/* line 480, ../sass/pages.scss */
+body.page-blog #content .inner .view-insight .views-row, body.node-type-blog #content .inner .view-insight .views-row, body.page-taxonomy #content .inner .view-insight .views-row, body.page-insight-search #content .inner .view-insight .views-row, body.page-insight #content .inner .view-insight .views-row, body.page-archive #content .inner .view-insight .views-row {
+  position: relative;
+}
+/* line 481, ../sass/pages.scss */
+body.page-blog #content .inner .view-insight .blog-left-sidebar, body.node-type-blog #content .inner .view-insight .blog-left-sidebar, body.page-taxonomy #content .inner .view-insight .blog-left-sidebar, body.page-insight-search #content .inner .view-insight .blog-left-sidebar, body.page-insight #content .inner .view-insight .blog-left-sidebar, body.page-archive #content .inner .view-insight .blog-left-sidebar {
+  top: 0px;
+}
+/* line 484, ../sass/pages.scss */
+body.page-blog #navigation, body.node-type-blog #navigation, body.page-taxonomy #navigation, body.page-insight-search #navigation, body.page-insight #navigation, body.page-archive #navigation {
+  top: -123px;
+}
+/* line 485, ../sass/pages.scss */
+body.page-blog #block-block-3, body.node-type-blog #block-block-3, body.page-taxonomy #block-block-3, body.page-insight-search #block-block-3, body.page-insight #block-block-3, body.page-archive #block-block-3 {
+  vertical-align: bottom;
+  height: 105px;
+  color: #fff;
+  font-family: GrapheinProLightRegular, Helvetica, Arial, sans-serif;
+  display: table-cell;
+}
+/* line 488, ../sass/pages.scss */
+body.page-blog #block-block-3 .header, body.node-type-blog #block-block-3 .header, body.page-taxonomy #block-block-3 .header, body.page-insight-search #block-block-3 .header, body.page-insight #block-block-3 .header, body.page-archive #block-block-3 .header {
+  float: left;
+  padding-right: 20px;
+}
+/* line 489, ../sass/pages.scss */
+body.page-blog #block-block-3 .dark, body.node-type-blog #block-block-3 .dark, body.page-taxonomy #block-block-3 .dark, body.page-insight-search #block-block-3 .dark, body.page-insight #block-block-3 .dark, body.page-archive #block-block-3 .dark {
+  color: #666666;
+}
+/* line 490, ../sass/pages.scss */
+body.page-blog #block-block-3 .tagline, body.node-type-blog #block-block-3 .tagline, body.page-taxonomy #block-block-3 .tagline, body.page-insight-search #block-block-3 .tagline, body.page-insight #block-block-3 .tagline, body.page-archive #block-block-3 .tagline {
+  float: left;
+  font-family: GrapheinProBookRegular, Helvetica, Arial, sans-serif;
+}
+/* line 492, ../sass/pages.scss */
+body.page-blog .readmore, body.node-type-blog .readmore, body.page-taxonomy .readmore, body.page-insight-search .readmore, body.page-insight .readmore, body.page-archive .readmore {
+  font-family: Georgia, "Times New Roman", "DejaVu Serif", serif;
+  margin-bottom: 1em;
+  font-style: italic;
+  clear: left;
+}
+/* line 493, ../sass/pages.scss */
+body.page-blog h3.series, body.node-type-blog h3.series, body.page-taxonomy h3.series, body.page-insight-search h3.series, body.page-insight h3.series, body.page-archive h3.series {
+  display: inline-block;
+  color: #fff;
+  margin: 0px;
+  font-size: 11px;
+  font-weight: normal;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  background-color: #666666;
+  letter-spacing: 1px;
+  padding: 0px 10px;
+}
+/* line 495, ../sass/pages.scss */
+body.page-blog .field-name-field-series, body.node-type-blog .field-name-field-series, body.page-taxonomy .field-name-field-series, body.page-insight-search .field-name-field-series, body.page-insight .field-name-field-series, body.page-archive .field-name-field-series {
+  display: none;
+}
+/* line 496, ../sass/pages.scss */
+body.page-blog .field-name-field-categories, body.node-type-blog .field-name-field-categories, body.page-taxonomy .field-name-field-categories, body.page-insight-search .field-name-field-categories, body.page-insight .field-name-field-categories, body.page-archive .field-name-field-categories {
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 497, ../sass/pages.scss */
+body.page-blog .field-label, body.node-type-blog .field-label, body.page-taxonomy .field-label, body.page-insight-search .field-label, body.page-insight .field-label, body.page-archive .field-label {
+  font-weight: normal;
+}
+/* line 498, ../sass/pages.scss */
+body.page-blog .field-name-body p, body.node-type-blog .field-name-body p, body.page-taxonomy .field-name-body p, body.page-insight-search .field-name-body p, body.page-insight .field-name-body p, body.page-archive .field-name-body p {
+  margin-top: 0px;
+}
+/* line 499, ../sass/pages.scss */
+body.page-blog h2.node-title, body.page-blog h1.title, body.node-type-blog h2.node-title, body.node-type-blog h1.title, body.page-taxonomy h2.node-title, body.page-taxonomy h1.title, body.page-insight-search h2.node-title, body.page-insight-search h1.title, body.page-insight h2.node-title, body.page-insight h1.title, body.page-archive h2.node-title, body.page-archive h1.title {
+  font-size: 25px;
+  color: #666666;
+  line-height: 1em;
+  letter-spacing: -1px;
+  margin-top: 5px;
+  margin-bottom: 1em;
+}
+/* line 501, ../sass/pages.scss */
+body.page-blog h2.node-title a, body.page-blog h2.node-title a:link, body.page-blog h2.node-title a:visited, body.page-blog h1.title a, body.page-blog h1.title a:link, body.page-blog h1.title a:visited, body.node-type-blog h2.node-title a, body.node-type-blog h2.node-title a:link, body.node-type-blog h2.node-title a:visited, body.node-type-blog h1.title a, body.node-type-blog h1.title a:link, body.node-type-blog h1.title a:visited, body.page-taxonomy h2.node-title a, body.page-taxonomy h2.node-title a:link, body.page-taxonomy h2.node-title a:visited, body.page-taxonomy h1.title a, body.page-taxonomy h1.title a:link, body.page-taxonomy h1.title a:visited, body.page-insight-search h2.node-title a, body.page-insight-search h2.node-title a:link, body.page-insight-search h2.node-title a:visited, body.page-insight-search h1.title a, body.page-insight-search h1.title a:link, body.page-insight-search h1.title a:visited, body.page-insight h2.node-title a, body.page-insight h2.node-title a:link, body.page-insight h2.node-title a:visited, body.page-insight h1.title a, body.page-insight h1.title a:link, body.page-insight h1.title a:visited, body.page-archive h2.node-title a, body.page-archive h2.node-title a:link, body.page-archive h2.node-title a:visited, body.page-archive h1.title a, body.page-archive h1.title a:link, body.page-archive h1.title a:visited {
+  color: #666666;
+}
+/* line 504, ../sass/pages.scss */
+body.page-blog .region-sidebar-second h2.block-title, body.node-type-blog .region-sidebar-second h2.block-title, body.page-taxonomy .region-sidebar-second h2.block-title, body.page-insight-search .region-sidebar-second h2.block-title, body.page-insight .region-sidebar-second h2.block-title, body.page-archive .region-sidebar-second h2.block-title {
+  font-size: 76.92308%;
+  line-height: 1.12426em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: bold;
+}
+/* line 505, ../sass/pages.scss */
+body.page-blog .region-sidebar-second .item-list ul, body.node-type-blog .region-sidebar-second .item-list ul, body.page-taxonomy .region-sidebar-second .item-list ul, body.page-insight-search .region-sidebar-second .item-list ul, body.page-insight .region-sidebar-second .item-list ul, body.page-archive .region-sidebar-second .item-list ul {
+  margin: 0px;
+  padding: 0px;
+  list-style: none;
+}
+
+/* line 511, ../sass/pages.scss */
+.node-type-blog #content .inner .node {
+  position: initial;
+}
+/* line 513, ../sass/pages.scss */
+.node-type-blog #content .inner .node .submitted {
+  display: none;
+}
+/* line 514, ../sass/pages.scss */
+.node-type-blog #content .inner .node .blog-left-sidebar {
+  top: 0px;
+}
+/* line 516, ../sass/pages.scss */
+.node-type-blog #content .inner .node .blog-left-sidebar .user-picture {
+  display: block;
+}
+
+/* line 521, ../sass/pages.scss */
+.page-blog h1.title {
+  display: none;
+}
+/* line 522, ../sass/pages.scss */
+.page-blog #content .inner .blog-left-sidebar {
+  left: -170px;
+}
+
+/* comment form */
+/* line 525, ../sass/pages.scss */
+form.comment-form {
+  background-color: #f0f0f0;
+  padding: 20px;
+  position: relative;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+}
+/* line 527, ../sass/pages.scss */
+form.comment-form .form-item {
+  margin: 0px 0px 7px 0px;
+  width: 50%;
+}
+/* line 528, ../sass/pages.scss */
+form.comment-form .field-name-comment-body {
+  position: absolute;
+  right: 0px;
+  top: 20px;
+  width: 50%;
+}
+/* line 529, ../sass/pages.scss */
+form.comment-form .field-name-comment-body .form-item {
+  width: 90%;
+}
+/* line 531, ../sass/pages.scss */
+form.comment-form label {
+  font-weight: normal;
+}
+/* line 532, ../sass/pages.scss */
+form.comment-form .form-wrapper {
+  margin-bottom: 5px;
+}
+/* line 534, ../sass/pages.scss */
+form.comment-form .form-wrapper input[type=text] {
+  width: 80%;
+}
+/* line 536, ../sass/pages.scss */
+form.comment-form .form-actions {
+  clear: left;
+  padding-top: 1em;
+}
+/* line 537, ../sass/pages.scss */
+form.comment-form input[type=submit] {
+  background-color: #3a77b5;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin-right: 1em;
+}
+/* line 538, ../sass/pages.scss */
+form.comment-form .form-item-homepage {
+  display: none;
+}
+
+/* home page styles */
+/* line 542, ../sass/pages.scss */
+body.front {
+  background-position: center 40px;
+}
+
+/* line 545, ../sass/pages.scss */
+.front h1.title {
+  display: none;
+}
+/* line 546, ../sass/pages.scss */
+.front #subhead .region-sub-head {
+  display: table;
+  min-height: 500px;
+}
+/* line 547, ../sass/pages.scss */
+.front #block-block-4 {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  background-color: #70a4d8;
+  padding: 5px 0px;
+  float: none;
+  width: 100%;
+  margin: 0px;
+  border: none;
+  font-family: GrapheinProLightBold, Helvetica, Arial, sans-serif;
+  font-size: 107.69231%;
+  line-height: 1.57396em;
+  color: #000;
+}
+/* line 550, ../sass/pages.scss */
+.front #block-block-4 ul {
+  margin: 0px;
+  padding: 0px 0px 0px 20px;
+}
+/* line 551, ../sass/pages.scss */
+.front #block-block-4 li {
+  float: left;
+  margin: 0px 25px;
+  padding-left: 25px;
+}
+/* line 552, ../sass/pages.scss */
+.front #block-block-4 li.first {
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+/* line 553, ../sass/pages.scss */
+.front #block-block-4 li.last {
+  margin-right: 0px;
+}
+/* line 555, ../sass/pages.scss */
+.front .light, .front a .light {
+  color: #fff;
+}
+/* line 556, ../sass/pages.scss */
+.front .dark, .front a .dark {
+  color: #000;
+}
+/* line 557, ../sass/pages.scss */
+.front a:hover .dark {
+  color: #fff;
+}
+/* line 558, ../sass/pages.scss */
+.front #main {
+  background: none;
+  border: none;
+  zoom: 1;
+  filter: alpha(opacity=0);
+  opacity: 0.0;
+}
+/* line 565, ../sass/pages.scss */
+.front #content {
+  background: none;
+  font-size: 92.30769%;
+  line-height: 1.34911em;
+  position: relative;
+  bottom: 0px;
+  /* Fallback for web browsers that doesn't support RGBa */
+  background: white;
+  /* RGBa with 0.7 opacity */
+  background: rgba(255, 255, 255, 0.9);
+  /* For IE 5.5 - 7*/
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff);
+  /* For IE 8*/
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#b2ffffff, endColorstr=#b2ffffff)";
+}
+/* line 575, ../sass/pages.scss */
+.front #content .inner {
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+/* line 576, ../sass/pages.scss */
+.front #content .block {
+  float: left;
+  margin-right: 20px;
+  width: 30%;
+  padding-right: 20px;
+  border-right: 1px #bbbbbb solid;
+}
+/* line 578, ../sass/pages.scss */
+.front #content .block h2.block-title {
+  font-size: 107.69231%;
+  line-height: 1.57396em;
+  text-transform: uppercase;
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+/* line 579, ../sass/pages.scss */
+.front #content .block .views-row {
+  margin-bottom: 1em;
+}
+/* line 580, ../sass/pages.scss */
+.front #content .block .view-footer a:after {
+  content: ' >>';
+}
+/* line 582, ../sass/pages.scss */
+.front #content #block-block-2 {
+  padding: 0px;
+  border: none;
+  margin: 0px;
+}
+/* line 586, ../sass/pages.scss */
+.front #bottomlinks, .front #block-menu-block-2 {
+  display: none;
+}
+/* line 587, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block, .front #block-views-homepage-maxim-block-1 {
+  display: table-cell;
+  vertical-align: middle;
+  margin: 0px;
+  width: 1000px;
+  padding: 100px 0px;
+}
+/* line 592, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block p, .front #block-views-homepage-maxim-block-1 p {
+  margin: 0px;
+}
+/* line 593, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim {
+  position: relative;
+  min-height: 230px;
+}
+/* line 595, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer {
+  position: absolute;
+  width: 100%;
+  margin-top: 20px;
+  top: 200px;
+}
+/* line 597, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-item, .front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-current, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-item, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-current, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-item, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-current, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-item, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-current {
+  background-image: url(../images/pager_item_bk.png);
+  background-repeat: no-repeat;
+  height: 10px;
+  width: 10px;
+  overflow: hidden;
+  padding: 0px;
+  display: inline-block;
+}
+/* line 600, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-item a, .front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-current a, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-item a, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-current a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-item a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-current a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-item a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-current a {
+  visibility: hidden;
+}
+/* line 602, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-current, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-current, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-current, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-current {
+  background-position: 0px -10px;
+  font-size: 1px;
+  color: #fff;
+  display: none;
+}
+/* line 603, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-previous a, .front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-next a, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-previous a, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-next a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-previous a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-next a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-previous a, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-next a {
+  font-family: GrapheinProLightRegular, Helvetica, Arial, sans-serif;
+  font-size: 70px;
+  color: #fff;
+  outline: 0;
+}
+/* line 604, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-previous, .front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-next, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-previous, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-next, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-previous, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-next, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-previous, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-next {
+  position: absolute;
+  top: 10px;
+}
+/* line 605, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-previous, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-previous, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-previous, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-previous {
+  left: 0px;
+}
+/* line 606, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .pager-next, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .pager-next, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .pager-next, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .pager-next {
+  right: 0px;
+}
+/* line 607, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .item-list .ajax-progress .throbber, .front #block-views-homepage-maxim-block .view-homepage-maxim .view-footer .ajax-progress .throbber, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .item-list .ajax-progress .throbber, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .view-footer .ajax-progress .throbber {
+  position: absolute;
+}
+/* line 611, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim li.views-row, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim li.views-row {
+  display: none;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+/* line 612, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim li.views-row-1, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim li.views-row-1 {
+  display: block;
+}
+/* line 613, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .view-homepage-maxim .views-field-field-background-image, .front #block-views-homepage-maxim-block-1 .view-homepage-maxim .views-field-field-background-image {
+  display: none;
+}
+/* line 615, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .views-field-field-maxim-header, .front #block-views-homepage-maxim-block-1 .views-field-field-maxim-header {
+  font-size: 84px;
+  line-height: 85px;
+  color: #fff;
+  font-family: GrapheinProLightBold, Helvetica, Arial, sans-serif;
+}
+/* line 616, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .views-field-field-maxim-subheader, .front #block-views-homepage-maxim-block-1 .views-field-field-maxim-subheader {
+  font-size: 22px;
+  line-height: 25px;
+  color: #fff;
+  font-family: GrapheinProBookRegular, Helvetica, Arial, sans-serif;
+  margin-top: 10px;
+  margin-left: 100px;
+}
+/* line 617, ../sass/pages.scss */
+.front #block-views-homepage-maxim-block .views-field-field-maxim-subheader p, .front #block-views-homepage-maxim-block-1 .views-field-field-maxim-subheader p {
+  background-color: #000;
+  display: inline-block;
+  padding: 5px 20px;
+}
+/* line 619, ../sass/pages.scss */
+.front #navigation {
+  top: -180px;
+}
+
+/* Contact Form */
+/* line 625, ../sass/pages.scss */
+.form-wrapper .form-item label {
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+  font-weight: normal;
+}
+/* line 626, ../sass/pages.scss */
+.form-wrapper .form-item input[type=text], .form-wrapper .form-item input[type=email], .form-wrapper .form-item input[type=password] {
+  border: 1px #bbbbbb solid;
+  width: 90%;
+}
+
+/* line 630, ../sass/pages.scss */
+.webform-client-form fieldset {
+  width: 48%;
+  padding: 0px;
+  border: none;
+  float: left;
+}
+/* line 631, ../sass/pages.scss */
+.webform-client-form .webform-component-markup {
+  font-style: italic;
+}
+
+/* line 633, ../sass/pages.scss */
+#block-block-6 {
+  /* contact info left block */
+  font-size: 10.998px;
+  line-height: 24px;
+  font-weight: bold;
+}
+/* line 635, ../sass/pages.scss */
+#block-block-6 p {
+  margin-top: Opx;
+}
+
+/* line 638, ../sass/pages.scss */
+.section-gallery {
+  background-image: none;
+}
+/* line 640, ../sass/pages.scss */
+.section-gallery #page {
+  background: none;
+}
+/* line 642, ../sass/pages.scss */
+.section-gallery #gallery-content h1.title {
+  display: none;
+}
+/* line 643, ../sass/pages.scss */
+.section-gallery #gallery-content h2 {
+  margin: 0px;
+}
+
+/* line 648, ../sass/pages.scss */
+.view-photo-albums .views-view-grid {
+  margin-top: 0px;
+}
+/* line 650, ../sass/pages.scss */
+.view-photo-albums .views-view-grid tr {
+  padding-bottom: 10px;
+}
+/* line 651, ../sass/pages.scss */
+.view-photo-albums .views-view-grid td {
+  padding-right: 10px;
+}
+
+/* line 655, ../sass/pages.scss */
+#galleriffic {
+  margin: 0px auto;
+}
+/* line 657, ../sass/pages.scss */
+#galleriffic #slideshow-container {
+  width: 100%;
+}
+/* line 658, ../sass/pages.scss */
+#galleriffic #caption {
+  float: none;
+  width: 100%;
+  clear: both;
+}
+
+/* clients section */
+/* line 664, ../sass/pages.scss */
+.view-client-list .views-exposed-form .views-exposed-form label {
+  font-weight: normal;
+  display: inline-block;
+}
+/* line 665, ../sass/pages.scss */
+.view-client-list .views-exposed-form .views-widget {
+  display: inline-block;
+}
+
+/* mobile footer block */
+/* line 670, ../sass/pages.scss */
+#block-block-7 {
+  display: none;
+}
+/* line 672, ../sass/pages.scss */
+#block-block-7 .social-media {
+  border-bottom: 1px #bbbbbb solid;
+  padding-bottom: 10px;
+}
+/* line 674, ../sass/pages.scss */
+#block-block-7 .social-media img {
+  display: inline-block;
+  margin-right: 5px;
+}
+/* line 676, ../sass/pages.scss */
+#block-block-7 .location {
+  font-family: GrapheinProLightBold, Helvetica, Arial, sans-serif;
+}
+/* line 677, ../sass/pages.scss */
+#block-block-7 .copyright {
+  color: #999999;
+}
+
+/* insight fb section */
+/* line 682, ../sass/pages.scss */
+.page-insight-fb #main {
+  width: 760px;
+}
+/* line 683, ../sass/pages.scss */
+.page-insight-fb #content {
+  width: 100%;
+}
+
+/* search results page */
+/* line 688, ../sass/pages.scss */
+.page-search-mor .search-result {
+  border-bottom: 1px #666666 solid;
+}
+/* line 690, ../sass/pages.scss */
+.page-search-mor .search-result .search-info {
+  display: none;
+}
+
+/* client portal section */
+/* line 695, ../sass/pages.scss */
+.node-type-client-portal, .node-type-portal-content, .node-type-portal-workshop, .section-portal {
+  background: none !important;
+}
+/* line 697, ../sass/pages.scss */
+.node-type-client-portal #page, .node-type-portal-content #page, .node-type-portal-workshop #page, .section-portal #page {
+  background: none;
+  background-color: #e2e4e6;
+}
+/* line 700, ../sass/pages.scss */
+.node-type-client-portal #page #subhead, .node-type-portal-content #page #subhead, .node-type-portal-workshop #page #subhead, .section-portal #page #subhead {
+  position: relative;
+  max-width: 100%;
+  padding: 70px calc((100% - 1000px) / 2) 0;
+  background-image: url(../images/portal_background.jpg);
+  background-size: cover;
+}
+/* line 710, ../sass/pages.scss */
+.node-type-client-portal #main, .node-type-portal-content #main, .node-type-portal-workshop #main, .section-portal #main {
+  border: none;
+  max-width: 100%;
+  background: none;
+}
+/* line 714, ../sass/pages.scss */
+.node-type-client-portal #main .region-sidebar-first, .node-type-client-portal #main .region-sidebar-second, .node-type-portal-content #main .region-sidebar-first, .node-type-portal-content #main .region-sidebar-second, .node-type-portal-workshop #main .region-sidebar-first, .node-type-portal-workshop #main .region-sidebar-second, .section-portal #main .region-sidebar-first, .section-portal #main .region-sidebar-second {
+  color: #666;
+  background: none;
+}
+/* line 718, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block, .node-type-portal-content #main .block.block-menu-block, .node-type-portal-workshop #main .block.block-menu-block, .section-portal #main .block.block-menu-block {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  width: calc(100% - 40px);
+  padding: 0;
+  margin: 0;
+  background: none;
+  border-bottom: 1px #bbb solid;
+}
+/* line 727, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu, .node-type-portal-content #main .block.block-menu-block .menu, .node-type-portal-workshop #main .block.block-menu-block .menu, .section-portal #main .block.block-menu-block .menu {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+/* line 731, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li, .node-type-portal-content #main .block.block-menu-block .menu li, .node-type-portal-workshop #main .block.block-menu-block .menu li, .section-portal #main .block.block-menu-block .menu li {
+  float: left;
+  padding: 0;
+  margin: 0 10px 10px 0;
+  color: #408cda;
+}
+/* line 736, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li:after, .node-type-portal-content #main .block.block-menu-block .menu li:after, .node-type-portal-workshop #main .block.block-menu-block .menu li:after, .section-portal #main .block.block-menu-block .menu li:after {
+  content: "|";
+  padding-left: 10px;
+}
+/* line 740, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li.last:after, .node-type-portal-content #main .block.block-menu-block .menu li.last:after, .node-type-portal-workshop #main .block.block-menu-block .menu li.last:after, .section-portal #main .block.block-menu-block .menu li.last:after {
+  content: "";
+}
+/* line 743, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li a, .node-type-portal-content #main .block.block-menu-block .menu li a, .node-type-portal-workshop #main .block.block-menu-block .menu li a, .section-portal #main .block.block-menu-block .menu li a {
+  font-weight: bold;
+  color: #408cda;
+}
+/* line 746, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li a.active-trail, .node-type-portal-content #main .block.block-menu-block .menu li a.active-trail, .node-type-portal-workshop #main .block.block-menu-block .menu li a.active-trail, .section-portal #main .block.block-menu-block .menu li a.active-trail {
+  color: #666;
+}
+/* line 750, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li.is-expanded, .node-type-portal-content #main .block.block-menu-block .menu li.is-expanded, .node-type-portal-workshop #main .block.block-menu-block .menu li.is-expanded, .section-portal #main .block.block-menu-block .menu li.is-expanded {
+  margin-bottom: 30px;
+}
+/* line 753, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li ul, .node-type-portal-content #main .block.block-menu-block .menu li ul, .node-type-portal-workshop #main .block.block-menu-block .menu li ul, .section-portal #main .block.block-menu-block .menu li ul {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  font-size: .875em;
+}
+/* line 758, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li ul li, .node-type-portal-content #main .block.block-menu-block .menu li ul li, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li, .section-portal #main .block.block-menu-block .menu li ul li {
+  margin: 0 1px 0 0;
+}
+/* line 760, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li ul li:after, .node-type-portal-content #main .block.block-menu-block .menu li ul li:after, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li:after, .section-portal #main .block.block-menu-block .menu li ul li:after {
+  display: none;
+}
+/* line 763, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li ul li a, .node-type-portal-content #main .block.block-menu-block .menu li ul li a, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li a, .section-portal #main .block.block-menu-block .menu li ul li a {
+  display: block;
+  color: #fff;
+  background-color: #408cda;
+  padding: 4px 10px;
+  border-radius: 10px 10px 0 0;
+}
+/* line 769, ../sass/pages.scss */
+.node-type-client-portal #main .block.block-menu-block .menu li ul li a.active, .node-type-portal-content #main .block.block-menu-block .menu li ul li a.active, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li a.active, .section-portal #main .block.block-menu-block .menu li ul li a.active {
+  color: #fff;
+  background-color: #666;
+}
+/* line 779, ../sass/pages.scss */
+.node-type-client-portal #main .block-views, .node-type-client-portal #main .block, .node-type-client-portal #main .view-display-id-page, .node-type-client-portal #main .node, .node-type-portal-content #main .block-views, .node-type-portal-content #main .block, .node-type-portal-content #main .view-display-id-page, .node-type-portal-content #main .node, .node-type-portal-workshop #main .block-views, .node-type-portal-workshop #main .block, .node-type-portal-workshop #main .view-display-id-page, .node-type-portal-workshop #main .node, .section-portal #main .block-views, .section-portal #main .block, .section-portal #main .view-display-id-page, .section-portal #main .node {
+  margin: 20px 0;
+  background-color: #fff;
+  padding: 10px 20px;
+}
+/* line 783, ../sass/pages.scss */
+.node-type-client-portal #main .block-views .node, .node-type-client-portal #main .block .node, .node-type-client-portal #main .view-display-id-page .node, .node-type-client-portal #main .node .node, .node-type-portal-content #main .block-views .node, .node-type-portal-content #main .block .node, .node-type-portal-content #main .view-display-id-page .node, .node-type-portal-content #main .node .node, .node-type-portal-workshop #main .block-views .node, .node-type-portal-workshop #main .block .node, .node-type-portal-workshop #main .view-display-id-page .node, .node-type-portal-workshop #main .node .node, .section-portal #main .block-views .node, .section-portal #main .block .node, .section-portal #main .view-display-id-page .node, .section-portal #main .node .node {
+  margin: 0 0 20px 0;
+  padding: 0;
+}
+/* line 787, ../sass/pages.scss */
+.node-type-client-portal #main .block-views .block-title, .node-type-client-portal #main .block-views .field-name-title h2, .node-type-client-portal #main .block .block-title, .node-type-client-portal #main .block .field-name-title h2, .node-type-client-portal #main .view-display-id-page .block-title, .node-type-client-portal #main .view-display-id-page .field-name-title h2, .node-type-client-portal #main .node .block-title, .node-type-client-portal #main .node .field-name-title h2, .node-type-portal-content #main .block-views .block-title, .node-type-portal-content #main .block-views .field-name-title h2, .node-type-portal-content #main .block .block-title, .node-type-portal-content #main .block .field-name-title h2, .node-type-portal-content #main .view-display-id-page .block-title, .node-type-portal-content #main .view-display-id-page .field-name-title h2, .node-type-portal-content #main .node .block-title, .node-type-portal-content #main .node .field-name-title h2, .node-type-portal-workshop #main .block-views .block-title, .node-type-portal-workshop #main .block-views .field-name-title h2, .node-type-portal-workshop #main .block .block-title, .node-type-portal-workshop #main .block .field-name-title h2, .node-type-portal-workshop #main .view-display-id-page .block-title, .node-type-portal-workshop #main .view-display-id-page .field-name-title h2, .node-type-portal-workshop #main .node .block-title, .node-type-portal-workshop #main .node .field-name-title h2, .section-portal #main .block-views .block-title, .section-portal #main .block-views .field-name-title h2, .section-portal #main .block .block-title, .section-portal #main .block .field-name-title h2, .section-portal #main .view-display-id-page .block-title, .section-portal #main .view-display-id-page .field-name-title h2, .section-portal #main .node .block-title, .section-portal #main .node .field-name-title h2 {
+  padding: 10px 20px 20px 20px;
+  margin: -10px -20px;
+  line-height: normal;
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b9dcfa+0,ffffff+100 */
+  background: #b9dcfa;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #b9dcfa 0%, #ffffff 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #b9dcfa 0%, #ffffff 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #b9dcfa 0%, #ffffff 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b9dcfa', endColorstr='#ffffff',GradientType=0 );
+  /* IE6-9 */
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+/* line 802, ../sass/pages.scss */
+.node-type-client-portal #main .block-views .view-content h2, .node-type-client-portal #main .block-views .view-content h3, .node-type-client-portal #main .block .view-content h2, .node-type-client-portal #main .block .view-content h3, .node-type-client-portal #main .view-display-id-page .view-content h2, .node-type-client-portal #main .view-display-id-page .view-content h3, .node-type-client-portal #main .node .view-content h2, .node-type-client-portal #main .node .view-content h3, .node-type-portal-content #main .block-views .view-content h2, .node-type-portal-content #main .block-views .view-content h3, .node-type-portal-content #main .block .view-content h2, .node-type-portal-content #main .block .view-content h3, .node-type-portal-content #main .view-display-id-page .view-content h2, .node-type-portal-content #main .view-display-id-page .view-content h3, .node-type-portal-content #main .node .view-content h2, .node-type-portal-content #main .node .view-content h3, .node-type-portal-workshop #main .block-views .view-content h2, .node-type-portal-workshop #main .block-views .view-content h3, .node-type-portal-workshop #main .block .view-content h2, .node-type-portal-workshop #main .block .view-content h3, .node-type-portal-workshop #main .view-display-id-page .view-content h2, .node-type-portal-workshop #main .view-display-id-page .view-content h3, .node-type-portal-workshop #main .node .view-content h2, .node-type-portal-workshop #main .node .view-content h3, .section-portal #main .block-views .view-content h2, .section-portal #main .block-views .view-content h3, .section-portal #main .block .view-content h2, .section-portal #main .block .view-content h3, .section-portal #main .view-display-id-page .view-content h2, .section-portal #main .view-display-id-page .view-content h3, .section-portal #main .node .view-content h2, .section-portal #main .node .view-content h3 {
+  line-height: normal;
+  font-size: 1.25em;
+  margin: 0 0 10px 0;
+}
+/* line 807, ../sass/pages.scss */
+.node-type-client-portal #main .block-views .view-content p, .node-type-client-portal #main .block .view-content p, .node-type-client-portal #main .view-display-id-page .view-content p, .node-type-client-portal #main .node .view-content p, .node-type-portal-content #main .block-views .view-content p, .node-type-portal-content #main .block .view-content p, .node-type-portal-content #main .view-display-id-page .view-content p, .node-type-portal-content #main .node .view-content p, .node-type-portal-workshop #main .block-views .view-content p, .node-type-portal-workshop #main .block .view-content p, .node-type-portal-workshop #main .view-display-id-page .view-content p, .node-type-portal-workshop #main .node .view-content p, .section-portal #main .block-views .view-content p, .section-portal #main .block .view-content p, .section-portal #main .view-display-id-page .view-content p, .section-portal #main .node .view-content p {
+  margin-top: 1px;
+}
+/* line 811, ../sass/pages.scss */
+.node-type-client-portal #main .block-views .view-content .item-list h3, .node-type-client-portal #main .block-views .view-content .views-list h3, .node-type-client-portal #main .block .view-content .item-list h3, .node-type-client-portal #main .block .view-content .views-list h3, .node-type-client-portal #main .view-display-id-page .view-content .item-list h3, .node-type-client-portal #main .view-display-id-page .view-content .views-list h3, .node-type-client-portal #main .node .view-content .item-list h3, .node-type-client-portal #main .node .view-content .views-list h3, .node-type-portal-content #main .block-views .view-content .item-list h3, .node-type-portal-content #main .block-views .view-content .views-list h3, .node-type-portal-content #main .block .view-content .item-list h3, .node-type-portal-content #main .block .view-content .views-list h3, .node-type-portal-content #main .view-display-id-page .view-content .item-list h3, .node-type-portal-content #main .view-display-id-page .view-content .views-list h3, .node-type-portal-content #main .node .view-content .item-list h3, .node-type-portal-content #main .node .view-content .views-list h3, .node-type-portal-workshop #main .block-views .view-content .item-list h3, .node-type-portal-workshop #main .block-views .view-content .views-list h3, .node-type-portal-workshop #main .block .view-content .item-list h3, .node-type-portal-workshop #main .block .view-content .views-list h3, .node-type-portal-workshop #main .view-display-id-page .view-content .item-list h3, .node-type-portal-workshop #main .view-display-id-page .view-content .views-list h3, .node-type-portal-workshop #main .node .view-content .item-list h3, .node-type-portal-workshop #main .node .view-content .views-list h3, .section-portal #main .block-views .view-content .item-list h3, .section-portal #main .block-views .view-content .views-list h3, .section-portal #main .block .view-content .item-list h3, .section-portal #main .block .view-content .views-list h3, .section-portal #main .view-display-id-page .view-content .item-list h3, .section-portal #main .view-display-id-page .view-content .views-list h3, .section-portal #main .node .view-content .item-list h3, .section-portal #main .node .view-content .views-list h3 {
+  font-size: 1rem;
+}
+/* line 819, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail p, .node-type-portal-content #main .view-mor-member-detail p, .node-type-portal-workshop #main .view-mor-member-detail p, .section-portal #main .view-mor-member-detail p {
+  margin-top: 0;
+}
+/* line 822, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .group-personal-info, .node-type-portal-content #main .view-mor-member-detail .group-personal-info, .node-type-portal-workshop #main .view-mor-member-detail .group-personal-info, .section-portal #main .view-mor-member-detail .group-personal-info {
+  float: left;
+  width: 50%;
+}
+/* line 826, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .group-contact-info, .node-type-portal-content #main .view-mor-member-detail .group-contact-info, .node-type-portal-workshop #main .view-mor-member-detail .group-contact-info, .section-portal #main .view-mor-member-detail .group-contact-info {
+  float: right;
+}
+/* line 829, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .group-goals-progress, .node-type-portal-content #main .view-mor-member-detail .group-goals-progress, .node-type-portal-workshop #main .view-mor-member-detail .group-goals-progress, .section-portal #main .view-mor-member-detail .group-goals-progress {
+  clear: both;
+}
+/* line 832, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .field-name-ds-user-picture, .node-type-portal-content #main .view-mor-member-detail .field-name-ds-user-picture, .node-type-portal-workshop #main .view-mor-member-detail .field-name-ds-user-picture, .section-portal #main .view-mor-member-detail .field-name-ds-user-picture {
+  float: left;
+  margin-right: 20px;
+  width: 100px;
+}
+/* line 837, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .field-name-full-name, .node-type-portal-content #main .view-mor-member-detail .field-name-full-name, .node-type-portal-workshop #main .view-mor-member-detail .field-name-full-name, .section-portal #main .view-mor-member-detail .field-name-full-name {
+  font-weight: bold;
+}
+/* line 839, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .field-name-full-name p, .node-type-portal-content #main .view-mor-member-detail .field-name-full-name p, .node-type-portal-workshop #main .view-mor-member-detail .field-name-full-name p, .section-portal #main .view-mor-member-detail .field-name-full-name p {
+  margin: 0;
+}
+/* line 844, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .field-name-field-goals .field-label, .node-type-portal-content #main .view-mor-member-detail .field-name-field-goals .field-label, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-goals .field-label, .section-portal #main .view-mor-member-detail .field-name-field-goals .field-label {
+  text-transform: uppercase;
+}
+/* line 849, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity, .node-type-portal-content #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity, .section-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity {
+  margin-bottom: 10px;
+}
+/* line 851, ../sass/pages.scss */
+.node-type-client-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label, .node-type-portal-content #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label, .section-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label {
+  text-transform: none;
+}
+/* line 862, ../sass/pages.scss */
+.node-type-client-portal #content .inner, .node-type-portal-content #content .inner, .node-type-portal-workshop #content .inner, .section-portal #content .inner {
+  border-left: 1px #BBB solid;
+  padding-left: 20px;
+}
+/* line 866, ../sass/pages.scss */
+.node-type-client-portal #content h1.title, .node-type-portal-content #content h1.title, .node-type-portal-workshop #content h1.title, .section-portal #content h1.title {
+  padding-top: 50px;
+  color: #666666;
+}
+/* line 870, ../sass/pages.scss */
+.node-type-client-portal #content .node .block-views .views-row, .node-type-portal-content #content .node .block-views .views-row, .node-type-portal-workshop #content .node .block-views .views-row, .section-portal #content .node .block-views .views-row {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px #BBB solid;
+}
+/* line 871, ../sass/pages.scss */
+.node-type-client-portal #content .field-name-og-group-ref, .node-type-portal-content #content .field-name-og-group-ref, .node-type-portal-workshop #content .field-name-og-group-ref, .section-portal #content .field-name-og-group-ref {
+  position: absolute;
+  top: -5px;
+}
+/* line 873, ../sass/pages.scss */
+.node-type-client-portal #content .field-name-og-group-ref a, .node-type-portal-content #content .field-name-og-group-ref a, .node-type-portal-workshop #content .field-name-og-group-ref a, .section-portal #content .field-name-og-group-ref a {
+  display: inline-block;
+  margin: 0px;
+  font-size: 11px;
+  font-weight: normal;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #3a77b5;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+}
+/* line 875, ../sass/pages.scss */
+.node-type-client-portal #content .field-name-og-group-ref a:hover, .node-type-portal-content #content .field-name-og-group-ref a:hover, .node-type-portal-workshop #content .field-name-og-group-ref a:hover, .section-portal #content .field-name-og-group-ref a:hover {
+  background-color: #6699d1;
+}
+/* line 878, ../sass/pages.scss */
+.node-type-client-portal #content .view-mor-og-content .view-filters, .node-type-portal-content #content .view-mor-og-content .view-filters, .node-type-portal-workshop #content .view-mor-og-content .view-filters, .section-portal #content .view-mor-og-content .view-filters {
+  display: none;
+}
+/* line 879, ../sass/pages.scss */
+.node-type-client-portal #content .view-mor-og-content .views-row, .node-type-portal-content #content .view-mor-og-content .views-row, .node-type-portal-workshop #content .view-mor-og-content .views-row, .section-portal #content .view-mor-og-content .views-row {
+  border-bottom: 1px #BBB solid;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+/* line 881, ../sass/pages.scss */
+.node-type-client-portal #content .view-portal-calendar, .node-type-portal-content #content .view-portal-calendar, .node-type-portal-workshop #content .view-portal-calendar, .section-portal #content .view-portal-calendar {
+  padding-top: 50px;
+}
+/* line 883, ../sass/pages.scss */
+.node-type-client-portal #content .view-portal-calendar .date-nav.item-list, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list, .section-portal #content .view-portal-calendar .date-nav.item-list {
+  margin: 0;
+  padding: 0;
+}
+/* line 890, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item {
+  border-bottom: 1px #bbbbbb solid;
+}
+/* line 893, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-label {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+/* line 900, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd {
+  margin-bottom: 20px;
+}
+/* line 903, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title {
+  font-size: 1.25em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* line 908, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a {
+  font-weight: bold;
+}
+/* line 911, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p {
+  margin-top: 0;
+}
+/* line 915, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item {
+  font-weight: bold;
+  margin: 10px 0 0 0;
+}
+/* line 920, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file {
+  display: block;
+  margin-bottom: 5px;
+}
+/* line 923, ../sass/pages.scss */
+.node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a {
+  font-weight: bold;
+}
+/* line 935, ../sass/pages.scss */
+.node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list li, .section-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .section-portal .region-sidebar-second .block-stickynote #stickynote-list li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 943, ../sass/pages.scss */
+.node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-submit, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-submit {
+  display: none;
+}
+/* line 950, ../sass/pages.scss */
+.node-type-client-portal #footer, .node-type-portal-content #footer, .node-type-portal-workshop #footer, .section-portal #footer {
+  display: none;
+}
+
+/* line 954, ../sass/pages.scss */
+#block-views-og-post-reflection-block-1 {
+  position: absolute;
+  right: 0px;
+}

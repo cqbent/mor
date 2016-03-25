@@ -1,0 +1,294 @@
+/**
+ * @file
+ * Block Styling
+ */
+/* line 9, ../sass/blocks.scss */
+.block {
+  /* Block wrapper */
+  margin-bottom: 1.5em;
+}
+/* line 12, ../sass/blocks.scss */
+.block.first {
+  /* The first block in the region */
+}
+/* line 15, ../sass/blocks.scss */
+.block.last {
+  /* The last block in the region */
+}
+/* line 18, ../sass/blocks.scss */
+.block.odd {
+  /* Zebra striping for each block in the region */
+}
+/* line 21, ../sass/blocks.scss */
+.block.even {
+  /* Zebra striping for each block in the region */
+}
+/* line 24, ../sass/blocks.scss */
+.block h2.block-title {
+  /* Block title */
+}
+
+/* line 29, ../sass/blocks.scss */
+#block-aggregator-category-1 {
+  /* Block for the latest news items in the first category */
+}
+
+/* line 32, ../sass/blocks.scss */
+#block-aggregator-feed-1 {
+  /* Block for the latest news items in the first feed */
+}
+
+/* line 35, ../sass/blocks.scss */
+#block-block-1 {
+  /* First block created with "Add block" link */
+}
+
+/* line 38, ../sass/blocks.scss */
+#block-blog-recent {
+  /* "Recent blog posts" block */
+}
+
+/* line 41, ../sass/blocks.scss */
+#block-book-navigation {
+  /* "Book navigation" block for the current book's table of contents */
+}
+
+/* line 44, ../sass/blocks.scss */
+#block-comment-recent {
+  /* "Recent comments" block */
+}
+
+/* line 47, ../sass/blocks.scss */
+#block-forum-active {
+  /* "Active forum topics" block */
+}
+
+/* line 50, ../sass/blocks.scss */
+#block-forum-new {
+  /* "New forum topics" block */
+}
+
+/* line 53, ../sass/blocks.scss */
+#block-locale-language {
+  /* Language switcher block */
+}
+
+/* line 56, ../sass/blocks.scss */
+#block-menu-menu-NAME {
+  /* Custom menu block */
+}
+
+/* line 59, ../sass/blocks.scss */
+#block-node-recent {
+  /* "Recent content" block */
+}
+
+/* line 62, ../sass/blocks.scss */
+#block-node-syndicate {
+  /* "Syndicate" block for primary RSS feed; see also page.css's .feed-icon */
+}
+
+/* line 65, ../sass/blocks.scss */
+#block-poll-recent {
+  /* "Most recent poll" block */
+}
+
+/* line 68, ../sass/blocks.scss */
+#block-profile-author-information {
+  /* "Author information" block for the profile of the page's author */
+}
+
+/* line 71, ../sass/blocks.scss */
+#block-search-form, .region-sidebar-second .views-exposed-form, .block-search-by-page {
+  /* "Search form" block */
+  position: absolute;
+  right: 0px;
+  top: 7px;
+  border: 1px #666666 solid;
+  padding: 1px 4px 2px 4px;
+}
+/* line 73, ../sass/blocks.scss */
+#block-search-form .block-title, .region-sidebar-second .views-exposed-form .block-title, .block-search-by-page .block-title {
+  display: none;
+}
+/* line 74, ../sass/blocks.scss */
+#block-search-form input[type=text], .region-sidebar-second .views-exposed-form input[type=text], .block-search-by-page input[type=text] {
+  background: none;
+  border: none;
+  color: #666666;
+  font-size: 11px;
+  width: 130px;
+}
+/* line 75, ../sass/blocks.scss */
+#block-search-form input[type=image], .region-sidebar-second .views-exposed-form input[type=image], .block-search-by-page input[type=image] {
+  vertical-align: middle;
+}
+/* line 76, ../sass/blocks.scss */
+#block-search-form .form-item, .region-sidebar-second .views-exposed-form .form-item, .block-search-by-page .form-item {
+  margin: 0px;
+  display: inline;
+}
+
+/* line 79, ../sass/blocks.scss */
+.region-sidebar-second .views-exposed-form {
+  position: relative;
+  width: 165px;
+}
+/* line 81, ../sass/blocks.scss */
+.region-sidebar-second .views-exposed-form .views-exposed-widgets {
+  margin: 0px;
+}
+/* line 82, ../sass/blocks.scss */
+.region-sidebar-second .views-exposed-form .views-exposed-widget {
+  margin: 0px;
+}
+/* line 84, ../sass/blocks.scss */
+.region-sidebar-second .views-exposed-form .views-exposed-widget .form-submit {
+  margin: 0px;
+}
+/* line 85, ../sass/blocks.scss */
+.region-sidebar-second .views-exposed-form .views-exposed-widget .edit-submit-insight {
+  display: none;
+}
+/* line 87, ../sass/blocks.scss */
+.region-sidebar-second .views-exposed-form .views-submit-button {
+  padding: 2px 0px;
+}
+
+/* line 93, ../sass/blocks.scss */
+#block-shortcut-shortcuts {
+  /* "Shortcuts" block */
+}
+
+/* line 96, ../sass/blocks.scss */
+#block-statistics-popular {
+  /* "Popular content" block */
+}
+
+/* line 99, ../sass/blocks.scss */
+#block-system-main-menu {
+  /* "Main menu" block */
+  font-family: Verdana, Tahoma, "DejaVu Sans", sans-serif;
+  padding: 40px 0px 0px 0px;
+  font-weight: bold;
+  margin: 0px;
+}
+/* line 101, ../sass/blocks.scss */
+#block-system-main-menu h2 {
+  display: none;
+}
+/* line 102, ../sass/blocks.scss */
+#block-system-main-menu .menu {
+  float: right;
+  font-size: 11.999px;
+  padding: 0px;
+  margin: 0px;
+}
+/* line 104, ../sass/blocks.scss */
+#block-system-main-menu .menu li {
+  float: left;
+  padding: 0px;
+  margin: 0px 0px 0px 25px;
+  list-style: none;
+  float: left;
+  min-height: 28px;
+  position: relative;
+}
+/* line 107, ../sass/blocks.scss */
+#block-system-main-menu .menu li a {
+  color: #cccccc;
+  text-decoration: none;
+}
+/* line 108, ../sass/blocks.scss */
+#block-system-main-menu .menu li a:hover, #block-system-main-menu .menu li a.active-trail, #block-system-main-menu .menu li a.active {
+  color: #70a4d8;
+}
+/* line 110, ../sass/blocks.scss */
+#block-system-main-menu .menu li.expanded ul {
+  display: none;
+  min-width: 150px;
+  position: absolute;
+  background-color: #000;
+  padding: 10px;
+  font-size: 84.61538%;
+  line-height: 1.23669em;
+  left: 0px;
+  top: 28px;
+}
+/* line 112, ../sass/blocks.scss */
+#block-system-main-menu .menu li.expanded ul li {
+  float: none;
+  font-weight: normal;
+  margin: 0px;
+  min-height: 18px;
+}
+/* line 113, ../sass/blocks.scss */
+#block-system-main-menu .menu li.expanded ul li a {
+  color: #999999;
+}
+/* line 114, ../sass/blocks.scss */
+#block-system-main-menu .menu li.expanded ul li a:hover {
+  color: #fff;
+}
+/* line 115, ../sass/blocks.scss */
+#block-system-main-menu .menu li.expanded ul ul {
+  position: relative;
+  min-width: auto;
+  float: none;
+  padding: 0px;
+  margin-left: 10px;
+  margin-bottom: 5px;
+}
+/* line 117, ../sass/blocks.scss */
+#block-system-main-menu .menu li.expanded:hover > ul {
+  display: block;
+}
+/* line 118, ../sass/blocks.scss */
+#block-system-main-menu .menu ul li.expanded:hover ul {
+  display: none;
+}
+
+/* line 123, ../sass/blocks.scss */
+#block-system-management {
+  /* "Management" block for Drupal management menu */
+}
+
+/* line 126, ../sass/blocks.scss */
+#block-system-navigation {
+  /* "Navigation" block for Drupal navigation menu */
+}
+
+/* line 129, ../sass/blocks.scss */
+#block-system-user-menu {
+  /* "User menu" block for Drupal user menu */
+}
+
+/* line 132, ../sass/blocks.scss */
+#block-system-help {
+  /* "System help" block */
+}
+
+/* line 135, ../sass/blocks.scss */
+#block-system-main {
+  /* "Main page content" block */
+}
+
+/* line 138, ../sass/blocks.scss */
+#block-system-powered-by {
+  /* "Powered by Drupal" block */
+}
+
+/* line 141, ../sass/blocks.scss */
+#block-user-login {
+  /* "User login form" block */
+}
+
+/* line 144, ../sass/blocks.scss */
+#block-user-new {
+  /* "Who's new" block for a list of the newest users */
+}
+
+/* line 147, ../sass/blocks.scss */
+#block-user-online {
+  /* "Who's online" block for a list of the online users */
+}

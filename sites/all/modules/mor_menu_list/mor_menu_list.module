@@ -1,0 +1,290 @@
+<?php
+/* Menu list module that does the following:
+* adds a dropdown field containing a list of top and secondary menu items from the main menu list that a user can add to their content type
+* adds background image field from background image content type as inline style based on the page's relation the the menu system. If the page has a menu item and there is a background image associated with that menu item then that background image will display. Otherwise the system will find the closest parent menu item's background image and display that
+*/
+
+/**
+ * Implements hook_field_info().
+ *
+ * Provides the description of the field. set as field type
+ */
+function mor_menu_list_field_info() {
+  return array(
+    // We name our field as the associative name of the array.
+    'field_menu_list' => array(
+      'label' => t('Menu List Field'),
+      'description' => t('Display menu items as dropdown list field'),
+      'default_widget' => 'menu_list_select',
+      'default_formatter' => 'menu_list_options',
+    ),
+  );
+}
+
+/* set array of formatter types implemented by the field */
+function mor_menu_list_field_formatter_info() {
+  return array(
+    'menu_list_options' => array(
+      'label' => t('menu select options'),
+      'field types' => array('field_menu_list'),
+    ),
+  );
+}
+
+/* set array of widget types implemented by the field */
+function mor_menu_list_field_widget_info() {
+  return array(
+    'menu_list_select' => array(
+      'label' => t('menu select options'),
+      'field types' => array('field_menu_list'),
+    ),
+  );
+}
+
+/* Define what constitutes an empty item for a list field type - hook_field_is_empty() */
+function mor_menu_list_field_is_empty($item, $field) {
+  return empty($item['menulist']);
+}
+
+/* add array of menu item options to list field; adds 1st and 2nd level options to list */
+function mor_list_options() {
+	$tree = menu_tree_all_data('main-menu',NULL,2);
+	$menuitems = array();
+	$menuitems[''] = 'Select';
+	foreach ($tree as $branch) {
+		if ($branch['link']['hidden'] != 1) {
+			$menuitems[$branch['link']['mlid']] = $branch['link']['link_title'];
+			if ($branch['below']) {
+				foreach($branch['below'] as $branchsub) {
+					$menuitems[$branchsub['link']['mlid']] = '--'.$branchsub['link']['link_title'];
+				}
+			}
+		}
+  }
+  //print dsm($tree);
+  return $menuitems;
+}
+
+/* Build a renderable array for a field value to display in node (not for public display in this case) */
+function mor_menu_list_field_formatter_view($entity_type, $entity, $field, $instance, $langcode, $items, $display) {
+	$element = array();
+	switch($display['type']) {
+		case 'menu_list_options':
+			foreach ($items as $delta => $item) {
+				$element[$delta] = array(
+				  '#type' => 'html_tag',
+				  '#tag' => 'p',
+				  '#value' => t('this is the value: @val', array('@val' => $item['menulist'])),
+				);
+			}
+		break;
+	}
+	return $element;
+}
+
+/* Return the form for a single field widget */
+function mor_menu_list_field_widget_form(&$form, &$form_state, $field, $instance, $langcode, $items, $delta, $element) {	
+	$value = isset($items[$delta]['menulist']) ? $items[$delta]['menulist'] : '';
+	$options = mor_list_options();
+	$main_widget = array();
+	switch ($instance['widget']['type']) {
+		case 'menu_list_select':
+			$main_widget = $element + array(
+				'#type' => 'select',
+				'#title' => t('Menu Select'),
+				'#default_value' => $value,
+				'#options' => $options,
+			);
+		break;
+	}
+	$element['menulist'] = $main_widget;
+	//return array('menulist' => $main_widget);
+	return $element;
+}
+
+/* validation function (not really used) */
+function mor_menu_list_field_validate($obj_type, $object, $field, $instance, $langcode, &$items, &$errors) {
+	foreach ($items as $delta => $item) {
+		if (!empty($item['menulist'])) {
+		//if ($item['menulist'] == ''); {
+		  if ($item['menulist'] == 'z') {
+			$errors[$field['field_name']][$langcode][$delta][] = array(
+			  'error' => 'mor_menu_list_invalid',
+			  'message' => t('you can\'t have z!'),
+			);
+		  }
+		}
+	}
+}
+
+/* error function for printing error from validation */
+function mor_menu_list_field_widget_error($element, $error, $form, &$form_state) {
+  switch ($error['error']) {
+    case 'mor_menu_list_invalid':
+      form_error($element, $error['message']);
+	  print_r($element);
+      break;
+  }
+}
+
+
+/**
+ * Implements hook_menu().
+ *
+ * Provides a simple user interface that tells the developer where to go.
+ */
+function mor_menu_list_menu() {
+  $items['mmlm_page'] = array(
+    'title' => 'Menu List Example',
+    'page callback' => '_mor_menu_list_page',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+/**
+ * A simple page to explain to the developer what to do.
+ */
+function _mor_menu_list_page() {
+	$tree = mor_list_options();
+	return t('MOR menu list instructions to go here.');
+	
+}
+
+
+
+/**
+ * Implements hook_block_info().
+ *
+ * This hook declares what blocks are provided by the module.
+ */
+function mor_menu_list_block_info() {
+  $blocks['mor_section_block'] = array(
+    // info: The name of the block.
+    'info' => t('Main menu section block'),
+    'cache' => DRUPAL_CACHE_PER_ROLE, // default
+	'region' => 'navigation',
+  );
+  return $blocks;
+}
+
+/* this function is just for testing - not being used */
+function mor_background_content() {
+	$menutrail = menu_get_active_trail();
+	if ($menutrail[1]['mlid'] == this_menu_select) {
+		$content = t('we have a match: @var', array('@var' => $menutrail[1]['mlid']));
+	}
+	else {
+		$content = t('sorry, no match');	
+	}
+	return $content;
+}
+
+/* get title of parent menu item to be used in the block view */
+function get_parent_menu_title() {
+	$menutrail = menu_get_active_trail();	// get the menu trail of this page to find the parent menu item
+	if (isset($menutrail[1]['menu_name']) && $menutrail[1]['menu_name'] === 'main-menu') {	// deterime if page has a menu parent item
+		$title = $menutrail[1]['title'];
+	}
+	else {	// if not then get the root path of the page and find the menu item of the path's page
+		$path = explode('/',request_uri());
+		$menuanc = drupal_get_normal_path($path[1]);
+		$title = db_select('menu_links' , 'ml')
+		  ->condition('ml.link_path' , $menuanc)
+		  ->fields('ml' , array('link_title'))
+		  ->execute()
+		  ->fetchField();
+	}
+	 //dsm($menuanc);
+	return $title;
+}
+
+/* display menu title in block */
+function mor_menu_list_block_view($delta = '') {
+	// find background node with field_menu_reference set to current page's parent menu setion
+	$mlinfo = get_parent_menu_title();
+	switch ($delta) {
+		case 'mor_section_block':
+			$block['subject'] = t('');
+			$block['content'] = $mlinfo;	// now render the damn thing
+			break;
+	}
+	//return dsm($xx[1]);
+	return $block;
+}
+
+
+/* add background image as inlne style in header of document */
+function mor_menu_list_preprocess_page(&$variables, $hook) {
+	// find background node with field_menu_reference set to current page's parent menu setion
+	$result = get_background_image();
+	//dsm($result);
+	if ($result && is_array($result['node'])) {
+		$node = node_load(current(array_keys($result['node'])));	// get node data from parent menu page
+		$field = field_get_items('node', $node, 'field_background_image');	// get the background image field data from this node
+		$fieldval = field_view_value('node', $node, 'field_background_image', $field[0]);	// now get the view info for the image field
+		$css = "body.html { 
+				background-image:url('".file_create_url($field[0]['uri'])."'); 
+				filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='".file_create_url($field[0]['uri'])."', sizingMethod='scale');
+				-ms-filter: \"progid:DXImageTransform.Microsoft.AlphaImageLoader(src='".file_create_url($field[0]['uri'])."',sizingMethod='scale')\";
+			}";
+		drupal_add_css($css, array('group' => CSS_THEME, 'type' => 'inline'));	// add css as inline in header
+	}
+}
+
+
+/* search for background image based on node's place in the menu trail  */
+function get_background_image() {
+	$result = '';
+	$menutrail = menu_get_active_trail();	// get the menu trail of this page to find the parent menu item
+	if (isset($menutrail[1]['menu_name']) && $menutrail[1]['menu_name'] === 'main-menu')  {
+		// iterate through each parent starting with closest and then call get_background_image(). if returns a value then go to next step, otherwise keep trying
+		for ($m = count($menutrail)-1; $m > 0; $m--) {
+			$result = search_background_image($menutrail[$m]['mlid']);
+			//$xx[] = $menutrail[$m]['mlid'];
+			if ($result) {
+				break;
+			}
+		}
+	}
+	else {	// if page/node is not in menu system then get its parent menu item based on its url path
+		$path = explode('/',request_uri());
+		$pathcount = count($path)-2;
+		for ($p = $pathcount; $p > 0; $p--) {
+			$pathtemp = '';
+			for ($s = 1; $s <= $p; $s++) {
+				$pathtemp = $s < $p ? $pathtemp . $path[$s] . '/' : $pathtemp . $path[$s];
+			}
+			//$result = get_parent_path($pathtemp);
+			$result = search_background_image(get_parent_path($pathtemp));
+			if ($result) {
+				break;
+			}
+		}
+	}
+	//dsm($result);
+	return $result;
+}
+
+/* search for background image based on menu id given */
+function search_background_image($id) {
+	$query = new EntityFieldQuery();	// find the node ID of this parent menu item (isn't there a simpler way to do this?)
+	$query
+		->entityCondition('entity_type', 'node')
+		->entityCondition('bundle', 'background_images')
+		->fieldCondition('field_menu_reference', 'menulist', $id, '=')
+		->range(0,1);
+	$result = $query->execute();
+	return $result;
+}
+
+/* get parent menu id based on its url path */
+function get_parent_path($path) {
+	$menuanc = drupal_get_normal_path($path);
+	$result = db_select('menu_links' , 'ml')
+		->condition('ml.link_path' , $menuanc)
+		->fields('ml' , array('mlid'))
+		->execute()
+		->fetchField();
+	return $result;
+}
