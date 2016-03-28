@@ -168,5 +168,119 @@ function mor_users_ds_layout_settings_info() {
   );
   $export['user|user|default'] = $ds_layout;
 
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'user|user|profile';
+  $ds_layout->entity_type = 'user';
+  $ds_layout->bundle = 'user';
+  $ds_layout->view_mode = 'profile';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'edit_profile',
+        1 => 'group_personal_info',
+        2 => 'ds_user_picture',
+        3 => 'group_contact_info',
+        4 => 'full_name',
+        5 => 'group_goals_progress',
+        6 => 'field_user_title',
+        7 => 'field_goals',
+        8 => 'field_user_position',
+        9 => 'field_organization',
+        10 => 'field_user_bio',
+        11 => 'field_client_affiliation',
+        12 => 'field_user_address',
+        13 => 'field_phone',
+      ),
+    ),
+    'fields' => array(
+      'edit_profile' => 'ds_content',
+      'group_personal_info' => 'ds_content',
+      'ds_user_picture' => 'ds_content',
+      'group_contact_info' => 'ds_content',
+      'full_name' => 'ds_content',
+      'group_goals_progress' => 'ds_content',
+      'field_user_title' => 'ds_content',
+      'field_goals' => 'ds_content',
+      'field_user_position' => 'ds_content',
+      'field_organization' => 'ds_content',
+      'field_user_bio' => 'ds_content',
+      'field_client_affiliation' => 'ds_content',
+      'field_user_address' => 'ds_content',
+      'field_phone' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(
+      'ds_content' => 'div',
+    ),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => 1,
+    'layout_link_attribute' => '',
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['user|user|profile'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
+  $ds_layout->id = 'user|user|token';
+  $ds_layout->entity_type = 'user';
+  $ds_layout->bundle = 'user';
+  $ds_layout->view_mode = 'token';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_first_name',
+        1 => 'field_last_name',
+        2 => 'field_user_title',
+        3 => 'field_phone',
+        4 => 'field_user_position',
+        5 => 'field_organization',
+        6 => 'field_user_bio',
+        7 => 'field_user_address',
+      ),
+    ),
+    'fields' => array(
+      'field_first_name' => 'ds_content',
+      'field_last_name' => 'ds_content',
+      'field_user_title' => 'ds_content',
+      'field_phone' => 'ds_content',
+      'field_user_position' => 'ds_content',
+      'field_organization' => 'ds_content',
+      'field_user_bio' => 'ds_content',
+      'field_user_address' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => TRUE,
+    'layout_link_attribute' => FALSE,
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['user|user|token'] = $ds_layout;
+
+  return $export;
+}
+
+/**
+ * Implements hook_ds_view_modes_info().
+ */
+function mor_users_ds_view_modes_info() {
+  $export = array();
+
+  $ds_view_mode = new stdClass();
+  $ds_view_mode->api_version = 1;
+  $ds_view_mode->view_mode = 'profile';
+  $ds_view_mode->label = 'Profile';
+  $ds_view_mode->entities = array(
+    'user' => 'user',
+  );
+  $export['profile'] = $ds_view_mode;
+
   return $export;
 }
