@@ -46,6 +46,38 @@ function mor_users_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_goals_progress|user|user|profile';
+  $field_group->group_name = 'group_goals_progress';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'profile';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Goals & Progress',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_goals',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Goals & Progress',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-goals-progress field-group-div',
+        'description' => '',
+        'show_label' => '0',
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_goals_progress|user|user|profile'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_personal_info|user|user|default';
   $field_group->group_name = 'group_personal_info';
   $field_group->entity_type = 'user';
@@ -147,6 +179,7 @@ function mor_users_field_group_info() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Contact Info');
+  t('Goals & Progress');
   t('Personal Info');
   t('Progress Workflow');
 
