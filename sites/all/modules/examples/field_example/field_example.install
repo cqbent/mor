@@ -1,7 +1,7 @@
 <?php
 /**
  * @file
- * Install, update, and uninstall functions for the field_example module.
+ * Install, update, and uninstall functions for the mor_compound_fields module.
  */
 
 /**
@@ -19,7 +19,7 @@
  * @see http://drupal.org/node/146939
  * @see schemaapi
  * @see hook_field_schema()
- * @ingroup field_example
+ * @ingroup mor_compound_fields
  */
 function field_example_field_schema($field) {
   $columns = array(

@@ -26,15 +26,15 @@ function mor_users_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
-          'show_remaining_days' => FALSE,
+          'show_remaining_days' => 0,
         ),
         'type' => 'date_default',
-        'weight' => 3,
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_goal_date',
-    'label' => 'Date',
+    'label' => 'Goal Date',
     'required' => 0,
     'settings' => array(
       'default_value' => 'now',
@@ -56,7 +56,41 @@ function mor_users_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_text',
-      'weight' => 4,
+      'weight' => 3,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_goals-field_goal_statement'.
+  $field_instances['field_collection_item-field_goals-field_goal_statement'] = array(
+    'bundle' => 'field_goals',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_goal_statement',
+    'label' => 'Goal Statement',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
     ),
   );
 
@@ -73,12 +107,12 @@ function mor_users_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 2,
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'field_collection_item',
     'field_name' => 'field_goal_status',
-    'label' => 'Status',
+    'label' => 'Goal Status',
     'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
@@ -88,7 +122,7 @@ function mor_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -102,6 +136,79 @@ function mor_users_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'inline',
+        'module' => 'taxonomy',
+        'settings' => array(),
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_goal_title',
+    'label' => 'Goal Focus',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'taxonomy',
+      'settings' => array(
+        'autocomplete_path' => 'taxonomy/autocomplete',
+        'size' => 60,
+      ),
+      'type' => 'taxonomy_autocomplete',
+      'weight' => 0,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_goals-field_practice'.
+  $field_instances['field_collection_item-field_goals-field_practice'] = array(
+    'bundle' => 'field_goals',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'field_collection',
+        'settings' => array(
+          'add' => '',
+          'delete' => '',
+          'description' => 0,
+          'edit' => '',
+          'view_mode' => 'full',
+        ),
+        'type' => 'field_collection_view',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_practice',
+    'label' => 'Goal Actions',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'field_collection',
+      'settings' => array(),
+      'type' => 'field_collection_embed',
+      'weight' => 4,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_practice-field_practice_action'.
+  $field_instances['field_collection_item-field_practice-field_practice_action'] = array(
+    'bundle' => 'field_practice',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -109,8 +216,75 @@ function mor_users_field_default_field_instances() {
       ),
     ),
     'entity_type' => 'field_collection_item',
-    'field_name' => 'field_goal_title',
-    'label' => 'Goal',
+    'field_name' => 'field_practice_action',
+    'label' => 'Action',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_practice-field_practice_status'.
+  $field_instances['field_collection_item-field_practice-field_practice_status'] = array(
+    'bundle' => 'field_practice',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_practice_status',
+    'label' => 'Status',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 2,
+    ),
+  );
+
+  // Exported field_instance:
+  // 'field_collection_item-field_practice-field_practice_timeframe'.
+  $field_instances['field_collection_item-field_practice-field_practice_timeframe'] = array(
+    'bundle' => 'field_practice',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'inline',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 2,
+      ),
+    ),
+    'entity_type' => 'field_collection_item',
+    'field_name' => 'field_practice_timeframe',
+    'label' => 'Timeframe',
     'required' => 0,
     'settings' => array(
       'text_processing' => 0,
@@ -123,41 +297,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
-    ),
-  );
-
-  // Exported field_instance:
-  // 'field_collection_item-field_goals-field_practice_action'.
-  $field_instances['field_collection_item-field_goals-field_practice_action'] = array(
-    'bundle' => 'field_goals',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'inline',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-    ),
-    'entity_type' => 'field_collection_item',
-    'field_name' => 'field_practice_action',
-    'label' => 'Practice Action',
-    'required' => FALSE,
-    'settings' => array(
-      'text_processing' => 0,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -247,7 +387,7 @@ function mor_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 13,
+      'weight' => 18,
     ),
   );
 
@@ -268,7 +408,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 12,
       ),
       'token' => array(
         'label' => 'above',
@@ -334,7 +474,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 1,
+      'weight' => 2,
     ),
   );
 
@@ -349,18 +489,19 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'module' => 'field_collection',
         'settings' => array(
+          'add' => 'Add',
+          'delete' => 'Delete',
+          'description' => TRUE,
+          'edit' => 'Edit',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_fields',
+        'type' => 'field_collection_view',
         'weight' => 10,
       ),
       'profile' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_fields',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 4,
       ),
       'token' => array(
@@ -382,7 +523,7 @@ function mor_users_field_default_field_instances() {
       'module' => 'field_collection',
       'settings' => array(),
       'type' => 'field_collection_embed',
-      'weight' => 19,
+      'weight' => 23,
     ),
   );
 
@@ -401,9 +542,10 @@ function mor_users_field_default_field_instances() {
       ),
       'profile' => array(
         'label' => 'above',
+        'module' => 'taxonomy',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 17,
+        'type' => 'taxonomy_term_reference_plain',
+        'weight' => 5,
       ),
       'token' => array(
         'label' => 'above',
@@ -424,7 +566,7 @@ function mor_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_buttons',
-      'weight' => 20,
+      'weight' => 24,
     ),
   );
 
@@ -470,7 +612,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 2,
+      'weight' => 3,
     ),
   );
 
@@ -518,52 +660,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 6,
-    ),
-  );
-
-  // Exported field_instance: 'user-user-field_personal_goals'.
-  $field_instances['user-user-field_personal_goals'] = array(
-    'bundle' => 'user',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 21,
-      ),
-      'profile' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 15,
-      ),
-      'token' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 16,
-      ),
-    ),
-    'entity_type' => 'user',
-    'field_name' => 'field_personal_goals',
-    'label' => 'Personal Goals',
-    'required' => 0,
-    'settings' => array(
-      'text_processing' => 1,
-      'user_register_form' => 0,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-      ),
-      'type' => 'text_textarea',
-      'weight' => 17,
+      'weight' => 9,
     ),
   );
 
@@ -611,7 +708,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 5,
+      'weight' => 8,
     ),
   );
 
@@ -632,7 +729,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 11,
       ),
       'token' => array(
         'label' => 'above',
@@ -653,7 +750,7 @@ function mor_users_field_default_field_instances() {
       'module' => 'options',
       'settings' => array(),
       'type' => 'options_select',
-      'weight' => 12,
+      'weight' => 17,
     ),
   );
 
@@ -674,7 +771,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 13,
       ),
       'token' => array(
         'label' => 'above',
@@ -685,7 +782,7 @@ function mor_users_field_default_field_instances() {
     ),
     'entity_type' => 'user',
     'field_name' => 'field_program_goals',
-    'label' => 'Program Goals',
+    'label' => 'Goals from Registration',
     'required' => 0,
     'settings' => array(
       'text_processing' => 1,
@@ -698,7 +795,7 @@ function mor_users_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 16,
+      'weight' => 20,
     ),
   );
 
@@ -718,7 +815,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 15,
       ),
       'token' => array(
         'label' => 'above',
@@ -749,7 +846,7 @@ function mor_users_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 18,
+      'weight' => 22,
     ),
   );
 
@@ -824,7 +921,7 @@ function mor_users_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 7,
+      'weight' => 11,
     ),
   );
 
@@ -847,7 +944,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 4,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -872,7 +969,7 @@ function mor_users_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 9,
+      'weight' => 13,
     ),
   );
 
@@ -920,7 +1017,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 4,
+      'weight' => 5,
     ),
   );
 
@@ -968,7 +1065,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 3,
+      'weight' => 4,
     ),
   );
 
@@ -987,9 +1084,12 @@ function mor_users_field_default_field_instances() {
       ),
       'profile' => array(
         'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => 1,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 4,
       ),
       'token' => array(
         'label' => 'above',
@@ -1034,34 +1134,37 @@ function mor_users_field_default_field_instances() {
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
-      'weight' => 8,
+      'weight' => 12,
     ),
   );
 
   // Translatables
   // Included for use with string extractors like potx.
   t('360 Raters Progress');
+  t('Action');
   t('Address');
   t('Biography');
   t('Client Affiliation');
-  t('Date');
   t('Essay Progress');
   t('First Name');
-  t('Goal');
+  t('Goal Actions');
+  t('Goal Date');
+  t('Goal Focus');
+  t('Goal Statement');
+  t('Goal Status');
   t('Goals');
+  t('Goals from Registration');
   t('Interests');
   t('Job Title');
   t('Last Name');
   t('Organization');
-  t('Personal Goals');
   t('Phone');
   t('Portal Coach');
   t('Portal Program');
   t('Position');
-  t('Practice Action');
-  t('Program Goals');
   t('Progress Date');
   t('Status');
+  t('Timeframe');
 
   return $field_instances;
 }

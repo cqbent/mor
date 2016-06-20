@@ -669,7 +669,7 @@ body.front { background-position: center 40px; }
 /* mobile footer block */
 #block-block-7 { 
 	display:none; 
-	.social-media { 
+	.social-media {
 		border-bottom: $border-gray; padding-bottom:10px; 
 		img { display:inline-block; margin-right:5px; }
 	}
@@ -706,7 +706,6 @@ body.front { background-position: center 40px; }
 
 		}
 	}
-
 	#main {
 		border: none;
 		max-width: 100%;
@@ -714,6 +713,9 @@ body.front { background-position: center 40px; }
 		.region-sidebar-first, .region-sidebar-second {
 			color: #666;
 			background: none;
+		}
+		.tabs-primary {
+			padding-top: 60px;
 		}
 		.block.block-menu-block {
 			z-index: 2;
@@ -808,14 +810,46 @@ body.front { background-position: center 40px; }
 					margin-top: 1px;
 				}
 				.item-list, .views-list {
+					ul {
+						list-style: none;
+					}
 					h3 {
 						font-size: 1rem;
 					}
 				}
+				.field-collection-view {
+					border-bottom: 1px #D3D7D9 solid;
+					margin-bottom: 1em;
+				}
 			}
-
+			.field-name-field-portal-logo {
+				float: right;
+			}
+			.field-name-field-client-reference {
+				margin-top: 10px;
+				@include clearafter;
+				.field-items .field-item {
+					float: left;
+					margin-right: 10px;
+					width: 50px;
+					.node {
+						background: none;
+						margin: 0;
+					}
+				}
+			}
 		}
 		.view-mor-member-detail {
+			.field {
+				&.field-label-above .field-label {
+					margin-top: 1em;
+				}
+			}
+			.field-group-fieldset {
+				h3 {
+					margin-bottom: 0;
+				}
+			}
 			p {
 				margin-top: 0;
 			}
@@ -826,7 +860,7 @@ body.front { background-position: center 40px; }
 			.group-contact-info {
 				float: right;
 			}
-			.group-goals-progress {
+			.group-goals-progress, .group-bio-interests {
 				clear: both;
 			}
 			.field-name-ds-user-picture {
@@ -856,7 +890,46 @@ body.front { background-position: center 40px; }
 					}
 				}
 			}
+			.field-name-field-practice .field-item {
+				.field-label {
+					width: auto;
+				}
+			}
 		}
+		.my-goals-details {
+			.item-list {
+				li {
+					margin-bottom: 1em;
+					&:before {
+						content: "";
+						display: block;
+						height: 1px;
+					}
+					.field-collection-container, .field-collection-view {
+						border: none;
+					}
+					> .field-collection-view {
+						border-bottom: 1px #D3D7D9 solid;
+					}
+				}
+			}
+		}
+		.view-my-readings {
+			.views-label {
+				font-weight: bold;
+			}
+			.media-youtube-player {
+				width: 100%;
+			}
+			ul {
+				margin: 0;
+				padding: 0;
+				li {
+
+				}
+			}
+		}
+
 	}
 	#content {
 		.inner {
@@ -879,10 +952,18 @@ body.front { background-position: center 40px; }
 			.views-row { border-bottom: 1px #BBB solid; margin-bottom:20px; padding-bottom:20px; }
 		}
 		.view-portal-calendar {
-			padding-top: 50px;
 			.date-nav.item-list {
 				margin: 0;
 				padding: 0;
+				.date-next, .date-prev {
+					padding: 5px 10px;
+					a {
+						margin: 0;
+					}
+				}
+			}
+			.inner {
+				border: none;
 			}
 		}
 		.node-portal-workshop {
@@ -949,6 +1030,20 @@ body.front { background-position: center 40px; }
 	}
 	#footer {
 		display: none;
+	}
+	@media all and (min-width: 901px) {
+		$zen-column-count: 12 !global;
+		&.two-sidebars {
+			#content {
+				@include zen-grid-item(7, 4);
+			}
+			.region-sidebar-first {
+				@include zen-grid-item(3, 1);
+			}
+			.region-sidebar-second {
+				@include zen-grid-item(2, 11);
+			}
+		}
 	}
 }
 #block-views-og-post-reflection-block-1 { 

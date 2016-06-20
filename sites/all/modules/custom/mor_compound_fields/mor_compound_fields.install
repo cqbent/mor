@@ -1,0 +1,29 @@
+<?php
+/**
+ * @file
+ * Install, update, and uninstall functions for the field_example module.
+ */
+
+/**
+ * Implements hook_field_schema().
+
+ */
+function mor_compound_fields_field_schema($field) {
+  $columns = array(
+    'practice_id' => array(
+        'description' => 'The primary identifier for a practice field.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+    ),
+    'practice_action' => array('type' => 'longtext', 'not null' => FALSE),
+    'practice_status' => array('type' => 'varchar', 'length' => 255, 'not null' => FALSE),
+  );
+  $indexes = array(
+    'practice_id' => array('practice_id'),
+  );
+  return array(
+    'columns' => $columns,
+    'indexes' => $indexes,
+  );
+}

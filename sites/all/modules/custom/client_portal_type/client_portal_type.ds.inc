@@ -54,6 +54,30 @@ function client_portal_type_ds_field_settings_info() {
 }
 
 /**
+ * Implements hook_ds_custom_fields_info().
+ */
+function client_portal_type_ds_custom_fields_info() {
+  $export = array();
+
+  $ds_field = new stdClass();
+  $ds_field->api_version = 1;
+  $ds_field->field = 'portal_client_logos';
+  $ds_field->label = 'Portal Client Logos';
+  $ds_field->field_type = 6;
+  $ds_field->entities = array(
+    'node' => 'node',
+  );
+  $ds_field->ui_limit = '';
+  $ds_field->properties = array(
+    'block' => 'views|portal_clients-block',
+    'block_render' => '3',
+  );
+  $export['portal_client_logos'] = $ds_field;
+
+  return $export;
+}
+
+/**
  * Implements hook_ds_layout_settings_info().
  */
 function client_portal_type_ds_layout_settings_info() {
@@ -70,14 +94,22 @@ function client_portal_type_ds_layout_settings_info() {
     'regions' => array(
       'ds_content' => array(
         0 => 'title',
-        1 => 'body',
-        2 => 'field_reading_materials',
+        1 => 'field_portal_logo',
+        2 => 'field_client_reference',
+        3 => 'field_portal_email',
+        4 => 'body',
+        5 => 'field_reading_materials',
+        6 => 'field_program_reflections',
       ),
     ),
     'fields' => array(
       'title' => 'ds_content',
+      'field_portal_logo' => 'ds_content',
+      'field_client_reference' => 'ds_content',
+      'field_portal_email' => 'ds_content',
       'body' => 'ds_content',
       'field_reading_materials' => 'ds_content',
+      'field_program_reflections' => 'ds_content',
     ),
     'classes' => array(),
     'wrappers' => array(

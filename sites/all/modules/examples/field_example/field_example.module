@@ -5,7 +5,7 @@
  */
 
 /**
- * @defgroup field_example Example: Field Types API
+ * @defgroup mor_compound_fields Example: Field Types API
  * @ingroup examples
  * @{
  * Examples using Field Types API.
@@ -31,7 +31,7 @@
  *
  * Our module defines the field in field_example_field_info(),
  * field_example_field_validate() and field_example_field_is_empty().
- * field_example_field_() is implemented in field_example.install.
+ * field_example_field_() is implemented in mor_compound_fields.install.
  *
  * Our module sets up a formatter in field_example_field_formatter_info() and
  * field_example_field_formatter_view(). These are the API hooks that present
@@ -252,7 +252,7 @@ function field_example_field_widget_form(&$form, &$form_state, $field, $instance
             array('system', 'farbtastic'),
           ),
           // Add javascript to trigger the colorpicker.
-          'js' => array(drupal_get_path('module', 'field_example') . '/field_example.js'),
+          'js' => array(drupal_get_path('module', 'mor_compound_fields') . '/mor_compound_fields.js'),
         ),
       );
 
@@ -289,7 +289,7 @@ function field_example_field_widget_form(&$form, &$form_state, $field, $instance
         '#delta' => $delta,
 
         '#attached' => array(
-          'css' => array(drupal_get_path('module', 'field_example') . '/field_example.css'),
+          'css' => array(drupal_get_path('module', 'mor_compound_fields') . '/mor_compound_fields.css'),
         ),
       );
 
@@ -370,7 +370,7 @@ function field_example_field_widget_error($element, $error, $form, &$form_state)
  * Provides a simple user interface that tells the developer where to go.
  */
 function field_example_menu() {
-  $items['examples/field_example'] = array(
+  $items['examples/mor_compound_fields'] = array(
     'title' => 'Field Example',
     'page callback' => '_field_example_page',
     'access callback' => TRUE,
@@ -385,5 +385,5 @@ function _field_example_page() {
   return t("The Field Example provides a field composed of an HTML RGB value, like #ff00ff. To use it, add the field to a content type.");
 }
 /**
- * @} End of "defgroup field_example".
+ * @} End of "defgroup mor_compound_fields".
  */

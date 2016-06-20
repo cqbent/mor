@@ -13,6 +13,39 @@ function mor_users_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_bio_interests|user|user|profile';
+  $field_group->group_name = 'group_bio_interests';
+  $field_group->entity_type = 'user';
+  $field_group->bundle = 'user';
+  $field_group->mode = 'profile';
+  $field_group->parent_name = '';
+  $field_group->data = array(
+    'label' => 'Bio & Interests',
+    'weight' => '3',
+    'children' => array(
+      0 => 'field_user_bio',
+      1 => 'field_interests',
+    ),
+    'format_type' => 'div',
+    'format_settings' => array(
+      'label' => 'Bio & Interests',
+      'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-bio-interests field-group-fieldset',
+        'description' => '',
+        'show_label' => 1,
+        'label_element' => 'h3',
+        'effect' => 'none',
+        'speed' => 'fast',
+      ),
+      'formatter' => 'open',
+    ),
+  );
+  $field_groups['group_bio_interests|user|user|profile'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_contact_info|user|user|profile';
   $field_group->group_name = 'group_contact_info';
   $field_group->entity_type = 'user';
@@ -54,7 +87,7 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Goals & Progress',
-    'weight' => '3',
+    'weight' => '6',
     'children' => array(
       0 => 'field_goals',
     ),
@@ -158,7 +191,7 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Progress Workflow',
-    'weight' => '16',
+    'weight' => '19',
     'children' => array(
       0 => 'field_360_raters_progress',
       1 => 'field_essay_progress',
@@ -178,6 +211,7 @@ function mor_users_field_group_info() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Bio & Interests');
   t('Contact Info');
   t('Goals & Progress');
   t('Personal Info');

@@ -195,7 +195,7 @@ function get_parent_menu_title() {
 		  ->execute()
 		  ->fetchField();
 	}
-	 //dsm($menuanc);
+	//dsm($menutrail);
 	return $title;
 }
 

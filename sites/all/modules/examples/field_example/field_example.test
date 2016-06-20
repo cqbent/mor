@@ -15,7 +15,7 @@ class FieldExampleTest extends DrupalWebTestCase {
   }
   function setUp() {
     // Enable the email_example module.
-    parent::setUp(array('field_ui', 'field_example'));
+    parent::setUp(array('field_ui', 'mor_compound_fields'));
   }
 
   /**

@@ -20,6 +20,7 @@ function client_portal_type_context_default_contexts() {
     'path' => array(
       'values' => array(
         'portal/my-leadership-portal*' => 'portal/my-leadership-portal*',
+        'portal/leadership*' => 'portal/leadership*',
       ),
     ),
   );
@@ -32,41 +33,23 @@ function client_portal_type_context_default_contexts() {
           'region' => 'content',
           'weight' => '-10',
         ),
-        'views-my_readings-block' => array(
+        'views-featured_insights-block' => array(
           'module' => 'views',
-          'delta' => 'my_readings-block',
+          'delta' => 'featured_insights-block',
           'region' => 'content',
           'weight' => '-9',
-        ),
-        'views-my_readings-block_1' => array(
-          'module' => 'views',
-          'delta' => 'my_readings-block_1',
-          'region' => 'content',
-          'weight' => '-8',
         ),
         'views-my_interests_readings-block' => array(
           'module' => 'views',
           'delta' => 'my_interests_readings-block',
           'region' => 'content',
-          'weight' => '-7',
+          'weight' => '-8',
         ),
-        'views-group_coaches-block' => array(
+        'views-my_readings-block_2' => array(
           'module' => 'views',
-          'delta' => 'group_coaches-block',
+          'delta' => 'my_readings-block_2',
           'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'views-mor_member_detail-block_1' => array(
-          'module' => 'views',
-          'delta' => 'mor_member_detail-block_1',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
-        ),
-        'views-mor_member_detail-block_3' => array(
-          'module' => 'views',
-          'delta' => 'mor_member_detail-block_3',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-8',
         ),
         'stickynote-stickynote_block' => array(
           'module' => 'stickynote',
@@ -93,7 +76,8 @@ function client_portal_type_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'portal/my-profile' => 'portal/my-profile',
+        'portal/profile' => 'portal/profile',
+        'portal/participants' => 'portal/participants',
       ),
     ),
   );
@@ -112,11 +96,11 @@ function client_portal_type_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-9',
         ),
-        'views-mor_member_detail-block_3' => array(
+        'views--exp-participants_search-page' => array(
           'module' => 'views',
-          'delta' => 'mor_member_detail-block_3',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
+          'delta' => '-exp-participants_search-page',
+          'region' => 'sidebar_first',
+          'weight' => '-8',
         ),
       ),
     ),
@@ -137,36 +121,36 @@ function client_portal_type_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'portal/my-program' => 'portal/my-program',
+        'portal/program' => 'portal/program',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-personal_portal-block_1' => array(
+        'views-portal_calendar-block_1' => array(
           'module' => 'views',
-          'delta' => 'personal_portal-block_1',
+          'delta' => 'portal_calendar-block_1',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-8',
         ),
         'views-personal_portal-block_2' => array(
           'module' => 'views',
           'delta' => 'personal_portal-block_2',
-          'region' => 'content',
-          'weight' => '-9',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
         ),
         'views-portal_people-block_4' => array(
           'module' => 'views',
           'delta' => 'portal_people-block_4',
           'region' => 'sidebar_first',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
         'views-portal_people-block_3' => array(
           'module' => 'views',
           'delta' => 'portal_people-block_3',
           'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-8',
         ),
         'views-portal_calendar-block_2' => array(
           'module' => 'views',

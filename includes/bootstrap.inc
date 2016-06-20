@@ -8,7 +8,7 @@
 /**
  * The current system version.
  */
-define('VERSION', '7.43');
+define('VERSION', '7.44');
 
 /**
  * Core API compatibility.
@@ -669,13 +669,6 @@ function drupal_environment_initialize() {
     $_SERVER['HTTP_HOST'] = '';
   }
 
-  // When clean URLs are enabled, emulate ?q=foo/bar using REQUEST_URI. It is
-  // not possible to append the query string using mod_rewrite without the B
-  // flag (this was added in Apache 2.2.8), because mod_rewrite unescapes the
-  // path before passing it on to PHP. This is a problem when the path contains
-  // e.g. "&" or "%" that have special meanings in URLs and must be encoded.
-  $_GET['q'] = request_path();
-
   // Enforce E_ALL, but allow users to set levels not part of E_ALL.
   error_reporting(E_ALL | error_reporting());
 
@@ -801,6 +794,13 @@ function drupal_settings_initialize() {
   }
   $prefix = ini_get('session.cookie_secure') ? 'SSESS' : 'SESS';
   session_name($prefix . substr(hash('sha256', $session_name), 0, 32));
+
+  // When clean URLs are enabled, emulate ?q=foo/bar using REQUEST_URI. It is
+  // not possible to append the query string using mod_rewrite without the B
+  // flag (this was added in Apache 2.2.8), because mod_rewrite unescapes the
+  // path before passing it on to PHP. This is a problem when the path contains
+  // e.g. "&" or "%" that have special meanings in URLs and must be encoded.
+  $_GET['q'] = request_path();
 }
 
 /**
@@ -2835,9 +2835,10 @@ function request_path() {
     // This request is either a clean URL, or 'index.php', or nonsense.
     // Extract the path from REQUEST_URI.
     $request_path = strtok($_SERVER['REQUEST_URI'], '?');
-    $base_path_len = strlen(rtrim(dirname($_SERVER['SCRIPT_NAME']), '\/'));
-    // Unescape and strip $base_path prefix, leaving q without a leading slash.
-    $path = substr(urldecode($request_path), $base_path_len + 1);
+    // Remove any subdirectories from the path that are included in $base_url.
+    global $base_url;
+    $base_url_len = strlen(parse_url($base_url, PHP_URL_PATH));
+    $path = substr(urldecode($request_path), $base_url_len + 1);
     // If the path equals the script filename, either because 'index.php' was
     // explicitly provided in the URL, or because the server added it to
     // $_SERVER['REQUEST_URI'] even when it wasn't provided in the URL (some

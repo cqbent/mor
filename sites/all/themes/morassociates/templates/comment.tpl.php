@@ -6,8 +6,8 @@
  * Available variables:
  * - $author: Comment author. Can be link or plain text.
  * - $content: An array of comment items. Use render($content) to print them all, or
- *   print a subset such as render($content['field_example']). Use
- *   hide($content['field_example']) to temporarily suppress the printing of a
+ *   print a subset such as render($content['mor_compound_fields']). Use
+ *   hide($content['mor_compound_fields']) to temporarily suppress the printing of a
  *   given element.
  * - $created: Formatted date and time for when the comment was created.
  *   Preprocess functions can reformat it by calling format_date() with the

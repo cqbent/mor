@@ -72,10 +72,10 @@
  * which might be more complex than these. Or perhaps simpler.
  *
  * You can see a more complex field implementation in
- * field_example.module.
+ * mor_compound_fields.module.
  *
- * @see field_example
- * @see field_example.module
+ * @see mor_compound_fields
+ * @see mor_compound_fields.module
  * @see field_types
  * @see field
  */
