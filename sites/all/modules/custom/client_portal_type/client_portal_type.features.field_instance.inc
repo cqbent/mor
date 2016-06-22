@@ -348,12 +348,9 @@ function client_portal_type_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 4,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 3,
       ),
     ),
     'entity_type' => 'node',
@@ -395,13 +392,9 @@ function client_portal_type_field_default_field_instances() {
       ),
       'teaser' => array(
         'label' => 'hidden',
-        'module' => 'entityreference',
-        'settings' => array(
-          'links' => 0,
-          'view_mode' => 'teaser',
-        ),
-        'type' => 'entityreference_entity_view',
-        'weight' => 3,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 4,
       ),
     ),
     'entity_type' => 'node',

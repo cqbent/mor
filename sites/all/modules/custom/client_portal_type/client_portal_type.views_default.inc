@@ -145,7 +145,6 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
-  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   /* Contextual filter: OG membership: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
   $handler->display->display_options['arguments']['gid']['table'] = 'og_membership';
@@ -675,6 +674,7 @@ function client_portal_type_views_default_views() {
 
   /* Display: Master */
   $handler = $view->new_display('default', 'Master', 'default');
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['link_display'] = 'page_1';
   $handler->display->display_options['access']['type'] = 'perm';
@@ -1039,11 +1039,13 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['title'] = 'Upcoming Dates';
   $handler->display->display_options['display_description'] = 'Upcoming events block';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
-  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
-  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['type'] = 'mini';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['pager']['options']['id'] = '0';
+  $handler->display->display_options['pager']['options']['tags']['previous'] = '‹ previous dates';
+  $handler->display->display_options['pager']['options']['tags']['next'] = 'more dates ›';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = array(
@@ -1062,7 +1064,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/portal/calendar/month">View Full Calendar</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<!-- <a href="/portal/calendar/month">View Full Calendar</a> -->';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;

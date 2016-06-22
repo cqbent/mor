@@ -13,6 +13,14 @@
 	#block-block-3 { 
 		.header { font-size:100px; line-height:95px; }
 	}
+	.section-portal {
+		#content {
+			h1.title {
+				padding-top:50px;
+				color: $text-gray
+			}
+		}
+	}
 }
 
 /* responsive block styles */
@@ -47,11 +55,23 @@
 	}
 	#content {
 		background-color: #fff; margin:80px 0px 0px 0px; padding:0px;
-		h1.title { background-color: $light-blue; color: #fff; display: block; @include resize-text(20px); position:absolute; top:-134px; left:0px; width:100%;
-		height: auto; line-height: 12px; opacity: 1; height:30px; padding-top:12px; text-align: center; }
+		h1.title {
+			background-color: $light-blue;
+			color: #fff; display: block;
+			@include resize-text(20px);
+			position:absolute; top:-134px;
+			left:0px;
+			width:100%;
+			height: auto;
+			line-height: 12px;
+			opacity: 1; height:30px;
+			padding-top:12px;
+			text-align: center;
+		}
 		.inner { padding:20px; }
 	}
-	.region-sidebar-first { display:none; }
+	.region-sidebar-first {
+ 	}
 	.region-sidebar-second { padding-top:0px; }
 	#footer { 
 		background-color:#fff; background-image:none; 
@@ -179,6 +199,16 @@
 					text-align: left; padding:0px; margin-bottom:10px; font-family:$gp-bold; }
 			}
 			#block-views-exp-insight-page { position: absolute; top: 70px; right: 20px; }
+		}
+	}
+	/* portal mobile styles */
+	.node-type-client-portal, .node-type-portal-content, .node-type-portal-workshop, .section-portal {
+		#content {
+			margin: 0;
+			padding-top: 80px;
+			h1.title {
+				top: -100px;
+			}
 		}
 	}
 	

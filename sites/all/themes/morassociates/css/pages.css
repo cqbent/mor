@@ -1680,23 +1680,18 @@ body.front {
   border-left: 1px #BBB solid;
   padding-left: 20px;
 }
-/* line 939, ../sass/pages.scss */
-.node-type-client-portal #content h1.title, .node-type-portal-content #content h1.title, .node-type-portal-workshop #content h1.title, .section-portal #content h1.title {
-  padding-top: 50px;
-  color: #666666;
-}
-/* line 943, ../sass/pages.scss */
+/* line 940, ../sass/pages.scss */
 .node-type-client-portal #content .node .block-views .views-row, .node-type-portal-content #content .node .block-views .views-row, .node-type-portal-workshop #content .node .block-views .views-row, .section-portal #content .node .block-views .views-row {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px #BBB solid;
 }
-/* line 944, ../sass/pages.scss */
+/* line 941, ../sass/pages.scss */
 .node-type-client-portal #content .field-name-og-group-ref, .node-type-portal-content #content .field-name-og-group-ref, .node-type-portal-workshop #content .field-name-og-group-ref, .section-portal #content .field-name-og-group-ref {
   position: absolute;
   top: -5px;
 }
-/* line 946, ../sass/pages.scss */
+/* line 943, ../sass/pages.scss */
 .node-type-client-portal #content .field-name-og-group-ref a, .node-type-portal-content #content .field-name-og-group-ref a, .node-type-portal-workshop #content .field-name-og-group-ref a, .section-portal #content .field-name-og-group-ref a {
   display: inline-block;
   margin: 0px;
@@ -1708,95 +1703,95 @@ body.front {
   letter-spacing: 1px;
   padding: 5px 10px;
 }
-/* line 948, ../sass/pages.scss */
+/* line 945, ../sass/pages.scss */
 .node-type-client-portal #content .field-name-og-group-ref a:hover, .node-type-portal-content #content .field-name-og-group-ref a:hover, .node-type-portal-workshop #content .field-name-og-group-ref a:hover, .section-portal #content .field-name-og-group-ref a:hover {
   background-color: #6699d1;
 }
-/* line 951, ../sass/pages.scss */
+/* line 948, ../sass/pages.scss */
 .node-type-client-portal #content .view-mor-og-content .view-filters, .node-type-portal-content #content .view-mor-og-content .view-filters, .node-type-portal-workshop #content .view-mor-og-content .view-filters, .section-portal #content .view-mor-og-content .view-filters {
   display: none;
 }
-/* line 952, ../sass/pages.scss */
+/* line 949, ../sass/pages.scss */
 .node-type-client-portal #content .view-mor-og-content .views-row, .node-type-portal-content #content .view-mor-og-content .views-row, .node-type-portal-workshop #content .view-mor-og-content .views-row, .section-portal #content .view-mor-og-content .views-row {
   border-bottom: 1px #BBB solid;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-/* line 955, ../sass/pages.scss */
+/* line 952, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .date-nav.item-list, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list, .section-portal #content .view-portal-calendar .date-nav.item-list {
   margin: 0;
   padding: 0;
 }
-/* line 958, ../sass/pages.scss */
+/* line 955, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-next, .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-prev, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-next, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-prev, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-next, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-prev, .section-portal #content .view-portal-calendar .date-nav.item-list .date-next, .section-portal #content .view-portal-calendar .date-nav.item-list .date-prev {
   padding: 5px 10px;
 }
-/* line 960, ../sass/pages.scss */
+/* line 957, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-next a, .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-prev a, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-next a, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-prev a, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-next a, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-prev a, .section-portal #content .view-portal-calendar .date-nav.item-list .date-next a, .section-portal #content .view-portal-calendar .date-nav.item-list .date-prev a {
   margin: 0;
 }
-/* line 965, ../sass/pages.scss */
+/* line 962, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .inner, .node-type-portal-content #content .view-portal-calendar .inner, .node-type-portal-workshop #content .view-portal-calendar .inner, .section-portal #content .view-portal-calendar .inner {
   border: none;
 }
-/* line 971, ../sass/pages.scss */
+/* line 968, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item {
   border-bottom: 1px #bbbbbb solid;
 }
-/* line 974, ../sass/pages.scss */
+/* line 971, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-label {
   font-size: 1.5em;
   font-weight: normal;
   margin-bottom: 10px;
 }
-/* line 981, ../sass/pages.scss */
+/* line 978, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd {
   margin-bottom: 20px;
 }
-/* line 984, ../sass/pages.scss */
+/* line 981, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title {
   font-size: 1.25em;
   font-weight: bold;
   margin-bottom: 10px;
 }
-/* line 989, ../sass/pages.scss */
+/* line 986, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a {
   font-weight: bold;
 }
-/* line 992, ../sass/pages.scss */
+/* line 989, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p {
   margin-top: 0;
 }
-/* line 996, ../sass/pages.scss */
+/* line 993, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item {
   font-weight: bold;
   margin: 10px 0 0 0;
 }
-/* line 1001, ../sass/pages.scss */
+/* line 998, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file {
   display: block;
   margin-bottom: 5px;
 }
-/* line 1004, ../sass/pages.scss */
+/* line 1001, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a {
   font-weight: bold;
 }
-/* line 1016, ../sass/pages.scss */
+/* line 1013, ../sass/pages.scss */
 .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list li, .section-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .section-portal .region-sidebar-second .block-stickynote #stickynote-list li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 1024, ../sass/pages.scss */
+/* line 1021, ../sass/pages.scss */
 .node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-submit, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-submit {
   display: none;
 }
-/* line 1031, ../sass/pages.scss */
+/* line 1028, ../sass/pages.scss */
 .node-type-client-portal #footer, .node-type-portal-content #footer, .node-type-portal-workshop #footer, .section-portal #footer {
   display: none;
 }
 @media all and (min-width: 901px) {
-  /* line 1037, ../sass/pages.scss */
+  /* line 1034, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars #content, .node-type-portal-content.two-sidebars #content, .node-type-portal-workshop.two-sidebars #content, .section-portal.two-sidebars #content {
     float: left;
     width: 58.33333%;
@@ -1810,7 +1805,7 @@ body.front {
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 1040, ../sass/pages.scss */
+  /* line 1037, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars .region-sidebar-first, .node-type-portal-content.two-sidebars .region-sidebar-first, .node-type-portal-workshop.two-sidebars .region-sidebar-first, .section-portal.two-sidebars .region-sidebar-first {
     float: left;
     width: 25%;
@@ -1824,7 +1819,7 @@ body.front {
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 1043, ../sass/pages.scss */
+  /* line 1040, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars .region-sidebar-second, .node-type-portal-content.two-sidebars .region-sidebar-second, .node-type-portal-workshop.two-sidebars .region-sidebar-second, .section-portal.two-sidebars .region-sidebar-second {
     float: left;
     width: 16.66667%;
@@ -1840,7 +1835,7 @@ body.front {
   }
 }
 
-/* line 1049, ../sass/pages.scss */
+/* line 1046, ../sass/pages.scss */
 #block-views-og-post-reflection-block-1 {
   position: absolute;
   right: 0px;

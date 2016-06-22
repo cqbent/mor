@@ -183,7 +183,7 @@ function mor_background_content() {
 /* get title of parent menu item to be used in the block view */
 function get_parent_menu_title() {
 	$menutrail = menu_get_active_trail();	// get the menu trail of this page to find the parent menu item
-	if (isset($menutrail[1]['menu_name']) && $menutrail[1]['menu_name'] === 'main-menu') {	// deterime if page has a menu parent item
+	if (isset($menutrail[1]['menu_name'])) {	// deterime if page has a menu parent item
 		$title = $menutrail[1]['title'];
 	}
 	else {	// if not then get the root path of the page and find the menu item of the path's page
@@ -202,9 +202,10 @@ function get_parent_menu_title() {
 /* display menu title in block */
 function mor_menu_list_block_view($delta = '') {
 	// find background node with field_menu_reference set to current page's parent menu setion
-	$mlinfo = get_parent_menu_title();
+
 	switch ($delta) {
 		case 'mor_section_block':
+			$mlinfo = get_parent_menu_title();
 			$block['subject'] = t('');
 			$block['content'] = $mlinfo;	// now render the damn thing
 			break;
