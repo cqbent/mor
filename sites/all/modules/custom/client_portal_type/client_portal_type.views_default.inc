@@ -218,10 +218,10 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['filters']['field_program_dates_value2']['operator'] = '>=';
   $handler->display->display_options['filters']['field_program_dates_value2']['default_date'] = 'now';
 
-  /* Display: Next Up */
-  $handler = $view->new_display('block', 'Next Up', 'block_2');
+  /* Display: From MOR */
+  $handler = $view->new_display('block', 'From MOR', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Next Up';
+  $handler->display->display_options['title'] = 'From MOR';
   $export['my_readings'] = $view;
 
   $view = new view();
