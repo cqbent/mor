@@ -78,6 +78,7 @@ function client_portal_type_context_default_contexts() {
       'values' => array(
         'portal/profile' => 'portal/profile',
         'portal/participants' => 'portal/participants',
+        'portal/program/participant-profile*' => 'portal/program/participant-profile*',
       ),
     ),
   );

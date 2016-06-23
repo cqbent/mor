@@ -313,7 +313,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'list',
         'settings' => array(),
         'type' => 'list_default',
-        'weight' => 11,
+        'weight' => 6,
       ),
       'profile' => array(
         'label' => 'above',
@@ -325,7 +325,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 24,
       ),
     ),
     'entity_type' => 'user',
@@ -357,7 +357,7 @@ function mor_users_field_default_field_instances() {
           'link' => FALSE,
         ),
         'type' => 'entityreference_label',
-        'weight' => 3,
+        'weight' => 1,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -369,10 +369,13 @@ function mor_users_field_default_field_instances() {
         'weight' => 6,
       ),
       'token' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 12,
+        'label' => 'hidden',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 2,
       ),
     ),
     'entity_type' => 'user',
@@ -402,7 +405,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 14,
       ),
       'profile' => array(
         'label' => 'above',
@@ -414,7 +417,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 25,
       ),
     ),
     'entity_type' => 'user',
@@ -443,7 +446,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 8,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -453,10 +456,9 @@ function mor_users_field_default_field_instances() {
       ),
       'token' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
+        'type' => 'hidden',
+        'weight' => 13,
       ),
     ),
     'entity_type' => 'user',
@@ -496,7 +498,7 @@ function mor_users_field_default_field_instances() {
           'view_mode' => 'full',
         ),
         'type' => 'field_collection_view',
-        'weight' => 10,
+        'weight' => 5,
       ),
       'profile' => array(
         'label' => 'above',
@@ -508,7 +510,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 19,
       ),
     ),
     'entity_type' => 'user',
@@ -538,7 +540,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 18,
       ),
       'profile' => array(
         'label' => 'above',
@@ -551,7 +553,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 20,
       ),
     ),
     'entity_type' => 'user',
@@ -581,7 +583,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 9,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -591,10 +593,9 @@ function mor_users_field_default_field_instances() {
       ),
       'token' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 2,
+        'type' => 'hidden',
+        'weight' => 14,
       ),
     ),
     'entity_type' => 'user',
@@ -616,6 +617,51 @@ function mor_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_logistics_notes'.
+  $field_instances['user-user-field_logistics_notes'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 20,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 18,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_logistics_notes',
+    'label' => 'Logistics Notes',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 25,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_organization'.
   $field_instances['user-user-field_organization'] = array(
     'bundle' => 'user',
@@ -628,7 +674,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 21,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -639,10 +685,9 @@ function mor_users_field_default_field_instances() {
       ),
       'token' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 12,
       ),
     ),
     'entity_type' => 'user',
@@ -664,6 +709,140 @@ function mor_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_organization_unit'.
+  $field_instances['user-user-field_organization_unit'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 23,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 3,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_organization_unit',
+    'label' => 'Organization Unit',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 10,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_person_id'.
+  $field_instances['user-user-field_person_id'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 24,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_person_id',
+    'label' => 'Person ID',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 1,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_personal_goals'.
+  $field_instances['user-user-field_personal_goals'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 16,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 14,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 27,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_personal_goals',
+    'label' => 'Personal Goals',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 1,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 21,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_phone'.
   $field_instances['user-user-field_phone'] = array(
     'bundle' => 'user',
@@ -676,7 +855,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 5,
+        'weight' => 2,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -723,7 +902,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 13,
       ),
       'profile' => array(
         'label' => 'above',
@@ -735,7 +914,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 23,
       ),
     ),
     'entity_type' => 'user',
@@ -765,7 +944,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 15,
       ),
       'profile' => array(
         'label' => 'above',
@@ -777,7 +956,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 26,
       ),
     ),
     'entity_type' => 'user',
@@ -809,7 +988,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 17,
       ),
       'profile' => array(
         'label' => 'above',
@@ -821,7 +1000,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 28,
       ),
     ),
     'entity_type' => 'user',
@@ -850,6 +1029,95 @@ function mor_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_relationship_notes'.
+  $field_instances['user-user-field_relationship_notes'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 21,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 17,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_relationship_notes',
+    'label' => 'Relationship Notes',
+    'required' => 0,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => 0,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 26,
+    ),
+  );
+
+  // Exported field_instance: 'user-user-field_social_links'.
+  $field_instances['user-user-field_social_links'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 25,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'token' => array(
+        'label' => 'hidden',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 11,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_social_links',
+    'label' => 'Social Links',
+    'required' => FALSE,
+    'settings' => array(
+      'text_processing' => 0,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'module' => 'text',
+      'settings' => array(
+        'size' => 60,
+      ),
+      'type' => 'text_textfield',
+      'weight' => 28,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_user_address'.
   $field_instances['user-user-field_user_address'] = array(
     'bundle' => 'user',
@@ -867,7 +1135,7 @@ function mor_users_field_default_field_instances() {
           'use_widget_handlers' => 1,
         ),
         'type' => 'addressfield_default',
-        'weight' => 9,
+        'weight' => 4,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -891,7 +1159,7 @@ function mor_users_field_default_field_instances() {
           'use_widget_handlers' => 1,
         ),
         'type' => 'addressfield_default',
-        'weight' => 8,
+        'weight' => 7,
       ),
     ),
     'entity_type' => 'user',
@@ -937,7 +1205,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 3,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -951,7 +1219,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 7,
+        'weight' => 6,
       ),
     ),
     'entity_type' => 'user',
@@ -985,7 +1253,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 4,
+        'weight' => 20,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -1033,7 +1301,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 19,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -1047,7 +1315,7 @@ function mor_users_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 3,
+        'weight' => 1,
       ),
     ),
     'entity_type' => 'user',
@@ -1080,7 +1348,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 11,
       ),
       'profile' => array(
         'label' => 'above',
@@ -1095,7 +1363,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 10,
+        'weight' => 21,
       ),
     ),
     'entity_type' => 'user',
@@ -1157,12 +1425,18 @@ function mor_users_field_default_field_instances() {
   t('Interests');
   t('Job Title');
   t('Last Name');
+  t('Logistics Notes');
   t('Organization');
+  t('Organization Unit');
+  t('Person ID');
+  t('Personal Goals');
   t('Phone');
   t('Portal Coach');
   t('Portal Program');
   t('Position');
   t('Progress Date');
+  t('Relationship Notes');
+  t('Social Links');
   t('Status');
   t('Timeframe');
 
