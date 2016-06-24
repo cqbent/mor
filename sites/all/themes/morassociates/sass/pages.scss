@@ -935,6 +935,18 @@ body.front { background-position: center 40px; }
 				}
 			}
 		}
+		.participants-search {
+			.item-list {
+				.views-row {
+					margin-bottom: 20px;
+					padding-bottom: 20px;
+					border-bottom: 1px #bbb solid;
+					.views-field-name {
+						font-weight: bold;
+					}
+				}
+			}
+		}
 
 	}
 	#content {
@@ -967,6 +979,20 @@ body.front { background-position: center 40px; }
 			}
 			.inner {
 				border: none;
+			}
+			.views-field {
+				.date-display-single, .date-display-range, .date-display-start, .date-display-end {
+					font-weight: normal;
+				}
+				&.views-field-title  {
+					font-weight: bold;
+				}
+			}
+
+			.multi-day {
+				.contents {
+					font-weight: bold;
+				}
 			}
 		}
 		.node-portal-workshop {

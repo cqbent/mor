@@ -80,9 +80,12 @@ function mor_users_ds_custom_fields_info() {
   $ds_field->ui_limit = '';
   $ds_field->properties = array(
     'code' => array(
-      'value' => '<p><a href="[user:edit-url]">Edit My Profile</a></p>
-',
-      'format' => 'full_html',
+      'value' => '<?php
+if (\'[current-user:edit-url]\' == \'[user:edit-url]\') {
+print \'<p><a href="[user:edit-url]">Edit My Profile</a></p>\';
+}
+?>',
+      'format' => 'php_code',
     ),
     'use_token' => 1,
   );
