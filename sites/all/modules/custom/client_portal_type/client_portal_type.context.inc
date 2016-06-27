@@ -77,7 +77,7 @@ function client_portal_type_context_default_contexts() {
     'path' => array(
       'values' => array(
         'portal/profile' => 'portal/profile',
-        'portal/participants' => 'portal/participants',
+        'portal/program/participants' => 'portal/program/participants',
         'portal/program/participant-profile*' => 'portal/program/participant-profile*',
       ),
     ),
@@ -102,6 +102,12 @@ function client_portal_type_context_default_contexts() {
           'delta' => '-exp-participants_search-page',
           'region' => 'sidebar_first',
           'weight' => '-8',
+        ),
+        'stickynote-stickynote_block' => array(
+          'module' => 'stickynote',
+          'delta' => 'stickynote_block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
         ),
       ),
     ),
