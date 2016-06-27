@@ -21,7 +21,7 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Bio & Interests',
-    'weight' => '3',
+    'weight' => '4',
     'children' => array(
       0 => 'field_user_bio',
       1 => 'field_interests',
@@ -54,7 +54,7 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Contact Info',
-    'weight' => '2',
+    'weight' => '3',
     'children' => array(
       0 => 'field_phone',
       1 => 'field_user_address',
@@ -87,7 +87,7 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Goals & Progress',
-    'weight' => '6',
+    'weight' => '13',
     'children' => array(
       0 => 'field_goals',
     ),
@@ -154,14 +154,13 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Personal Info',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'field_user_title',
       1 => 'field_user_position',
       2 => 'field_organization',
       3 => 'field_client_affiliation',
-      4 => 'full_name',
-      5 => 'ds_user_picture',
+      4 => 'ds_user_picture',
     ),
     'format_type' => 'div',
     'format_settings' => array(

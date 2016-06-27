@@ -180,22 +180,49 @@ function mor_background_content() {
 	return $content;
 }
 
+function get_path_parent_title($path, $item) {
+	// first get parent item (count(path)-2),
+	//$path = !$path ? $path = explode('/',request_uri()) : $path;
+	$pp_path = '';
+	for ($i = 1; $i < $item; $i++) {
+		$pp_path .= $i > 1 ? '/' : '';
+		$pp_path .= $path[$i];
+	}
+	$path_parent = drupal_get_normal_path($pp_path);	// get immediate parent path from current path
+	$title = db_select('menu_links' , 'ml')
+			->condition('ml.link_path' , $path_parent)
+			->fields('ml' , array('link_title'))
+			->execute()
+			->fetchField();
+	//dsm($path_parent);
+	return $title;
+}
+
 /* get title of parent menu item to be used in the block view */
 function get_parent_menu_title() {
 	$menutrail = menu_get_active_trail();	// get the menu trail of this page to find the parent menu item
-	if (isset($menutrail[1]['menu_name'])) {	// deterime if page has a menu parent item
+	if (isset($menutrail[1]['menu_name']) && $menutrail[1]['menu_name'] != 'navigation') {	// deterime if page has a menu parent item
 		$title = $menutrail[1]['title'];
 	}
 	else {	// if not then get the root path of the page and find the menu item of the path's page
 		$path = explode('/',request_uri());
+		for ($i = count($path)-1; $i > 0; $i--) {
+			$title = get_path_parent_title($path, $i);
+			if ($title) {
+				break;
+			}
+		}
+		/*
 		$menuanc = drupal_get_normal_path($path[1]);
 		$title = db_select('menu_links' , 'ml')
 		  ->condition('ml.link_path' , $menuanc)
 		  ->fields('ml' , array('link_title'))
 		  ->execute()
 		  ->fetchField();
+		*/
+		//$title = get_path_parent_title();
+		//dsm(request_uri());
 	}
-	//dsm($menutrail);
 	return $title;
 }
 

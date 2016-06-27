@@ -319,7 +319,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 7,
+        'weight' => 14,
       ),
       'token' => array(
         'label' => 'above',
@@ -411,7 +411,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 19,
       ),
       'token' => array(
         'label' => 'above',
@@ -452,7 +452,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 15,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -589,7 +589,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 16,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -634,7 +634,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 12,
       ),
       'token' => array(
         'label' => 'above',
@@ -726,7 +726,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 6,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -771,7 +771,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 8,
       ),
       'token' => array(
         'label' => 'above',
@@ -815,7 +815,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 21,
       ),
       'token' => array(
         'label' => 'above',
@@ -908,7 +908,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 18,
       ),
       'token' => array(
         'label' => 'above',
@@ -950,7 +950,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 20,
       ),
       'token' => array(
         'label' => 'above',
@@ -994,7 +994,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 22,
       ),
       'token' => array(
         'label' => 'above',
@@ -1046,7 +1046,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 11,
       ),
       'token' => array(
         'label' => 'above',
@@ -1091,7 +1091,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 0,
+        'weight' => 9,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -1357,7 +1357,7 @@ function mor_users_field_default_field_instances() {
           'link' => 1,
         ),
         'type' => 'entityreference_label',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'token' => array(
         'label' => 'above',

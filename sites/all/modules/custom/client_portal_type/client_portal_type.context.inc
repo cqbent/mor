@@ -178,7 +178,7 @@ function client_portal_type_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'portal/people' => 'portal/people',
+        'portal/program/participants' => 'portal/program/participants',
       ),
     ),
   );
@@ -216,43 +216,37 @@ function client_portal_type_context_default_contexts() {
   $context->conditions = array(
     'path' => array(
       'values' => array(
-        'portal/*' => 'portal/*',
-        '~portal/my-leadership-portal' => '~portal/my-leadership-portal',
+        'portal/program*' => 'portal/program*',
+        '~portal/program/participant-profile*' => '~portal/program/participant-profile*',
       ),
     ),
   );
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-group_coaches-block' => array(
+        'views-personal_portal-block_2' => array(
           'module' => 'views',
-          'delta' => 'group_coaches-block',
-          'region' => 'sidebar_first',
-          'weight' => '-10',
-        ),
-        'views-mor_member_detail-block_1' => array(
-          'module' => 'views',
-          'delta' => 'mor_member_detail-block_1',
+          'delta' => 'personal_portal-block_2',
           'region' => 'sidebar_first',
           'weight' => '-9',
         ),
-        'views-mor_og_members-block_2' => array(
+        'views-my_readings-block_2' => array(
           'module' => 'views',
-          'delta' => 'mor_og_members-block_2',
+          'delta' => 'my_readings-block_2',
           'region' => 'sidebar_first',
           'weight' => '-8',
-        ),
-        'views-portal_calendar-block_2' => array(
-          'module' => 'views',
-          'delta' => 'portal_calendar-block_2',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
         ),
         'stickynote-stickynote_block' => array(
           'module' => 'stickynote',
           'delta' => 'stickynote_block',
           'region' => 'sidebar_second',
           'weight' => '-9',
+        ),
+        'views-portal_calendar-block_2' => array(
+          'module' => 'views',
+          'delta' => 'portal_calendar-block_2',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
         ),
       ),
     ),

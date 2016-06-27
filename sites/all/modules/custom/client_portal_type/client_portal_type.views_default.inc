@@ -534,6 +534,8 @@ function client_portal_type_views_default_views() {
   $handler = $view->new_display('block', 'Workshop List', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'All Workshops';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'workshop-list';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'none';
   $handler->display->display_options['pager']['options']['offset'] = '0';
@@ -1064,6 +1066,8 @@ function client_portal_type_views_default_views() {
   $handler = $view->new_display('block', 'Upcoming Dates', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Upcoming Dates';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'upcoming-dates';
   $handler->display->display_options['display_description'] = 'Upcoming events block';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
@@ -1238,6 +1242,10 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['relationships']['og_membership_rel']['id'] = 'og_membership_rel';
   $handler->display->display_options['relationships']['og_membership_rel']['table'] = 'users';
   $handler->display->display_options['relationships']['og_membership_rel']['field'] = 'og_membership_rel';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_client_affiliation_target_id']['id'] = 'field_client_affiliation_target_id';
+  $handler->display->display_options['relationships']['field_client_affiliation_target_id']['table'] = 'field_data_field_client_affiliation';
+  $handler->display->display_options['relationships']['field_client_affiliation_target_id']['field'] = 'field_client_affiliation_target_id';
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
@@ -1368,13 +1376,24 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
   $handler->display->display_options['fields']['field_first_name']['field'] = 'field_first_name';
   $handler->display->display_options['fields']['field_first_name']['label'] = '';
+  $handler->display->display_options['fields']['field_first_name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_first_name']['element_label_colon'] = FALSE;
   /* Field: User: Last Name */
   $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
   $handler->display->display_options['fields']['field_last_name']['table'] = 'field_data_field_last_name';
   $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
   $handler->display->display_options['fields']['field_last_name']['label'] = '';
+  $handler->display->display_options['fields']['field_last_name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '<a href="/portal/program/participant-profile/[name]">[field_first_name] [field_last_name]</a>';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
   /* Field: User: Job Title */
   $handler->display->display_options['fields']['field_user_title']['id'] = 'field_user_title';
   $handler->display->display_options['fields']['field_user_title']['table'] = 'field_data_field_user_title';
@@ -1393,14 +1412,17 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['label'] = '';
   $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
-  /* Field: User: Link */
-  $handler->display->display_options['fields']['view_user']['id'] = 'view_user';
-  $handler->display->display_options['fields']['view_user']['table'] = 'users';
-  $handler->display->display_options['fields']['view_user']['field'] = 'view_user';
-  $handler->display->display_options['fields']['view_user']['label'] = '';
-  $handler->display->display_options['fields']['view_user']['alter']['alter_text'] = TRUE;
-  $handler->display->display_options['fields']['view_user']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_user']['text'] = 'View Bio';
+  /* Field: User: Biography */
+  $handler->display->display_options['fields']['field_user_bio']['id'] = 'field_user_bio';
+  $handler->display->display_options['fields']['field_user_bio']['table'] = 'field_data_field_user_bio';
+  $handler->display->display_options['fields']['field_user_bio']['field'] = 'field_user_bio';
+  $handler->display->display_options['fields']['field_user_bio']['label'] = '';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['max_length'] = '200';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_user_bio']['alter']['more_link_text'] = 'more';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['more_link_path'] = 'portal/program/participant-profile/[name]';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_user_bio']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: User: Active */
@@ -1423,7 +1445,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Participants';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_plugin'] = 'list';
   $handler->display->display_options['style_options']['grouping'] = array(
     0 => array(
       'field' => 'field_client_affiliation',
@@ -1447,13 +1469,30 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
   $handler->display->display_options['fields']['field_first_name']['field'] = 'field_first_name';
   $handler->display->display_options['fields']['field_first_name']['label'] = '';
+  $handler->display->display_options['fields']['field_first_name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_first_name']['element_label_colon'] = FALSE;
   /* Field: User: Last Name */
   $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
   $handler->display->display_options['fields']['field_last_name']['table'] = 'field_data_field_last_name';
   $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
   $handler->display->display_options['fields']['field_last_name']['label'] = '';
+  $handler->display->display_options['fields']['field_last_name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
+  /* Field: User: Name */
+  $handler->display->display_options['fields']['name']['id'] = 'name';
+  $handler->display->display_options['fields']['name']['table'] = 'users';
+  $handler->display->display_options['fields']['name']['field'] = 'name';
+  $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '<a href="/portal/program/participant-profile/[name]">[field_first_name] [field_last_name]</a>';
+  $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
+  /* Field: User: Organization Unit */
+  $handler->display->display_options['fields']['field_organization_unit']['id'] = 'field_organization_unit';
+  $handler->display->display_options['fields']['field_organization_unit']['table'] = 'field_data_field_organization_unit';
+  $handler->display->display_options['fields']['field_organization_unit']['field'] = 'field_organization_unit';
+  $handler->display->display_options['fields']['field_organization_unit']['label'] = '';
+  $handler->display->display_options['fields']['field_organization_unit']['element_label_colon'] = FALSE;
   /* Field: User: Job Title */
   $handler->display->display_options['fields']['field_user_title']['id'] = 'field_user_title';
   $handler->display->display_options['fields']['field_user_title']['table'] = 'field_data_field_user_title';
@@ -1466,18 +1505,26 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['field_user_position']['field'] = 'field_user_position';
   $handler->display->display_options['fields']['field_user_position']['label'] = '';
   $handler->display->display_options['fields']['field_user_position']['element_label_colon'] = FALSE;
-  /* Field: User: Biography */
-  $handler->display->display_options['fields']['field_user_bio']['id'] = 'field_user_bio';
-  $handler->display->display_options['fields']['field_user_bio']['table'] = 'field_data_field_user_bio';
-  $handler->display->display_options['fields']['field_user_bio']['field'] = 'field_user_bio';
-  $handler->display->display_options['fields']['field_user_bio']['label'] = '';
-  $handler->display->display_options['fields']['field_user_bio']['element_label_colon'] = FALSE;
   /* Field: User: E-mail */
   $handler->display->display_options['fields']['mail']['id'] = 'mail';
   $handler->display->display_options['fields']['mail']['table'] = 'users';
   $handler->display->display_options['fields']['mail']['field'] = 'mail';
   $handler->display->display_options['fields']['mail']['label'] = '';
   $handler->display->display_options['fields']['mail']['element_label_colon'] = FALSE;
+  /* Field: User: Biography */
+  $handler->display->display_options['fields']['field_user_bio']['id'] = 'field_user_bio';
+  $handler->display->display_options['fields']['field_user_bio']['table'] = 'field_data_field_user_bio';
+  $handler->display->display_options['fields']['field_user_bio']['field'] = 'field_user_bio';
+  $handler->display->display_options['fields']['field_user_bio']['label'] = '';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['max_length'] = '200';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['more_link'] = TRUE;
+  $handler->display->display_options['fields']['field_user_bio']['alter']['more_link_text'] = 'more';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['more_link_path'] = 'portal/program/participant-profile/[name]';
+  $handler->display->display_options['fields']['field_user_bio']['alter']['trim'] = TRUE;
+  $handler->display->display_options['fields']['field_user_bio']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_user_bio']['settings'] = array(
+    'trim_length' => '600',
+  );
   /* Field: User: Client Affiliation */
   $handler->display->display_options['fields']['field_client_affiliation']['id'] = 'field_client_affiliation';
   $handler->display->display_options['fields']['field_client_affiliation']['table'] = 'field_data_field_client_affiliation';
@@ -1488,6 +1535,21 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['field_client_affiliation']['settings'] = array(
     'link' => 0,
   );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Title */
+  $handler->display->display_options['sorts']['title']['id'] = 'title';
+  $handler->display->display_options['sorts']['title']['table'] = 'node';
+  $handler->display->display_options['sorts']['title']['field'] = 'title';
+  $handler->display->display_options['sorts']['title']['relationship'] = 'field_client_affiliation_target_id';
+  /* Sort criterion: User: Last Name (field_last_name) */
+  $handler->display->display_options['sorts']['field_last_name_value']['id'] = 'field_last_name_value';
+  $handler->display->display_options['sorts']['field_last_name_value']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['sorts']['field_last_name_value']['field'] = 'field_last_name_value';
+  /* Sort criterion: User: Created date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'users';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: User: Active */
@@ -1522,6 +1584,13 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/portal/people">View All People</a>';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: User: First Name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
