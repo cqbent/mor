@@ -55,6 +55,9 @@ function client_portal_type_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_ar_media_file',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -459,6 +462,9 @@ function client_portal_type_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_workbook',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',
@@ -511,6 +517,9 @@ function client_portal_type_field_default_field_bases() {
     'deleted' => 0,
     'entity_types' => array(),
     'field_name' => 'field_workshop_files',
+    'field_permissions' => array(
+      'type' => 0,
+    ),
     'indexes' => array(
       'fid' => array(
         0 => 'fid',

@@ -104,10 +104,10 @@ function client_portal_type_field_default_field_instances() {
           'value' => 'portal/[field_collection_item:host:node:og-group-ref]',
         ),
         'redirect' => FALSE,
-        'retroactive_update' => 1,
+        'retroactive_update' => 0,
       ),
       'filefield_paths_enabled' => 1,
-      'max_filesize' => '2 MB',
+      'max_filesize' => '5 MB',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1285,7 +1285,29 @@ function client_portal_type_field_default_field_instances() {
       'description_field' => 0,
       'file_directory' => 'portal/files/workbook',
       'file_extensions' => 'pdf doc docx',
-      'max_filesize' => '2 MB',
+      'filefield_paths' => array(
+        'active_updating' => 0,
+        'file_name' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => '[file:ffp-name-only-original].[file:ffp-extension-original]',
+        ),
+        'file_path' => array(
+          'options' => array(
+            'pathauto' => 0,
+            'slashes' => 0,
+            'transliterate' => 0,
+          ),
+          'value' => 'portal/files/workbook',
+        ),
+        'redirect' => FALSE,
+        'retroactive_update' => 0,
+      ),
+      'filefield_paths_enabled' => 1,
+      'max_filesize' => '5 MB',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
@@ -1426,10 +1448,10 @@ function client_portal_type_field_default_field_instances() {
           'value' => 'portal/[node:og-group-ref]',
         ),
         'redirect' => FALSE,
-        'retroactive_update' => 1,
+        'retroactive_update' => 0,
       ),
       'filefield_paths_enabled' => 1,
-      'max_filesize' => '2 MB',
+      'max_filesize' => '5 MB',
       'user_register_form' => FALSE,
     ),
     'widget' => array(
