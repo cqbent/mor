@@ -1845,33 +1845,38 @@ body.front {
   border-bottom: 1px #bbb solid;
 }
 /* line 1079, ../sass/pages.scss */
+.node-type-client-portal #content .view-portal-people .item-list .views-field-picture, .node-type-portal-content #content .view-portal-people .item-list .views-field-picture, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-picture, .section-portal #content .view-portal-people .item-list .views-field-picture {
+  float: left;
+  margin-right: 20px;
+}
+/* line 1083, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-name, .node-type-portal-content #content .view-portal-people .item-list .views-field-name, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-name, .section-portal #content .view-portal-people .item-list .views-field-name {
   font-weight: bold;
 }
-/* line 1082, ../sass/pages.scss */
+/* line 1086, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-field-user-bio, .node-type-portal-content #content .view-portal-people .item-list .views-field-field-user-bio, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-field-user-bio, .section-portal #content .view-portal-people .item-list .views-field-field-user-bio {
   margin-top: 10px;
 }
-/* line 1084, ../sass/pages.scss */
+/* line 1088, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-field-user-bio p, .node-type-portal-content #content .view-portal-people .item-list .views-field-field-user-bio p, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-field-user-bio p, .section-portal #content .view-portal-people .item-list .views-field-field-user-bio p {
   margin: 0;
 }
-/* line 1094, ../sass/pages.scss */
+/* line 1098, ../sass/pages.scss */
 .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list li, .section-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .section-portal .region-sidebar-second .block-stickynote #stickynote-list li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 1102, ../sass/pages.scss */
+/* line 1106, ../sass/pages.scss */
 .node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-submit, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-submit {
   display: none;
 }
-/* line 1109, ../sass/pages.scss */
+/* line 1113, ../sass/pages.scss */
 .node-type-client-portal #footer, .node-type-portal-content #footer, .node-type-portal-workshop #footer, .section-portal #footer {
   display: none;
 }
 @media all and (min-width: 901px) {
-  /* line 1115, ../sass/pages.scss */
+  /* line 1119, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars #content, .node-type-portal-content.two-sidebars #content, .node-type-portal-workshop.two-sidebars #content, .section-portal.two-sidebars #content {
     float: left;
     width: 58.33333%;
@@ -1885,7 +1890,7 @@ body.front {
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 1118, ../sass/pages.scss */
+  /* line 1122, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars .region-sidebar-first, .node-type-portal-content.two-sidebars .region-sidebar-first, .node-type-portal-workshop.two-sidebars .region-sidebar-first, .section-portal.two-sidebars .region-sidebar-first {
     float: left;
     width: 25%;
@@ -1899,7 +1904,7 @@ body.front {
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 1121, ../sass/pages.scss */
+  /* line 1125, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars .region-sidebar-second, .node-type-portal-content.two-sidebars .region-sidebar-second, .node-type-portal-workshop.two-sidebars .region-sidebar-second, .section-portal.two-sidebars .region-sidebar-second {
     float: left;
     width: 16.66667%;
@@ -1915,7 +1920,7 @@ body.front {
   }
 }
 
-/* line 1127, ../sass/pages.scss */
+/* line 1131, ../sass/pages.scss */
 #block-views-og-post-reflection-block-1 {
   position: absolute;
   right: 0px;
