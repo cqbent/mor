@@ -214,10 +214,12 @@ function client_portal_type_context_default_contexts() {
   $context->description = '';
   $context->tag = 'portal';
   $context->conditions = array(
-    'path' => array(
+    'node' => array(
       'values' => array(
-        'portal/program*' => 'portal/program*',
-        '~portal/program/participant-profile*' => '~portal/program/participant-profile*',
+        'client_portal' => 'client_portal',
+      ),
+      'options' => array(
+        'node_form' => '1',
       ),
     ),
   );
@@ -277,6 +279,18 @@ function client_portal_type_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
+        'views-personal_portal-block_2' => array(
+          'module' => 'views',
+          'delta' => 'personal_portal-block_2',
+          'region' => 'sidebar_first',
+          'weight' => '-10',
+        ),
+        'views-portal_people-block_3' => array(
+          'module' => 'views',
+          'delta' => 'portal_people-block_3',
+          'region' => 'sidebar_first',
+          'weight' => '-8',
+        ),
         'views-workshop_info-block_1' => array(
           'module' => 'views',
           'delta' => 'workshop_info-block_1',
@@ -288,6 +302,12 @@ function client_portal_type_context_default_contexts() {
           'delta' => 'workshop_info-block_2',
           'region' => 'sidebar_second',
           'weight' => '-44',
+        ),
+        'stickynote-stickynote_block' => array(
+          'module' => 'stickynote',
+          'delta' => 'stickynote_block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
         ),
       ),
     ),
