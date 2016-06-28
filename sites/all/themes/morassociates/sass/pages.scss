@@ -792,6 +792,13 @@ body.front { background-position: center 40px; }
 					padding: 0;
 				}
 			}
+			.views-row {
+				margin-bottom: 10px;
+			}
+			.views-field-title {
+				font-weight: bold;
+				display: block;
+			}
 			.block-title, .field-name-title h2, .field-name-full-name {
 				padding: 10px 20px 20px 20px;
 				margin: -10px -20px;
@@ -973,6 +980,11 @@ body.front { background-position: center 40px; }
 						font-weight: bold;
 					}
 				}
+			}
+		}
+		.participants-list {
+			.views-row {
+				margin: 0;
 			}
 		}
 

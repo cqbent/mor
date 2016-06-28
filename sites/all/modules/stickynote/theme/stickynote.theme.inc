@@ -9,6 +9,8 @@
  *             $variables['notes'] = an array of all notes for referring url
  * @TODO: Customize include better themeing for listing.
  */
+
+/* SYP: customized stickynote theme list */
 function theme_stickynote_list($variables) {
   $output = '';
   $notes = array();

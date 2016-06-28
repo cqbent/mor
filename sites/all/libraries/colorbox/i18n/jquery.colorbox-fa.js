@@ -1,5 +1,5 @@
 /*
-	jQuery ColorBox language configuration
+	jQuery Colorbox language configuration
 	language: Persian (Farsi)
 	translated by: Mahdi Jaberzadeh Ansari (MJZSoft)
 	site: www.mjzsoft.ir
@@ -7,12 +7,12 @@
 	Please note : Persian language is right to left like arabic.
 */
 jQuery.extend(jQuery.colorbox.settings, {
-	current: "فعلی",
+	current: "تصویر {current} از {total}",
 	previous: "قبلی",
 	next: "بعدی",
 	close: "بستن",
-	xhrError: "قابلیت بارگذاری این نوع از داده وجود ندارد.",
-	imgError: "اشکالی در بارگذاری تصویر رخ داده است.",
+	xhrError: "متاسفانه محتویات مورد نظر قابل نمایش نیست.",
+	imgError: "متاسفانه بارگذاری این عکس با مشکل مواجه شده است.",
 	slideshowStart: "آغاز نمایش خودکار",
 	slideshowStop: "توقف نمایش خودکار"
 });
