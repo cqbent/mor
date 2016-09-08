@@ -9,35 +9,7 @@
  *             $variables['notes'] = an array of all notes for referring url
  * @TODO: Customize include better themeing for listing.
  */
-
-/* SYP: customized stickynote theme list */
 function theme_stickynote_list($variables) {
-  $output = '';
-  $notes = array();
-  if (isset($variables['notes']) && intval($variables['notes']->rowCount())) {
-    foreach ($variables['notes'] as $key => $stickynote) {
-      if (_stickynote_view_access($stickynote)) {
-        $note_class = 'note-' . $stickynote->snid;
-        $account = user_load($stickynote->uid);
-        $updated = format_date($stickynote->updated, variable_get('stickynote_date_format', 'short'));
-        $edit = l(t('edit'), 'stickynote/' . $stickynote->snid . '/edit', array('attributes' => array('class' => array('use-ajax'))));
-        $note = nl2br(filter_xss($stickynote->note));
-        $data  =  '<div class="updated">' . $updated . '</div><div class="note">' . $note . '</div><div class="edit">' . $edit .'</div>';
-        $notes[] = array(
-            'data' => $data,
-        );
-      }
-    }
-    $variables = array(
-        'items' => $notes,
-        'type' => 'ul'
-    );
-    $output = theme('item_list', $variables);
-  }
-  return $output;
-}
-
-function theme_stickynote_listOld($variables) {
   $output = '';
   $notes = array();
 

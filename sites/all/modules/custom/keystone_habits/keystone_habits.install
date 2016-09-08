@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function keystone_habits_schema() {
+  
+  $schema = array();
+
+  $schema['keystone_habits_weekly'] = array(
+    'description' => 'Keystone habits weekly table.',
+    'fields' => array(
+      'khid' => array(
+        'description' => 'Primary key for keystone habits weekly table',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The user',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'practice_note' => array(
+        'description' => 'practice note',
+        'type' => 'text',
+        'not null' => FALSE,
+        'size' => 'big',
+        'default' => NULL
+      ),
+      'practice_tracked' => array(
+        'description' => 'was practice tracked',
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => 0
+      ),
+      'practice_created' => array(
+        'description' => 'Date practice entry was created',
+        'type' => 'int',
+        'default' => 0,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('khid'),
+  );
+
+  $schema['keystone_habits_daily'] = array(
+    'description' => 'Keystone habits daily table.',
+    'fields' => array(
+      'khid' => array(
+        'description' => 'Primary key for keystone habits daily table',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The user',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'practice_category' => array(
+        'description' => 'type of practice',
+        'type' => 'varchar',
+        'not null' => TRUE,
+        'length' => 100,
+      ),
+      'practice_tracked' => array(
+        'description' => 'was practice tracked',
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => 0
+      ),
+      'practice_created' => array(
+        'description' => 'Date practice was created',
+        'type' => 'int',
+        'default' => 0,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('khid'),
+  );
+  
+  return $schema;
+}
+

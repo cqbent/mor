@@ -1,9 +1,11 @@
 ; $ID: $
 name = MOR Sticky Note
 description = "Custom stickynotes based on stickynotes module"
+dependencies[] = stickynote
+dependencies[] = views
 version = "7.x-1.0"
 core = "7.x"
-project = "stickynote"
-dependencies[] = stickynote
+project = "mor_stickynote"
+
 
 

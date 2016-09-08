@@ -1116,7 +1116,7 @@ body.front { background-position: center 40px; }
 			form {
 				&.hidden {
 					.form-item, .form-submit {
-						display: none;
+						//display: none;
 					}
 				}
 			}
@@ -1145,4 +1145,42 @@ body.front { background-position: center 40px; }
 }
 
 
+// keystone habits styling
 
+.block-keystone-habits, .keystone-habits-list {
+	a {
+		font-weight: bold;
+	}
+	label {
+		display: inline-block;
+	}
+	div {
+		margin-bottom: 5px;
+	}
+	.week {
+		font-weight: bold;
+	}
+	.note {
+		font-style: italic;
+	}
+	.edit {
+		text-align: right;
+	}
+}
+.keystone-habits-list {
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		li {
+			border-bottom: 1px #D3D7D9 solid;
+			margin: 10px 0;
+			padding: 10px 0;
+		}
+	}
+}
+.block-keystone-habits {
+	select {
+		width: 100%;
+	}
+}

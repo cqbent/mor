@@ -199,7 +199,7 @@ function render_example_cache_pre_render($element) {
  * A potentially expensive function.
  *
  * @return
- *   Some demo text.
+ *   Some keystone_habits text.
  */
 function render_example_cache_expensive() {
   $interval = 60;

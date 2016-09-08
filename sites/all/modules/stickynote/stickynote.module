@@ -70,43 +70,8 @@ function stickynote_menu() {
     'access callback' => '_stickynote_edit_access',
     'type' => MENU_CALLBACK,
   );
-  $items['stickynote/%stickynote/editform'] = array(
-    'title' => 'Edit This Stickynote',
-    'page callback' => 'drupal_get_form',
-    'page arguments' => array('stickynote_edit_page',1),
-    'access callback' => TRUE,
-    'description' => 'Edit stickynote',
-    'type' => MENU_CALLBACK,
-  );
   return $items;
 }
-
-/* SYP: stickynote edit page */
-function stickynote_edit_page($form, &$form_state, $stickynote) {
-  $form['note'] = array(
-    '#type' => 'textarea',
-    '#title' => t('Edit Note'),
-    '#required' => TRUE,
-    '#default_value' => $stickynote->note,
-    '#rows' => 5,
-  );
-  $form['submit'] = array(
-    '#type' => 'submit',
-    '#value' => t('Submit Change'),
-  );
-  $form_state['original_stickynote'] = $stickynote;
-  return $form;
-}
-function stickynote_edit_page_submit($form, &$form_state) {
-    // get original stickynote and update fields
-    $stickynote_submission = (object) $form_state['original_stickynote'];
-    $stickynote_submission->note = $form_state['values']['note'];
-    $stickynote_submission->updated = time();
-    field_attach_submit('stickynote', $stickynote_submission, $form, $form_state);
-    $stickynote = entity_get_controller('stickynote')->update($stickynote_submission);
-    drupal_set_message(t('Stickynote has been updated'));
-}
-
 
 /**
  * Implements hook_theme().
@@ -116,6 +81,7 @@ function stickynote_theme($existing, $type, $theme, $path) {
     'stickynote_list' => array(
       'variables' => array('referring_url' => NULL, 'notes' => NULL,),
       'file' => 'theme/stickynote.theme.inc',
+
      ),
     'stickynote_confirm' => array(
       'variables' => array('stickynote' => NULL,),
@@ -218,6 +184,7 @@ function stickynote_add_page() {
 function stickynote_add_form($form, &$form_state, $stickynote) {
   $stickynote_vars['referring_url'] = !empty($stickynote->url) ? $stickynote->url : current_path();
   $stickynote_vars['notes'] = stickynote_get_notes($stickynote_vars['referring_url']);
+
   $form['notes_list'] = array(
     '#type' => 'markup',
     '#prefix' => '<div id="stickynote-list">',
@@ -234,27 +201,27 @@ function stickynote_add_form($form, &$form_state, $stickynote) {
   }
 
   $form['note'] = array(
-      '#type' => 'textarea',
-      '#title' => t('Add Note'),
-      '#required' => TRUE,
-      '#disabled' => $access,
-      '#rows' => 5,
+    '#type' => 'textarea',
+    '#title' => t('Add Note'),
+    '#required' => TRUE,
+    '#disabled' => $access,
+    '#rows' => 2,
   );
   $form['submit'] = array(
-      '#type' => 'submit',
-      '#ajax' => array(
-          'callback' => 'submit_note_add_callback',
-          'wrapper' => 'stickynote-list',
-          'name' => 'submit1',
-      ),
-      '#disabled' => $access,
-      '#value' => t('Add Note'),
+    '#type' => 'submit',
+    '#ajax' => array(
+      'callback' => 'submit_note_add_callback',
+      'wrapper' => 'stickynote-list',
+      'name' => 'submit1',
+    ),
+    '#disabled' => $access,
+    '#value' => t('Add Note'),
   );
-  if ($form['notes_list']['#markup']) {
-    $form['#attributes'] = array('class' => 'hidden');  // SYP: add hidden class if already contains stickynote(s)
-  }
+
+
   $form_state['referring_url'] = $stickynote_vars['referring_url'];
   field_attach_form('stickynote', $stickynote, $form, $form_state);
+
   return $form;
 }
 
@@ -277,7 +244,7 @@ function stickynote_edit_form($form, &$form_state, $stickynote) {
     '#title' => t('Edit Note'),
     '#required' => TRUE,
     '#default_value' => $stickynote->note,
-    '#rows' => 5,
+    '#rows' => 2,
   );
   $form['submit'] = array(
     '#type' => 'submit',
@@ -435,20 +402,13 @@ function stickynote_add_form_validate($form, &$form_state) {
  */
 function stickynote_add_form_submit($form, &$form_state) {
   global $user;
-  $user_id = $user->uid;
-  // SYP: get user id from path if exists
-  /*
-  $ref_url = explode('/',$form_state['referring_url']);
-  if (is_numeric($ref_url[count($ref_url)-1])) {
-    $user_id = $ref_url[count($ref_url)-1];
-  }
-  */
+
   // set variables and save submission
   $stickynote_submission = (object) $form_state['values'];
   $stickynote_submission->created = time();
   $stickynote_submission->updated = time();
   $stickynote_submission->url = $form_state['referring_url'];
-  $stickynote_submission->uid = $user_id;
+  $stickynote_submission->uid = $user->uid;
   field_attach_submit('stickynote', $stickynote_submission, $form, $form_state);
   $stickynote = stickynote_save($stickynote_submission);
 }
@@ -531,9 +491,6 @@ function stickynote_page_view($stickynote, $view_mode = 'full') {
   return $stickynote->content;
 }
 
-
-
-
 /**
  * Implements hook_field_extra_fields().
  * Exposes note field to field UI for managing fields/display
@@ -589,19 +546,18 @@ function stickynote_block_view($delta = '') {
  */
 function stickynote_get_notes($referring_url = NULL) {
   global $user;
-  $user_id = $user->uid;
-  // SYP: get user id from path
-  /*
+
+  // Use current path if there is no referring url
   if (isset($referring_url)) {
-    $ref_url = explode('/',$referring_url);
-    if (is_numeric($ref_url[count($ref_url)-1])) {
-      $user_id = $ref_url[count($ref_url)-1];
-    }
+    $path = $referring_url;
   }
-  */
+  else {
+    $path = current_path();
+  }
+
   // Get all stickynotes of path and order by created date
   $query = db_select('stickynote', 's')
-          ->condition('uid', $user_id)  // SYP: changed from nodeid to userid
+          ->condition('url', $path)
           ->fields('s')
           ->orderBy('created', 'DESC');
 

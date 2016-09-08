@@ -67,7 +67,7 @@ function block_help($path, $arg) {
     $demo_theme = !empty($arg[4]) ? $arg[4] : variable_get('theme_default', 'bartik');
     $themes = list_themes();
     $output = '<p>' . t('This page provides a drag-and-drop interface for assigning a block to a region, and for controlling the order of blocks within regions. Since not all themes implement the same regions, or display regions in the same way, blocks are positioned on a per-theme basis. Remember that your changes will not be saved until you click the <em>Save blocks</em> button at the bottom of the page. Click the <em>configure</em> link next to each block to configure its specific title and visibility settings.') . '</p>';
-    $output .= '<p>' . l(t('Demonstrate block regions (!theme)', array('!theme' => $themes[$demo_theme]->info['name'])), 'admin/structure/block/demo/' . $demo_theme) . '</p>';
+    $output .= '<p>' . l(t('Demonstrate block regions (!theme)', array('!theme' => $themes[$demo_theme]->info['name'])), 'admin/structure/block/keystone_habits/' . $demo_theme) . '</p>';
     return $output;
   }
 }
@@ -162,7 +162,7 @@ function block_menu() {
         'file' => 'block.admin.inc',
       );
     }
-    $items['admin/structure/block/demo/' . $key] = array(
+    $items['admin/structure/block/keystone_habits/' . $key] = array(
       'title' => $theme->info['name'],
       'page callback' => 'block_admin_demo',
       'page arguments' => array($key),
@@ -263,7 +263,7 @@ function block_page_build(&$page) {
   $all_regions = system_region_list($theme);
 
   $item = menu_get_item();
-  if ($item['path'] != 'admin/structure/block/demo/' . $theme) {
+  if ($item['path'] != 'admin/structure/block/keystone_habits/' . $theme) {
     // Load all region content assigned via blocks.
     foreach (array_keys($all_regions) as $region) {
       // Assign blocks to region.
@@ -282,9 +282,9 @@ function block_page_build(&$page) {
     drupal_static_reset('block_list');
   }
   else {
-    // Append region description if we are rendering the regions demo page.
+    // Append region description if we are rendering the regions keystone_habits page.
     $item = menu_get_item();
-    if ($item['path'] == 'admin/structure/block/demo/' . $theme) {
+    if ($item['path'] == 'admin/structure/block/keystone_habits/' . $theme) {
       $visible_regions = array_keys(system_region_list($theme, REGIONS_VISIBLE));
       foreach ($visible_regions as $region) {
         $description = '<div class="block-region">' . $all_regions[$region] . '</div>';
@@ -299,7 +299,7 @@ function block_page_build(&$page) {
         '#href' => 'admin/structure/block' . (variable_get('theme_default', 'bartik') == $theme ? '' : '/list/' . $theme),
         // Add the "overlay-restore" class to indicate this link should restore
         // the context in which the region demonstration page was opened.
-        '#options' => array('attributes' => array('class' => array('block-demo-backlink', 'overlay-restore'))),
+        '#options' => array('attributes' => array('class' => array('block-keystone_habits-backlink', 'overlay-restore'))),
         '#weight' => -10,
       );
     }
@@ -1097,7 +1097,7 @@ function block_admin_paths() {
   $paths = array(
     // Exclude the block demonstration page from admin (overlay) treatment.
     // This allows us to present this page in its true form, full page.
-    'admin/structure/block/demo/*' => FALSE,
+    'admin/structure/block/keystone_habits/*' => FALSE,
   );
   return $paths;
 }

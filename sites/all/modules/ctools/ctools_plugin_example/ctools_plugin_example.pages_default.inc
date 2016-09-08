@@ -430,7 +430,7 @@ function ctools_plugin_example_default_page_manager_pages() {
   $pane->access = array();
   $pane->configuration = array(
     'title' => 'Use this page with an argument',
-    'body' => 'This demo page works if you use an argument, like <a href="ctools_plugin_example/xxxxx">ctools_plugin_example/xxxxx</a>.',
+    'body' => 'This keystone_habits page works if you use an argument, like <a href="ctools_plugin_example/xxxxx">ctools_plugin_example/xxxxx</a>.',
     'format' => '1',
     'substitute' => NULL,
   );

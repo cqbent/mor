@@ -1880,10 +1880,6 @@ body.front {
   padding: 0;
   list-style: none;
 }
-/* line 1118, ../sass/pages.scss */
-.node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-client-portal .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-content .region-sidebar-second .block-stickynote form.hidden .form-submit, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-item, .node-type-portal-workshop .region-sidebar-second .block-stickynote form.hidden .form-submit, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-item, .section-portal .region-sidebar-second .block-stickynote form.hidden .form-submit {
-  display: none;
-}
 /* line 1125, ../sass/pages.scss */
 .node-type-client-portal #footer, .node-type-portal-content #footer, .node-type-portal-workshop #footer, .section-portal #footer {
   display: none;
@@ -1937,4 +1933,47 @@ body.front {
 #block-views-og-post-reflection-block-1 {
   position: absolute;
   right: 0px;
+}
+
+/* line 1151, ../sass/pages.scss */
+.block-keystone-habits a, .keystone-habits-list a {
+  font-weight: bold;
+}
+/* line 1154, ../sass/pages.scss */
+.block-keystone-habits label, .keystone-habits-list label {
+  display: inline-block;
+}
+/* line 1157, ../sass/pages.scss */
+.block-keystone-habits div, .keystone-habits-list div {
+  margin-bottom: 5px;
+}
+/* line 1160, ../sass/pages.scss */
+.block-keystone-habits .week, .keystone-habits-list .week {
+  font-weight: bold;
+}
+/* line 1163, ../sass/pages.scss */
+.block-keystone-habits .note, .keystone-habits-list .note {
+  font-style: italic;
+}
+/* line 1166, ../sass/pages.scss */
+.block-keystone-habits .edit, .keystone-habits-list .edit {
+  text-align: right;
+}
+
+/* line 1171, ../sass/pages.scss */
+.keystone-habits-list ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 1175, ../sass/pages.scss */
+.keystone-habits-list ul li {
+  border-bottom: 1px #D3D7D9 solid;
+  margin: 10px 0;
+  padding: 10px 0;
+}
+
+/* line 1183, ../sass/pages.scss */
+.block-keystone-habits select {
+  width: 100%;
 }

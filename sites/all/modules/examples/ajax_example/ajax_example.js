@@ -16,7 +16,7 @@
       $('.enabled-for-ajax').removeAttr('disabled');
     }
 
-    // Below is only for the demo case of showing with js turned off.
+    // Below is only for the keystone_habits case of showing with js turned off.
     // It overrides the behavior of the CSS that would normally turn off
     // the 'ok' button when JS is enabled. Here, for demonstration purposes,
     // we have AJAX disabled but JS turned on, so use this to simulate.

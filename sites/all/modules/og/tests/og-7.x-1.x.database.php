@@ -18773,7 +18773,7 @@ db_insert('menu_router')->fields(array(
   'include_file' => 'modules/block/block.admin.inc',
 ))
 ->values(array(
-  'path' => 'admin/structure/block/demo/bartik',
+  'path' => 'admin/structure/block/keystone_habits/bartik',
   'load_functions' => '',
   'to_arg_functions' => '',
   'access_callback' => '_block_themes_access',
@@ -18785,7 +18785,7 @@ db_insert('menu_router')->fields(array(
   'number_parts' => '5',
   'context' => '0',
   'tab_parent' => '',
-  'tab_root' => 'admin/structure/block/demo/bartik',
+  'tab_root' => 'admin/structure/block/keystone_habits/bartik',
   'title' => 'Bartik',
   'title_callback' => 't',
   'title_arguments' => '',
@@ -18798,7 +18798,7 @@ db_insert('menu_router')->fields(array(
   'include_file' => 'modules/block/block.admin.inc',
 ))
 ->values(array(
-  'path' => 'admin/structure/block/demo/garland',
+  'path' => 'admin/structure/block/keystone_habits/garland',
   'load_functions' => '',
   'to_arg_functions' => '',
   'access_callback' => '_block_themes_access',
@@ -18810,7 +18810,7 @@ db_insert('menu_router')->fields(array(
   'number_parts' => '5',
   'context' => '0',
   'tab_parent' => '',
-  'tab_root' => 'admin/structure/block/demo/garland',
+  'tab_root' => 'admin/structure/block/keystone_habits/garland',
   'title' => 'Garland',
   'title_callback' => 't',
   'title_arguments' => '',
@@ -18823,7 +18823,7 @@ db_insert('menu_router')->fields(array(
   'include_file' => 'modules/block/block.admin.inc',
 ))
 ->values(array(
-  'path' => 'admin/structure/block/demo/gizra',
+  'path' => 'admin/structure/block/keystone_habits/gizra',
   'load_functions' => '',
   'to_arg_functions' => '',
   'access_callback' => '_block_themes_access',
@@ -18835,7 +18835,7 @@ db_insert('menu_router')->fields(array(
   'number_parts' => '5',
   'context' => '0',
   'tab_parent' => '',
-  'tab_root' => 'admin/structure/block/demo/gizra',
+  'tab_root' => 'admin/structure/block/keystone_habits/gizra',
   'title' => 'Gizra',
   'title_callback' => 't',
   'title_arguments' => '',
@@ -18848,7 +18848,7 @@ db_insert('menu_router')->fields(array(
   'include_file' => 'modules/block/block.admin.inc',
 ))
 ->values(array(
-  'path' => 'admin/structure/block/demo/seven',
+  'path' => 'admin/structure/block/keystone_habits/seven',
   'load_functions' => '',
   'to_arg_functions' => '',
   'access_callback' => '_block_themes_access',
@@ -18860,7 +18860,7 @@ db_insert('menu_router')->fields(array(
   'number_parts' => '5',
   'context' => '0',
   'tab_parent' => '',
-  'tab_root' => 'admin/structure/block/demo/seven',
+  'tab_root' => 'admin/structure/block/keystone_habits/seven',
   'title' => 'Seven',
   'title_callback' => 't',
   'title_arguments' => '',
@@ -18873,7 +18873,7 @@ db_insert('menu_router')->fields(array(
   'include_file' => 'modules/block/block.admin.inc',
 ))
 ->values(array(
-  'path' => 'admin/structure/block/demo/stark',
+  'path' => 'admin/structure/block/keystone_habits/stark',
   'load_functions' => '',
   'to_arg_functions' => '',
   'access_callback' => '_block_themes_access',
@@ -18885,7 +18885,7 @@ db_insert('menu_router')->fields(array(
   'number_parts' => '5',
   'context' => '0',
   'tab_parent' => '',
-  'tab_root' => 'admin/structure/block/demo/stark',
+  'tab_root' => 'admin/structure/block/keystone_habits/stark',
   'title' => 'Stark',
   'title_callback' => 't',
   'title_arguments' => '',
