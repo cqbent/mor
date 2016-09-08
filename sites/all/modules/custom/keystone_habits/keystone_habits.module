@@ -202,8 +202,7 @@ function kh_week_block_view() {
   }
   // 3) if not then display add form
   else {
-    $khentity = entity_create('keystone_habit_week');
-    $form = entity_ui_get_form('keystone_habit_week', $khentity, 'add');
+    $form = entity_ui_get_form('keystone_habit_week', NULL, 'add');
     $output = '<div class="kh-week-entry-form">
           <div class="week">Add entry for current week ('.$currweek.')</div>
           <div class="form">'.drupal_render($form).'</div>
@@ -306,15 +305,15 @@ function kh_day_block_view() {
         </div>';
     }
   }
-  // 3) if not then display add form
   else {
-    $khentity = entity_create('keystone_habit_day');
-    $form = entity_ui_get_form('keystone_habit_day', $khentity, 'add');
+    // 3) if not then display add form
+    $form = entity_ui_get_form('keystone_habit_day', NULL, 'add');
     $output = '<div class="kh-week-entry-form">
           <div class="week">Add entry for current date ('.$currdate.')</div>
           <div class="form">'.drupal_render($form).'</div>
           </div>';
   }
+
   return $output;
 }
 
