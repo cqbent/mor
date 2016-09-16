@@ -230,7 +230,7 @@ function kh_list($bundle) {
 
   $post_output = '</table></div>';
   $output = $pre_output . $result . $post_output;
-  drupal_set_title('Keystone Habits List');
+  //drupal_set_title('Keystone Habits List');
 
   return $output;
 }
