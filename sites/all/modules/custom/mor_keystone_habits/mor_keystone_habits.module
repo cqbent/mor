@@ -446,7 +446,16 @@ function kh_program_start() {
 class KeystoneEntity extends Entity {
 
   protected function defaultLabel() {
-    $labeltemp = isset($this->practice_created) ? 'Keystone Habit for week of '.date('W',$this->practice_created) : '';
+    if (isset($this->practice_created)) {
+      $khtype = $this->type;
+      $wkyr = date('Y',$this->practice_created) . 'W' . date('W',$this->practice_created);
+      $wkof = date('n/j',strtotime($wkyr));
+      $labeltemp = $khtype == 'week' ? 'Weekly Habit, week of '.$wkof : 'Daily Habit, week of '.$wkof;
+    }
+    else {
+      $labeltemp = '';
+    }
+    //$labeltemp = isset($this->practice_created) ? 'Keystone habit '.$this->type.' for '.date('W',$this->practice_created) : '';
     return $labeltemp;
   }
 
