@@ -1935,45 +1935,105 @@ body.front {
   right: 0px;
 }
 
-/* line 1151, ../sass/pages.scss */
-.block-keystone-habits a, .keystone-habits-list a {
-  font-weight: bold;
-}
-/* line 1154, ../sass/pages.scss */
-.block-keystone-habits label, .keystone-habits-list label {
-  display: inline-block;
-}
-/* line 1157, ../sass/pages.scss */
-.block-keystone-habits div, .keystone-habits-list div {
-  margin-bottom: 5px;
-}
-/* line 1160, ../sass/pages.scss */
-.block-keystone-habits .week, .keystone-habits-list .week {
-  font-weight: bold;
-}
-/* line 1163, ../sass/pages.scss */
-.block-keystone-habits .note, .keystone-habits-list .note {
-  font-style: italic;
-}
-/* line 1166, ../sass/pages.scss */
-.block-keystone-habits .edit, .keystone-habits-list .edit {
-  text-align: right;
+/* line 1150, ../sass/pages.scss */
+.block-keystone-habits, .keystone-habits-list {
+  /*
+  a {
+  	font-weight: bold;
+  }
+  label {
+  	display: inline-block;
+  }
+  div {
+  	margin-bottom: 5px;
+  }
+  .week {
+  	font-weight: bold;
+  }
+  .note {
+  	font-style: italic;
+  }
+  .edit {
+  	text-align: right;
+  }
+  */
 }
 
-/* line 1171, ../sass/pages.scss */
-.keystone-habits-list ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
+/* line 1172, ../sass/pages.scss */
+.keystone-habits-list {
+  /*
+  ul {
+  	margin: 0;
+  	padding: 0;
+  	list-style: none;
+  	li {
+  		border-bottom: 1px #D3D7D9 solid;
+  		margin: 10px 0;
+  		padding: 10px 0;
+  	}
+  }
+  */
+}
+/* line 1173, ../sass/pages.scss */
+.keystone-habits-list table {
+  width: 100%;
 }
 /* line 1175, ../sass/pages.scss */
-.keystone-habits-list ul li {
-  border-bottom: 1px #D3D7D9 solid;
-  margin: 10px 0;
-  padding: 10px 0;
+.keystone-habits-list table tr {
+  border-bottom: 1px #ccc solid;
+}
+/* line 1178, ../sass/pages.scss */
+.keystone-habits-list table th {
+  font-weight: normal;
+  text-align: center;
+  padding: 5px;
+}
+/* line 1183, ../sass/pages.scss */
+.keystone-habits-list table td {
+  padding: 5px;
+  background-color: #fff;
+  text-align: center;
+}
+/* line 1188, ../sass/pages.scss */
+.keystone-habits-list table td.week-number, .keystone-habits-list table td.week-of {
+  background-color: #e8ecf7;
+}
+/* line 1197, ../sass/pages.scss */
+.keystone-habits-list .fa {
+  color: #000;
+  font-size: 18px;
+}
+/* line 1200, ../sass/pages.scss */
+.keystone-habits-list .fa.fa-times {
+  font-size: 24px;
+  color: #c2c2c2;
+}
+/* line 1204, ../sass/pages.scss */
+.keystone-habits-list .fa.fa-check {
+  font-size: 24px;
 }
 
-/* line 1183, ../sass/pages.scss */
-.block-keystone-habits select {
+/* line 1222, ../sass/pages.scss */
+.block-mor-keystone-habits a {
+  font-weight: bold;
+}
+/* line 1225, ../sass/pages.scss */
+.block-mor-keystone-habits h3, .block-mor-keystone-habits p {
+  margin: 1px;
+}
+/* line 1229, ../sass/pages.scss */
+.block-mor-keystone-habits table .note {
+  display: none;
+}
+/* line 1232, ../sass/pages.scss */
+.block-mor-keystone-habits table tr.row {
+  display: none;
+}
+/* line 1235, ../sass/pages.scss */
+.block-mor-keystone-habits table tr.row:nth-last-child(-n+8) {
+  display: table-row;
+}
+/* line 1239, ../sass/pages.scss */
+.block-mor-keystone-habits select {
   width: 100%;
 }

@@ -1,0 +1,460 @@
+<?php
+
+/**
+ * Implements hook_entity_info().
+ */
+function mor_keystone_habits_entity_info() {
+  $info = array();
+  $info['keystone_habits'] = array(
+    'label' => t('Keystone Habits'),
+    'base table' => 'mor_keystone_habits',
+    'label callback' => 'entity_class_label',
+    'entity keys' => array(
+      'id' => 'khid',
+      'bundle' => 'type',
+    ),
+    'entity class' => 'KeystoneEntity',
+    'controller class' => 'KeystoneEntityController',
+    'access callback' => 'keystone_habits_access_callback',
+    'uri callback' => 'entity_class_uri',
+    'admin ui' => array(
+      'path' => 'admin/content/keystone-habits',
+      'controller class' => 'EntityDefaultUIController',
+    ),
+    'fieldable' => TRUE,
+    'bundle keys' => array(
+      'bundle' => 'type'
+    ),
+    'bundles' => array(
+      'week' => array(
+        'label' => t('Keystone Habit Week'),
+        'admin' => array(
+          'path' => 'admin/content/keystone-habits/week',
+        ),
+      ),
+      'day' => array(
+        'label' => t('Keystone Habit Day'),
+        'admin' => array(
+          'path' => 'admin/content/keystone-habits/day',
+        ),
+      ),
+    ),
+    'views controller class' => 'EntityDefaultViewsController',
+    'module' => 'mor_keystone_habits',
+  );
+  
+  return $info;
+}
+
+/**
+ * Implements hook_menu()
+ */
+function mor_keystone_habits_menu() {
+  $items = array();
+  
+  $items['portal/leadership/keystone-habits/week'] = array(
+    'title' => 'Keystone Habits Weekly',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'kh_list',
+    'page arguments' => array(3),
+    'access arguments' => array('access content'),
+  );
+  $items['portal/leadership/keystone-habits/day'] = array(
+    'title' => 'Keystone Habits Day',
+    'type' => MENU_CALLBACK,
+    'page callback' => 'kh_list',
+    'page arguments' => array(3),
+    'access arguments' => array('access content'),
+  );
+  $items['admin/keystone-habits/week/add'] = array(
+    'title' => 'Keystone Habit Week Add',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'kh_week_add',
+    'access arguments' => array('access content'),
+  );
+  $items['admin/keystone-habits/day/add'] = array(
+    'title' => 'Keystone Habit Day Add',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'kh_day_add',
+    'access arguments' => array('access content'),
+  );
+  return $items;
+}
+
+/**
+ * Access callback for project entities.
+ */
+function keystone_habits_access_callback($op, $keystone_habit = NULL, $account = NULL) {
+  if ($op == 'view' || $op == 'update' || $op == 'create' || $op == 'delete') {
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+
+/**
+ * Callback function for page list display of kh week items
+ */
+function kh_list($bundle) {
+  /**
+   * 1) get all recent weekly entries
+   * 2) set starting date to program week start
+   * 3) iterate through each week
+   * 4) if entry matches week then display note, check, and edit link
+   * 5) if not, then display add form
+   */
+
+  // 0) set pre output content
+  $pre_output = '<div class="keystone-habits-list">';
+  if ($bundle == 'week') {
+    $pre_output .= '<table class="kh-week">
+      <tr>
+        <th class="week-number"></th>
+        <th class="week-of">Week</th>
+        <th class="note">Note</th>
+        <th class="status">Done</th>
+        <th class="action">Action</th>
+      </tr>';
+  }
+  elseif ($bundle == 'day') {
+    $pre_output .= '<table class="kh-week">
+      <tr>
+        <th class="week-number">W</th>
+        <th class="days">M</th>
+        <th class="days">T</th>
+        <th class="days">W</th>
+        <th class="days">TH</th>
+        <th class="days">F</th>
+        <th class="action">Action</th>
+      </tr>';
+  }
+  // 1) get all recent weekly entries
+  $output = ''; $khlist = '';
+  $userid = kh_user_id();
+  $khquery = new EntityFieldQuery();
+  $khqresult = $khquery
+    ->entityCondition('entity_type', 'keystone_habits')
+    ->entityCondition('bundle', $bundle)
+    ->propertyCondition('uid', $userid, '=')
+    ->propertyOrderBy('practice_created', 'ASC')
+    ->execute();
+  if (isset($khqresult['keystone_habits'])) {
+    $kh_keys = array_keys($khqresult['keystone_habits']);
+    $khlist = entity_load('keystone_habits', $kh_keys);
+  }
+
+  // 2) set starting date to program week start
+  $pdate = kh_program_start(); // a) get program start date
+  $pdate_start = strtotime($pdate['year'].'W'.$pdate['week']);
+  $currweek = date('W'); $curryear = date('Y'); // b) get current date
+  // c) set date range to # weeks between current and progam week
+  $date_range = $currweek < $pdate['week'] ? $pdate['week'] - $currweek + 52 : $currweek - $pdate['week'];
+
+  // 3) iterate through each week
+  for ($w=0; $w <= $date_range; $w++) {
+    $week = date('W',strtotime('+'.$w.' week',$pdate['time']));
+    $week_time = strtotime('+'.$w.' week',$pdate_start);
+    $week_date = date('n/j', $week_time);
+    $match = false;
+    $list_array[$w] = array('week_number'=>$w+1, 'date'=>$week_date, 'done'=>'<i class="fa fa-times" aria-hidden="true"></i>', 'note'=>'', 'days'=>'', 'action'=>'');
+    // foreach khlist > item if created_date matches week then list item with edit link
+    // if not then list week with add link that prepopulates date for that week
+    if ($khlist) {
+      foreach ($khlist as $khitem) {
+        $khweek = date('W',$khitem->practice_created);
+        // 4) if entry matches week then display note, check, and edit link
+        if ($khweek == $week) {
+          $note = isset($khitem->field_note) ? field_view_field('keystone_habits',$khitem,'field_note') : '';
+          $days = isset($khitem->field_practice_days) ? $khitem->field_practice_days['und'] : '';
+          $action = l('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', 'admin/content/keystone-habits/manage/'.$khitem->khid, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
+          $list_array[$w]['done'] = $khitem->practice_done ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
+          $list_array[$w]['action'] = $action;
+          $list_array[$w]['note'] = render($note);
+          $list_array[$w]['days'] = $days;
+          $match = true;
+          break;
+        }
+      }
+    }
+    // 5) if no match, then display add form
+    if (!$match) {
+      $action = l('<i class="fa fa-plus-square-o" aria-hidden="true"></i>', 'admin/keystone-habits/'.$bundle.'/add/' . $week_time, array('attributes'=>array('title'=>'Add Keystone Habit'),'html'=>true));
+      $list_array[$w]['action'] = $action;
+    }
+  }
+
+  // 6 display list depending on bundle
+  $result = '';
+  if ($bundle == 'week') {
+    foreach ($list_array as $list_item) {
+      $result .= '<tr class="row row-'.$list_item['week_number'].'">
+          <td class="week-number">' . $list_item['week_number'] . '</td>
+          <td class="week-of">' . $list_item['date'] . '</td>
+          <td class="note">' . $list_item['note'] . '</td>
+          <td class="status">' . $list_item['done'] . '</td>
+          <td class="action">' . $list_item['action'] . '</div>
+          </tr>';
+    }
+  }
+  else {
+    $days_array = array('M','Tu','W','Th','F');
+    foreach ($list_array as $list_item) {
+      // for i = 1 to 5;
+      $days_output = '';
+      for ($d=0; $d < 5; $d++) {
+        $day_match = false;
+        $days_output .= '<td>';
+        if ($list_item['days']) {
+          foreach($list_item['days'] as $day) {
+            if ($day['value'] == $days_array[$d]) {
+              $days_output .= '<i class="fa fa-check" aria-hidden="true"></i>';
+              $day_match = true;
+              break;
+            }
+          }
+        }
+        if (!$day_match) {
+          $days_output .= '<i class="fa fa-times" aria-hidden="true"></i>';
+        }
+      }
+      $days_output .= '</td>';
+      $result .= '<tr class="row row-'.$list_item['week_number'].'">
+          <td class="week-number">'. $list_item['week_number'] .'</td>
+         '.$days_output.'
+          <td class="action">' . $list_item['action'] .'</td>
+          </tr>';
+    }
+  }
+
+  $post_output = '</table></div>';
+  $output = $pre_output . $result . $post_output;
+  drupal_set_title('Keystone Habits List');
+
+  return $output;
+}
+
+
+function kh_week_block_view() {
+  $output = kh_list('week');
+  return $output;
+}
+
+function kh_day_block_view() {
+  $output = kh_list('day');
+  return $output;
+}
+
+function kh_week_add($time = NULL) {
+  $date = $time ? $time : time();
+  $khentity = entity_create('keystone_habits', array('type'=>'week','practice_created'=>$date));
+  $form = entity_ui_get_form('keystone_habits', $khentity, 'add');
+  $output = drupal_render($form);
+  return $output;
+}
+
+function kh_day_add($time = NULL) {
+  $date = $time ? $time : time();
+  $khentity = entity_create('keystone_habits', array('type'=>'day','practice_created'=>$date));
+  $form = entity_ui_get_form('keystone_habits', $khentity, 'add');
+  $output = drupal_render($form);
+  return $output;
+}
+
+/**
+ * Form definition for adding / editing a project.
+ */
+function keystone_habits_form($form, &$form_state, $keystone_habits = NULL) {
+  $userid = kh_user_id();
+  $form['uid'] = array(
+    '#title' => t('User ID'),
+    '#type' => 'hidden',
+    '#default_value' => isset($keystone_habits->uid) ? $keystone_habits->uid : $userid,
+    '#required' => TRUE,
+  );
+
+  $form['practice_done'] = array(
+    '#title' => t('Was practice done'),
+    '#type' => 'checkbox',
+    '#default_value' => isset($keystone_habits->practice_done) ? $keystone_habits->practice_done : 0,
+  );
+
+  $form['practice_created'] = array(
+    '#title' => t('practice date'),
+    '#type' => 'hidden',
+    '#default_value' => isset($keystone_habits->practice_created) ? $keystone_habits->practice_created : strtotime('now'),
+    '#required' => TRUE,
+  );
+
+  field_attach_form('keystone_habits', $keystone_habits, $form, $form_state);
+  
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => '',
+    '#attributes' => array( 'style' => array( 'display: none' )),
+    '#prefix' => '<button type="submit" class="btn btn-primary">Add <i class="fa fa-plus-square-o">',
+    '#suffix' => '</i></button>',
+    '#weight' => 50,
+  );
+
+  return $form;
+}
+
+/**
+ * Submit handler for the project add/edit form.
+ */
+function keystone_habits_form_submit($form, &$form_state) {
+  $keystone_habits = entity_ui_form_submit_build_entity($form, $form_state);
+  $keystone_habits->save();
+  drupal_set_message(t('The keystone  habit has been saved.'));
+}
+
+/**
+ * Implements hook_entity_property_info().
+ */
+function mor_keystone_habits_entity_property_info() {
+  
+  $info = array();
+  
+  $info['keystone_habits']['properties']['khid'] = array(
+    'label' => t('Keystone ID'),
+    'description' => t('The ID of the Keystone Habit.'),
+    'type' => 'integer',
+    'schema field' => 'khid',
+  );
+  $info['keystone_habits']['properties']['practice_created'] = array(
+    'label' => t('Practice Date'),
+    'description' => t('Keystone practice date.'),
+    'type' => 'date',
+    'schema field' => 'practice_created',
+  );
+  $info['keystone_habits']['properties']['practice_done'] = array(
+    'label' => t('Practice Done'),
+    'description' => t('Keystone practice completed.'),
+    'type' => 'integer',
+    'schema field' => 'practice_done',
+  );
+  
+  return $info;
+}
+
+
+
+/**
+ * Extending the EntityAPIController for the Project entity.
+ */
+class KeystoneEntityController extends EntityAPIController {
+
+  public function buildContent($entity, $view_mode = 'full', $langcode = NULL, $content = array()) {
+
+    $build = parent::buildContent($entity, $view_mode, $langcode, $content);
+
+    $build['practice_created'] = array(
+      '#type' => 'markup',
+      '#markup' => format_date($entity->practice_created,'medium'),
+      '#prefix' => '<p>Practice Date: ',
+      '#suffix' => '</p>',
+    );
+
+    return $build;
+
+  }
+
+}
+
+/**
+ * KH block - hook_block_info
+ * declares which blocks are provided by module
+ */
+function mor_keystone_habits_block_info() {
+  $blocks['kh_weekly_block'] = array(
+    'info' => t('Keystone Habits Weekly block'),
+    'cache' => DRUPAL_CACHE_PER_ROLE, // default
+    'region' => 'navigation',
+  );
+  $blocks['kh_daily_block'] = array(
+    'info' => t('Keystone Habits Daily block'),
+    'cache' => DRUPAL_CACHE_PER_ROLE, // default
+    'region' => 'navigation',
+  );
+  return $blocks;
+}
+
+/**
+ * KH block view - hook_block_view
+ * generate content of each block
+ */
+function mor_keystone_habits_block_view($delta = '') {
+  switch ($delta) {
+    case 'kh_weekly_block':
+      $output = kh_week_block_view();
+      $block['subject'] = t('Your Required Practices Scorecard');
+      $block['content'] = '<h3>Weekly Planning Practice</h3>
+        <a href="/portal/leadership/keystone-habits/week">Click here</a> to view all past weekly entries.</p>'
+        . $output;	// now render the damn thing
+      break;
+    case 'kh_daily_block':
+      $output = kh_day_block_view();
+      $block['subject'] = t('Your Required Practices Scorecard');
+      $block['content'] = '<h3>Daily Planning Practice</h3>
+        <a href="/portal/leadership/keystone-habits/day">Click here</a> to view all past daily entries.</p>'
+        . $output;
+      break;
+  }
+  return $block;
+}
+
+/**
+ * get user info
+ */
+function kh_user_id() {
+  global $user;
+  $user_id = $user->uid;
+  return $user_id;
+}
+
+/**
+ * get program start date for current user
+ */
+function kh_program_start() {
+  /**
+   * 1) get og group programs by user
+   * 2) query for the program that is current
+   * 3) return the program start date
+   */
+  $currdate = date('Y-m-d');
+  $programs = og_get_groups_by_user();
+  $pquery = new EntityFieldQuery();
+  $presult = $pquery
+    ->entityCondition('entity_type', 'node')
+    ->entityCondition('bundle', 'client_portal')
+    ->propertyCondition('nid', $programs['node'], 'IN')
+    ->fieldCondition('field_program_dates','value', $currdate, '<')
+    ->fieldCondition('field_program_dates','value2', $currdate, '>')
+    ->execute();
+  $pkeys = array_keys($presult['node']);
+  $pobj = entity_load_single('node', $pkeys[0]);
+  $start_date = strtotime($pobj->field_program_dates['und'][0]['value']);
+  $start_date_array = array('time'=> $start_date, 'day'=>date('w',$start_date), 'week'=>date('W',$start_date), 'year'=>date('Y',$start_date));
+  return $start_date_array;
+}
+
+/**
+ * Project entity class extending the Entity class
+ */
+class KeystoneEntity extends Entity {
+
+  protected function defaultLabel() {
+    $labeltemp = isset($this->practice_created) ? 'Keystone Habit for week of '.date('W',$this->practice_created) : '';
+    return $labeltemp;
+  }
+
+  /**
+   * Change the default URI from default/id to project/id
+   */
+  protected function defaultUri() {
+    return array('path' => 'portal/keystone-habits/' . $this->identifier());
+  }
+  
+}

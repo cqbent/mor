@@ -1,8 +1,0 @@
-<?php
-/**
- * @file
- * Code for the Keystone Habits feature.
- */
-
-include_once 'keystone_habits_eck.features.inc';
-

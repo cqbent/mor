@@ -1148,6 +1148,7 @@ body.front { background-position: center 40px; }
 // keystone habits styling
 
 .block-keystone-habits, .keystone-habits-list {
+	/*
 	a {
 		font-weight: bold;
 	}
@@ -1166,8 +1167,45 @@ body.front { background-position: center 40px; }
 	.edit {
 		text-align: right;
 	}
+	*/
 }
 .keystone-habits-list {
+	table {
+		width: 100%;
+		tr {
+			border-bottom: 1px #ccc solid;
+		}
+		th {
+			font-weight: normal;
+			text-align: center;
+			padding: 5px;
+		}
+		td {
+			padding: 5px;
+			background-color: #fff;
+			text-align: center;
+		}
+		td.week-number, td.week-of {
+			background-color: #e8ecf7;
+		}
+		&.kh-week {
+			td {
+
+			}
+		}
+	}
+	.fa {
+		color: #000;
+		font-size: 18px;
+		&.fa-times {
+			font-size: 24px;
+			color: #c2c2c2;
+		}
+		&.fa-check {
+			font-size: 24px;
+		}
+	}
+	/*
 	ul {
 		margin: 0;
 		padding: 0;
@@ -1178,8 +1216,26 @@ body.front { background-position: center 40px; }
 			padding: 10px 0;
 		}
 	}
+	*/
 }
-.block-keystone-habits {
+.block-mor-keystone-habits {
+	a {
+		font-weight: bold;
+	}
+	h3, p {
+		margin: 1px;
+	}
+	table {
+		.note {
+			display: none;
+		}
+		tr.row {
+			display:none;
+		}
+		tr.row:nth-last-child(-n+8) {
+			display: table-row;
+		}
+	}
 	select {
 		width: 100%;
 	}

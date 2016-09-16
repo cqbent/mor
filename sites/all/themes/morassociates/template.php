@@ -131,9 +131,9 @@ function morassociates_preprocess_maintenance_page(&$variables, $hook) {
 function morassociates_preprocess_html(&$variables, $hook) {
   //$variables['sample_variable'] = t('Lorem ipsum.');
 	$path = drupal_get_path('theme', 'morassociates');
-	drupal_add_css('http://fast.fonts.com/jsapi/13d1a4f7-0f26-49f8-be26-077a666af3ee.js',array('type' => 'external')); 
+	drupal_add_css('http://fast.fonts.com/jsapi/13d1a4f7-0f26-49f8-be26-077a666af3ee.js',array('type' => 'external'));
 	drupal_add_css($path."/css/responsive.css", array('group' => CSS_THEME, 'every_page' => true, 'weight' => 9999));
-
+  drupal_add_js('https://use.fontawesome.com/cc093404c9.js', array('type' => 'external'));
   // The body tag's classes are controlled by the $classes_array variable. To
   // remove a class from $classes_array, use array_diff().
   //$variables['classes_array'] = array_diff($variables['classes_array'], array('class-to-remove'));

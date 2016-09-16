@@ -1,8 +1,8 @@
 ; $ID: $
-name = Keystone Habits
+name = MOR Keystone Habits
 description = "Custom table and interface for tracking weekly and daily practices related to keystone habits"
 dependencies[] = entity
 dependencies[] = views
 version = "7.x-1.0"
 core = "7.x"
-project = "keystone_habits"
+project = "mor_keystone_habits"

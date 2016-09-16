@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function mor_keystone_habits_schema() {
+  
+  $schema = array();
+
+  $schema['mor_keystone_habits'] = array(
+    'description' => 'Keystone habits.',
+    'fields' => array(
+      'khid' => array(
+        'description' => 'Primary key for keystone habits table',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ),
+      'type' => array(
+        'description' => 'keystone habit type (week or day)',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ),
+      'uid' => array(
+        'description' => 'The user',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'practice_done' => array(
+        'description' => 'was practice done',
+        'type' => 'int',
+        'not null' => FALSE,
+        'default' => 0
+      ),
+      'practice_created' => array(
+        'description' => 'Date practice entry was created',
+        'type' => 'int',
+        'default' => 0,
+        'not null' => TRUE,
+      ),
+    ),
+    'primary key' => array('khid'),
+  );
+
+  return $schema;
+}
+
