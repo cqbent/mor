@@ -47,3 +47,7 @@ function mor_keystone_habits_schema() {
   return $schema;
 }
 
+function mor_keystone_habits_uninstall() {
+  field_attach_delete_bundle('keystone_habits','week');
+  field_attach_delete_bundle('keystone_habits','day');
+}

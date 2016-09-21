@@ -87,7 +87,7 @@ function mor_users_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Goals & Progress',
-    'weight' => '13',
+    'weight' => '15',
     'children' => array(
       0 => 'field_goals',
     ),

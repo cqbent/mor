@@ -319,7 +319,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 16,
       ),
       'token' => array(
         'label' => 'above',
@@ -411,7 +411,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 19,
+        'weight' => 21,
       ),
       'token' => array(
         'label' => 'above',
@@ -452,7 +452,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 17,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -589,7 +589,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 18,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -634,7 +634,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 12,
+        'weight' => 14,
       ),
       'token' => array(
         'label' => 'above',
@@ -705,7 +705,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 9,
+      'weight' => 10,
     ),
   );
 
@@ -726,7 +726,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 6,
+        'weight' => 9,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -750,7 +750,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 10,
+      'weight' => 11,
     ),
   );
 
@@ -771,7 +771,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 11,
       ),
       'token' => array(
         'label' => 'above',
@@ -815,7 +815,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 21,
+        'weight' => 23,
       ),
       'token' => array(
         'label' => 'above',
@@ -887,7 +887,7 @@ function mor_users_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 8,
+      'weight' => 9,
     ),
   );
 
@@ -908,7 +908,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 20,
       ),
       'token' => array(
         'label' => 'above',
@@ -933,6 +933,50 @@ function mor_users_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'user-user-field_practice_category'.
+  $field_instances['user-user-field_practice_category'] = array(
+    'bundle' => 'user',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 27,
+      ),
+      'profile' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 7,
+      ),
+      'token' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'user',
+    'field_name' => 'field_practice_category',
+    'label' => 'Practice Category',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => 1,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(),
+      'type' => 'options_select',
+      'weight' => 6,
+    ),
+  );
+
   // Exported field_instance: 'user-user-field_program_goals'.
   $field_instances['user-user-field_program_goals'] = array(
     'bundle' => 'user',
@@ -950,7 +994,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 20,
+        'weight' => 22,
       ),
       'token' => array(
         'label' => 'above',
@@ -994,7 +1038,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 22,
+        'weight' => 24,
       ),
       'token' => array(
         'label' => 'above',
@@ -1046,7 +1090,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'token' => array(
         'label' => 'above',
@@ -1091,7 +1135,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 12,
       ),
       'token' => array(
         'label' => 'hidden',
@@ -1189,7 +1233,7 @@ function mor_users_field_default_field_instances() {
         ),
       ),
       'type' => 'addressfield_standard',
-      'weight' => 11,
+      'weight' => 12,
     ),
   );
 
@@ -1237,7 +1281,7 @@ function mor_users_field_default_field_instances() {
         'rows' => 5,
       ),
       'type' => 'text_textarea',
-      'weight' => 13,
+      'weight' => 14,
     ),
   );
 
@@ -1402,7 +1446,7 @@ function mor_users_field_default_field_instances() {
       'module' => 'og',
       'settings' => array(),
       'type' => 'og_complex',
-      'weight' => 12,
+      'weight' => 13,
     ),
   );
 
@@ -1434,6 +1478,7 @@ function mor_users_field_default_field_instances() {
   t('Portal Coach');
   t('Portal Program');
   t('Position');
+  t('Practice Category');
   t('Progress Date');
   t('Relationship Notes');
   t('Social Links');

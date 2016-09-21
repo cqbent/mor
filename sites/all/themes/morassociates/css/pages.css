@@ -2000,7 +2000,7 @@ body.front {
 }
 /* line 1197, ../sass/pages.scss */
 .keystone-habits-list .fa {
-  color: #000;
+  color: #c2c2c2;
   font-size: 18px;
 }
 /* line 1200, ../sass/pages.scss */
@@ -2011,29 +2011,34 @@ body.front {
 /* line 1204, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-check {
   font-size: 24px;
+  color: #000;
+}
+/* line 1208, ../sass/pages.scss */
+.keystone-habits-list .fa.fa-pencil-square-o.active {
+  color: #000;
 }
 
-/* line 1222, ../sass/pages.scss */
+/* line 1226, ../sass/pages.scss */
 .block-mor-keystone-habits a {
   font-weight: bold;
 }
-/* line 1225, ../sass/pages.scss */
+/* line 1229, ../sass/pages.scss */
 .block-mor-keystone-habits h3, .block-mor-keystone-habits p {
   margin: 1px;
 }
-/* line 1229, ../sass/pages.scss */
+/* line 1233, ../sass/pages.scss */
 .block-mor-keystone-habits table .note {
   display: none;
 }
-/* line 1232, ../sass/pages.scss */
+/* line 1236, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row {
   display: none;
 }
-/* line 1235, ../sass/pages.scss */
+/* line 1239, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row:nth-last-child(-n+8) {
   display: table-row;
 }
-/* line 1239, ../sass/pages.scss */
+/* line 1243, ../sass/pages.scss */
 .block-mor-keystone-habits select {
   width: 100%;
 }
