@@ -110,7 +110,6 @@ function kh_list($bundle) {
   $userid = kh_user_id();
 
   if ($userid) {
-
     // 0) set pre output content
     $pre_output = '<div class="keystone-habits-list">';
 
@@ -121,14 +120,15 @@ function kh_list($bundle) {
         <th class="week-of">Week</th>
         <th class="note">Note</th>
         <th class="status">Done</th>
-        <th class="journal">Journal</th>
+        <th class="journal">Jrnl</th>
       </tr>';
     }
     elseif ($bundle == 'day') {
-      if (!get_practice_category()) {
+      if (!$practice_cat = get_practice_category()) {
         $pre_output .= '<p class="messages warning">You need to select a practice category first before entering your daily habits. Visit your <a href="/portal/profile">profile page</a>, click "edit profile" and select the practice category you wish to use. </p>';
       }
-      $pre_output .= '<table class="kh-week">
+      $pre_output .= render($practice_cat).'
+      <table class="kh-week">
       <tr>
         <th class="week-number">W</th>
         <th class="days">M</th>
@@ -136,7 +136,7 @@ function kh_list($bundle) {
         <th class="days">W</th>
         <th class="days">TH</th>
         <th class="days">F</th>
-        <th class="journal">Journal</th>
+        <th class="journal">Jrnl</th>
       </tr>';
     }
     // 1) get all recent weekly entries
@@ -156,99 +156,107 @@ function kh_list($bundle) {
 
     // 2) set starting date to program week start
     $pdate = kh_program_start(); // a) get program start date
-    $pdate_start = strtotime($pdate['year'].'W'.$pdate['week']);
-    $currweek = date('W'); $curryear = date('Y'); // b) get current date
-    // c) set date range to # weeks between current and progam week
-    $date_range = $currweek < $pdate['week'] ? $pdate['week'] - $currweek + 52 : $currweek - $pdate['week'];
+    if ($pdate) {
+      $pdate_start = strtotime($pdate['year'].'W'.$pdate['week']);
+      $currweek = date('W'); $curryear = date('Y'); // b) get current date
+      // c) set date range to # weeks between current and progam week
+      $date_range = $currweek < $pdate['week'] ? $pdate['week'] - $currweek + 52 : $currweek - $pdate['week'];
 
-    $icon_check = '<i class="fa fa-check" aria-hidden="true"></i>';
-    $icon_x = '<i class="fa fa-times" aria-hidden="true"></i>';
-    $edit_url = 'admin/content/keystone-habits/manage/';
-    // 3) iterate through each week
-    for ($w=0; $w <= $date_range; $w++) {
-      $week = date('W',strtotime('+'.$w.' week',$pdate['time']));
-      $week_time = strtotime('+'.$w.' week',$pdate_start);
-      $week_date = date('n/j', $week_time);
-      $add_url = 'admin/keystone-habits/'.$bundle.'/add/' . $week_time;
-      $match = false;
-      $list_array[$w] = array('week_number'=>$w+1, 'date'=>$week_date, 'link'=>$add_url, 'done'=>l($icon_x, $add_url, array('attributes'=>array('title'=>'Add Keystone Habit'), 'html'=>true)), 'note'=>'', 'days'=>'', 'category'=>'', 'journal'=>'');
-      // foreach khlist > item if created_date matches week then list item with edit link
-      // if not then list week with add link that prepopulates date for that week
-      if ($khlist) {
-        foreach ($khlist as $khitem) {
-          $khweek = date('W',$khitem->practice_created);
-          // 4) if entry matches week then display note, check, and edit link
-          if ($khweek == $week) {
-            $link = $edit_url . $khitem->khid;
-            $icon = $khitem->practice_done ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
-            $note = isset($khitem->field_note) ? field_view_field('keystone_habits',$khitem,'field_note') : '';
-            $days = isset($khitem->field_practice_days) ? $khitem->field_practice_days['und'] : '';
-            $journal = l('<i class="fa fa-pencil-square-o active" aria-hidden="true"></i>', $link, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
-            $list_array[$w]['done'] = l($icon, $link, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
-            $list_array[$w]['journal'] = $journal;
-            $list_array[$w]['note'] = render($note);
-            $list_array[$w]['days'] = $days;
-            $list_array[$w]['link'] = $link;
-            $match = true;
-            break;
+      $icon_check = '<i class="fa fa-check" aria-hidden="true"></i>';
+      $icon_x = '<i class="fa fa-times" aria-hidden="true"></i>';
+      $edit_url = 'admin/content/keystone-habits/manage/';
+      // 3) iterate through each week
+      for ($w=0; $w <= $date_range; $w++) {
+        $week = date('W',strtotime('+'.$w.' week',$pdate['time']));
+        $week_time = strtotime('+'.$w.' week',$pdate_start);
+        $week_date = date('n/j', $week_time);
+        $add_url = 'admin/keystone-habits/'.$bundle.'/add/' . $week_time;
+        $match = false;
+        $list_array[$w] = array('week_number'=>$w+1, 'date'=>$week_date, 'link'=>$add_url, 'done'=>l($icon_x, $add_url, array('attributes'=>array('title'=>'Add Keystone Habit'), 'html'=>true)), 'note'=>'', 'days'=>'', 'category'=>'', 'journal'=>'');
+        // foreach khlist > item if created_date matches week then list item with edit link
+        // if not then list week with add link that prepopulates date for that week
+        if ($khlist) {
+          foreach ($khlist as $khitem) {
+            $khweek = date('W',$khitem->practice_created);
+            // 4) if entry matches week then display note, check, and edit link
+            if ($khweek == $week) {
+              $link = $edit_url . $khitem->khid;
+              $icon = $khitem->practice_done ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
+              $note = isset($khitem->field_note) ? field_view_field('keystone_habits',$khitem,'field_note') : '';
+              $days = isset($khitem->field_practice_days) ? $khitem->field_practice_days['und'] : '';
+              $active = $note ? 'active' : '';
+              $journal = l('<i class="fa fa-pencil-square-o '.$active.'" aria-hidden="true"></i>', $link, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
+              $list_array[$w]['done'] = l($icon, $link, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
+              $list_array[$w]['journal'] = $journal;
+              $list_array[$w]['note'] = render($note);
+              $list_array[$w]['days'] = $days;
+              $list_array[$w]['link'] = $link;
+              $match = true;
+              break;
+            }
           }
         }
+        // 5) if no match, then display add form
+        if (!$match) {
+          $journal = l('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', $add_url, array('attributes'=>array('title'=>'Add Keystone Habit'),'html'=>true));
+          $list_array[$w]['journal'] = $journal;
+        }
       }
-      // 5) if no match, then display add form
-      if (!$match) {
-        $journal = l('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', $add_url, array('attributes'=>array('title'=>'Add Keystone Habit'),'html'=>true));
-        $list_array[$w]['journal'] = $journal;
-      }
-    }
 
-    // 6 display list depending on bundle
-    $result = '';
-    if ($bundle == 'week') {
-      foreach ($list_array as $list_item) {
-        $result .= '<tr class="row row-'.$list_item['week_number'].'">
+      // 6 display list depending on bundle
+      $result = '';
+      if ($bundle == 'week') {
+        foreach ($list_array as $list_item) {
+          $result .= '<tr class="row row-'.$list_item['week_number'].'">
           <td class="week-number">' . $list_item['week_number'] . '</td>
           <td class="week-of">' . $list_item['date'] . '</td>
           <td class="note">' . $list_item['note'] . '</td>
           <td class="status">' . $list_item['done'] . '</td>
           <td class="journal">' . $list_item['journal'] . '</div>
           </tr>';
+        }
       }
-    }
-    elseif ($bundle = 'day') {
-      $days_array = array('M','Tu','W','Th','F');
-      foreach ($list_array as $list_item) {
-        // for i = 1 to 5;
-        $days_output = '';
-        for ($d=0; $d < 5; $d++) {
+      elseif ($bundle = 'day') {
+        $days_array = array('M','Tu','W','Th','F');
+        foreach ($list_array as $list_item) {
+          // for i = 1 to 5;
+          $days_output = '';
+          for ($d=0; $d < 5; $d++) {
 
-          $day_match = false;
-          $days_output .= '<td>';
+            $day_match = false;
+            $days_output .= '<td>';
 
-          if ($list_item['days']) {
-            foreach($list_item['days'] as $day) {
-              if ($day['value'] == $days_array[$d]) {
-                $days_output .= l($icon_check, $list_item['link'], array('html'=>true));
-                $day_match = true;
-                break;
+            if ($list_item['days']) {
+              foreach($list_item['days'] as $day) {
+                if ($day['value'] == $days_array[$d]) {
+                  $days_output .= l($icon_check, $list_item['link'], array('html'=>true));
+                  $day_match = true;
+                  break;
+                }
               }
             }
+            if (!$day_match) {
+              $days_output .= l($icon_x, $list_item['link'], array('html'=>true));
+            }
+            $days_output .= '</td>';
           }
-          if (!$day_match) {
-            $days_output .= l($icon_x, $list_item['link'], array('html'=>true));
-          }
-          $days_output .= '</td>';
-        }
-        $result .= '<tr class="row row-'.$list_item['week_number'].'">
+          $result .= '<tr class="row row-'.$list_item['week_number'].'">
           <td class="week-number">'. $list_item['week_number'] .'</td>
          '.$days_output.'
+         <td class="note">' . $list_item['note'] . '</td>
           <td class="journal">' . $list_item['journal'] .'</td>
           </tr>';
+        }
       }
+
+      $post_output = '</table></div>';
+      $output = $pre_output . $result . $post_output;
+      //drupal_set_title('Keystone Habits List');
+    }
+    else {
+      $output = '<p class="message warning">This program\'s dates have ended.</p>';
     }
 
-    $post_output = '</table></div>';
-    $output = $pre_output . $result . $post_output;
-    //drupal_set_title('Keystone Habits List');
   }
   else {
     drupal_set_message(t('You do not have permission to view'), 'warning');
@@ -343,7 +351,9 @@ function keystone_habits_form($form, &$form_state, $keystone_habits = NULL) {
 function keystone_habits_form_submit($form, &$form_state) {
   $keystone_habits = entity_ui_form_submit_build_entity($form, $form_state);
   $keystone_habits->save();
-  drupal_set_message(t('The keystone  habit has been saved.'));
+  drupal_set_message(t('The keystone habit has been saved.'));
+  $form_state['rebuild'] = TRUE;
+  overlay_close_dialog();
 }
 
 /**
@@ -425,14 +435,14 @@ function mor_keystone_habits_block_view($delta = '') {
       $output = kh_week_block_view();
       $block['subject'] = t('Your Required Practices Scorecard');
       $block['content'] = '<h3>Weekly Planning Practice</h3>
-        <a href="/portal/leadership/keystone-habits/week">Click here</a> to view all past weekly entries.</p>'
+        <p><a href="/portal/leadership/keystone-habits/week">Click here</a> to view all past weekly entries.</p>'
         . $output;	// now render the damn thing
       break;
     case 'kh_daily_block':
       $output = kh_day_block_view();
       $block['subject'] = t('Your Required Practices Scorecard');
       $block['content'] = '<h3>Daily Planning Practice</h3>
-        <a href="/portal/leadership/keystone-habits/day">Click here</a> to view all past daily entries.</p>'
+        <p><a href="/portal/leadership/keystone-habits/day">Click here</a> to view all past daily entries.</p>'
         . $output;
       break;
   }
@@ -467,11 +477,17 @@ function kh_program_start() {
     ->fieldCondition('field_program_dates','value', $currdate, '<')
     ->fieldCondition('field_program_dates','value2', $currdate, '>')
     ->execute();
-  $pkeys = array_keys($presult['node']);
-  $pobj = entity_load_single('node', $pkeys[0]);
-  $start_date = strtotime($pobj->field_program_dates['und'][0]['value']);
-  $start_date_array = array('time'=> $start_date, 'day'=>date('w',$start_date), 'week'=>date('W',$start_date), 'year'=>date('Y',$start_date));
-  return $start_date_array;
+  if (isset($presult['node'])) {
+    $pkeys = array_keys($presult['node']);
+    $pobj = entity_load_single('node', $pkeys[0]);
+    $start_date = strtotime($pobj->field_program_dates['und'][0]['value']);
+    $start_date_array = array('time'=> $start_date, 'day'=>date('w',$start_date), 'week'=>date('W',$start_date), 'year'=>date('Y',$start_date));
+    return $start_date_array;
+  }
+  else {
+    return '';
+  }
+
 }
 
 /**

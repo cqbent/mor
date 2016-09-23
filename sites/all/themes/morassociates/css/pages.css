@@ -2026,19 +2026,23 @@ body.front {
 .block-mor-keystone-habits h3, .block-mor-keystone-habits p {
   margin: 1px;
 }
-/* line 1233, ../sass/pages.scss */
+/* line 1232, ../sass/pages.scss */
+.block-mor-keystone-habits p {
+  margin-bottom: 5px;
+}
+/* line 1236, ../sass/pages.scss */
 .block-mor-keystone-habits table .note {
   display: none;
 }
-/* line 1236, ../sass/pages.scss */
+/* line 1239, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row {
   display: none;
 }
-/* line 1239, ../sass/pages.scss */
+/* line 1242, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row:nth-last-child(-n+8) {
   display: table-row;
 }
-/* line 1243, ../sass/pages.scss */
+/* line 1246, ../sass/pages.scss */
 .block-mor-keystone-habits select {
   width: 100%;
 }
