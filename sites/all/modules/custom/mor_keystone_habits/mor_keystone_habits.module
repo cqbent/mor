@@ -1,12 +1,20 @@
 <?php
 
+function mor_keystone_habits_init() {
+  /*
+ * Declare some global variables
+*/
+  $GLOBALS['user_id'] = kh_user_id();
+  $GLOBALS['practice_category'] = get_practice_category();
+}
+
 /**
  * Implements hook_entity_info().
  */
 function mor_keystone_habits_entity_info() {
   $info = array();
   $info['keystone_habits'] = array(
-    'label' => t('Keystone Habits'),
+    'label' => t('Keystone Habit'),
     'base table' => 'mor_keystone_habits',
     'label callback' => 'entity_class_label',
     'entity keys' => array(
@@ -16,7 +24,7 @@ function mor_keystone_habits_entity_info() {
     'entity class' => 'KeystoneEntity',
     'controller class' => 'KeystoneEntityController',
     'access callback' => 'keystone_habits_access_callback',
-    'uri callback' => 'entity_class_uri',
+    'uri callback' => 'kh_uri',
     'admin ui' => array(
       'path' => 'admin/content/keystone-habits',
       'controller class' => 'EntityDefaultUIController',
@@ -46,6 +54,12 @@ function mor_keystone_habits_entity_info() {
   return $info;
 }
 
+function kh_uri($kh) {
+  return array(
+    'path' => 'keystone-habits/habit/' . $kh->khid,
+  );
+}
+
 /**
  * Implements hook_menu()
  */
@@ -67,19 +81,28 @@ function mor_keystone_habits_menu() {
     'access arguments' => array('access content'),
   );
   $items['admin/keystone-habits/week/add'] = array(
-    'title' => 'Keystone Habit Week Add',
+    'title' => 'Weekly Keystone Habit',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'kh_week_add',
     'access arguments' => array('access content'),
   );
   $items['admin/keystone-habits/day/add'] = array(
-    'title' => 'Keystone Habit Day Add',
+    'title' => 'Daily Keystone Habit',
     'type' => MENU_LOCAL_TASK,
     'page callback' => 'kh_day_add',
     'access arguments' => array('access content'),
   );
+  $items['keystone-habits/habit/%'] = array(
+    'title' => 'Keystone Habit view',
+    'type' => MENU_LOCAL_TASK,
+    'page callback' => 'kh_view',
+    'page arguments' => array(2),
+    'access arguments' => array('access content'),
+  );
   return $items;
 }
+
+
 
 /**
  * Access callback for project entities.
@@ -107,7 +130,7 @@ function kh_list($bundle) {
    * 5) if not, then display add form
    */
   $output = ''; $khlist = '';
-  $userid = kh_user_id();
+  $userid = $GLOBALS['user_id'];
 
   if ($userid) {
     // 0) set pre output content
@@ -124,7 +147,7 @@ function kh_list($bundle) {
       </tr>';
     }
     elseif ($bundle == 'day') {
-      if (!$practice_cat = get_practice_category()) {
+      if (!$practice_cat = $GLOBALS['practice_category']) {
         $pre_output .= '<p class="messages warning">You need to select a practice category first before entering your daily habits. Visit your <a href="/portal/profile">profile page</a>, click "edit profile" and select the practice category you wish to use. </p>';
       }
       $pre_output .= render($practice_cat).'
@@ -146,7 +169,7 @@ function kh_list($bundle) {
       ->entityCondition('entity_type', 'keystone_habits')
       ->entityCondition('bundle', $bundle)
       ->propertyCondition('uid', $userid, '=')
-      ->propertyOrderBy('practice_created', 'ASC')
+      ->propertyOrderBy('created', 'ASC')
       ->execute();
     if (isset($khqresult['keystone_habits'])) {
       $kh_keys = array_keys($khqresult['keystone_habits']);
@@ -172,21 +195,21 @@ function kh_list($bundle) {
         $week_date = date('n/j', $week_time);
         $add_url = 'admin/keystone-habits/'.$bundle.'/add/' . $week_time;
         $match = false;
-        $list_array[$w] = array('week_number'=>$w+1, 'date'=>$week_date, 'link'=>$add_url, 'done'=>l($icon_x, $add_url, array('attributes'=>array('title'=>'Add Keystone Habit'), 'html'=>true)), 'note'=>'', 'days'=>'', 'category'=>'', 'journal'=>'');
+        $list_array[$w] = array('week_number'=>$w+1, 'date'=>$week_date, 'link'=>$add_url, 'done'=>l($icon_x, $add_url, array('attributes'=>array('title'=>'Make scorecard edit'), 'html'=>true)), 'note'=>'', 'days'=>'', 'category'=>'', 'journal'=>'');
         // foreach khlist > item if created_date matches week then list item with edit link
         // if not then list week with add link that prepopulates date for that week
         if ($khlist) {
           foreach ($khlist as $khitem) {
-            $khweek = date('W',$khitem->practice_created);
+            $khweek = date('W',$khitem->created);
             // 4) if entry matches week then display note, check, and edit link
             if ($khweek == $week) {
               $link = $edit_url . $khitem->khid;
-              $icon = $khitem->practice_done ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
+              $icon = isset($khitem->field_practice_done) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
               $note = isset($khitem->field_note) ? field_view_field('keystone_habits',$khitem,'field_note') : '';
               $days = isset($khitem->field_practice_days) ? $khitem->field_practice_days['und'] : '';
               $active = $note ? 'active' : '';
-              $journal = l('<i class="fa fa-pencil-square-o '.$active.'" aria-hidden="true"></i>', $link, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
-              $list_array[$w]['done'] = l($icon, $link, array('attributes'=>array('title'=>'Edit Keystone Habit'), 'html'=>true));
+              $journal = l('<i class="fa fa-pencil-square-o '.$active.'" aria-hidden="true"></i>', $link, array('attributes'=>array('title'=>'Make scorecard edit'), 'html'=>true));
+              $list_array[$w]['done'] = l($icon, $link, array('attributes'=>array('title'=>'Make scorecard edit'), 'html'=>true));
               $list_array[$w]['journal'] = $journal;
               $list_array[$w]['note'] = render($note);
               $list_array[$w]['days'] = $days;
@@ -198,7 +221,7 @@ function kh_list($bundle) {
         }
         // 5) if no match, then display add form
         if (!$match) {
-          $journal = l('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', $add_url, array('attributes'=>array('title'=>'Add Keystone Habit'),'html'=>true));
+          $journal = l('<i class="fa fa-pencil-square-o" aria-hidden="true"></i>', $add_url, array('attributes'=>array('title'=>'Make scorecard edit'),'html'=>true));
           $list_array[$w]['journal'] = $journal;
         }
       }
@@ -241,7 +264,7 @@ function kh_list($bundle) {
             $days_output .= '</td>';
           }
           $result .= '<tr class="row row-'.$list_item['week_number'].'">
-          <td class="week-number">'. $list_item['week_number'] .'</td>
+          <td class="week-number">'. $list_item['week_number'] .' | '.$list_item['date'].'</td>
          '.$days_output.'
          <td class="note">' . $list_item['note'] . '</td>
           <td class="journal">' . $list_item['journal'] .'</td>
@@ -264,6 +287,12 @@ function kh_list($bundle) {
   return $output;
 }
 
+function kh_view($khid) {
+  $khitem = entity_load('keystone_habits', array($khid));
+  $khview = entity_view('keystone_habits', $khitem, 'full');
+  //var_dump($khview);
+  return $khview;
+}
 
 function kh_week_block_view() {
   $output = kh_list('week');
@@ -276,18 +305,24 @@ function kh_day_block_view() {
 }
 
 function kh_week_add($time = NULL ) {
+  overlay_request_page_refresh();
   $date = $time ? $time : time();
-  $khentity = entity_create('keystone_habits', array('type'=>'week','practice_created'=>$date));
+  $title = create_title('week', $date);
+  $khentity = entity_create('keystone_habits', array('type'=>'week','created'=>$date,'title'=>$title));
   $form = entity_ui_get_form('keystone_habits', $khentity, 'add');
   $output = drupal_render($form);
+  drupal_set_title($title);
   return $output;
 }
 
 function kh_day_add($time = NULL) {
-  if (get_practice_category()) {
+  overlay_request_page_refresh();
+  if ($GLOBALS['practice_category']) {
     $date = $time ? $time : time();
-    $khentity = entity_create('keystone_habits', array('type'=>'day','practice_created'=>$date));
+    $title = create_title('day', $date);
+    $khentity = entity_create('keystone_habits', array('type'=>'day','created'=>$date,'title'=>$title));
     $form = entity_ui_get_form('keystone_habits', $khentity, 'add');
+    drupal_set_title($title);
     $output = drupal_render($form);
   }
   else {
@@ -298,7 +333,7 @@ function kh_day_add($time = NULL) {
 }
 
 function get_practice_category() {
-  $userid = kh_user_id();
+  $userid = $GLOBALS['user_id'];
   $user_obj = user_load($userid);
   $pc_obj = field_get_items('user', $user_obj, 'field_practice_category');
   $pc_field = field_view_field('user', $user_obj, 'field_practice_category', $pc_obj[0]);
@@ -309,7 +344,15 @@ function get_practice_category() {
  * Form definition for adding / editing a project.
  */
 function keystone_habits_form($form, &$form_state, $keystone_habits = NULL) {
-  $userid = kh_user_id();
+  // if form state type is day then add name of practice category
+  $userid = $GLOBALS['user_id'];
+  if (isset($form_state) && $form_state['keystone_habits']->type == 'day') {
+    //var_dump($GLOBALS['practice_category']);
+    $practice_cat = render($GLOBALS['practice_category']);
+    $form['description'] = array(
+      '#markup' => t($practice_cat),
+    );
+  }
 
   $form['uid'] = array(
     '#title' => t('User ID'),
@@ -318,16 +361,17 @@ function keystone_habits_form($form, &$form_state, $keystone_habits = NULL) {
     '#required' => TRUE,
   );
 
-  $form['practice_done'] = array(
-    '#title' => t('Was practice done'),
-    '#type' => 'checkbox',
-    '#default_value' => isset($keystone_habits->practice_done) ? $keystone_habits->practice_done : 0,
+  $form['title'] = array(
+    '#title' => t('Practice title'),
+    '#type' => 'hidden',
+    '#default_value' => isset($keystone_habits->title) ? $keystone_habits->title : '',
+    '#required' => TRUE,
   );
 
-  $form['practice_created'] = array(
+  $form['created'] = array(
     '#title' => t('practice date'),
     '#type' => 'hidden',
-    '#default_value' => isset($keystone_habits->practice_created) ? $keystone_habits->practice_created : strtotime('now'),
+    '#default_value' => isset($keystone_habits->created) ? $keystone_habits->created : strtotime('now'),
     '#required' => TRUE,
   );
 
@@ -351,9 +395,11 @@ function keystone_habits_form($form, &$form_state, $keystone_habits = NULL) {
 function keystone_habits_form_submit($form, &$form_state) {
   $keystone_habits = entity_ui_form_submit_build_entity($form, $form_state);
   $keystone_habits->save();
-  drupal_set_message(t('The keystone habit has been saved.'));
   $form_state['rebuild'] = TRUE;
+  drupal_set_message(t('Scorecard edit successfully recorded.'));
   overlay_close_dialog();
+
+
 }
 
 /**
@@ -369,17 +415,17 @@ function mor_keystone_habits_entity_property_info() {
     'type' => 'integer',
     'schema field' => 'khid',
   );
-  $info['keystone_habits']['properties']['practice_created'] = array(
+  $info['keystone_habits']['properties']['created'] = array(
     'label' => t('Practice Date'),
     'description' => t('Keystone practice date.'),
     'type' => 'date',
-    'schema field' => 'practice_created',
+    'schema field' => 'created',
   );
-  $info['keystone_habits']['properties']['practice_done'] = array(
-    'label' => t('Practice Done'),
-    'description' => t('Keystone practice completed.'),
-    'type' => 'integer',
-    'schema field' => 'practice_done',
+  $info['keystone_habits']['properties']['title'] = array(
+    'label' => t('Practice title'),
+    'description' => t('title of keystone practice.'),
+    'type' => 'text',
+    'schema field' => 'title',
   );
   
   return $info;
@@ -396,9 +442,9 @@ class KeystoneEntityController extends EntityAPIController {
 
     $build = parent::buildContent($entity, $view_mode, $langcode, $content);
 
-    $build['practice_created'] = array(
+    $build['created'] = array(
       '#type' => 'markup',
-      '#markup' => format_date($entity->practice_created,'medium'),
+      '#markup' => format_date($entity->created,'medium'),
       '#prefix' => '<p>Practice Date: ',
       '#suffix' => '</p>',
     );
@@ -487,7 +533,23 @@ function kh_program_start() {
   else {
     return '';
   }
+}
 
+function create_title($type,$created) {
+  $pdate = kh_program_start();
+  $pdate_start = strtotime($pdate['year'].'W'.$pdate['week']);
+  $currweek = date('W'); $curryear = date('Y'); // b) get current date
+  $pweek = $currweek < $pdate['week'] ? $pdate['week'] - $currweek + 52 : $currweek - $pdate['week'];
+  $wkyr = date('Y',$created) . 'W' . date('W',$created);
+  $wkof = date('n/j',strtotime($wkyr));
+
+  if ($type == 'week') {
+    $title = 'Weekly Practices Scorecard and Journal - Week ' .$pweek.' - '.$wkof.' ';
+  }
+  if ($type == 'day') {
+    $title = 'Daily Practices Scorecard and Journal - Week ' .$pweek.' - '.$wkof.' ';
+  }
+  return $title;
 }
 
 /**
@@ -496,24 +558,33 @@ function kh_program_start() {
 class KeystoneEntity extends Entity {
 
   protected function defaultLabel() {
-    if (isset($this->practice_created)) {
+    if (isset($this->title)) {
+      $labeltemp = $this->title;
+    }
+    else if (isset($this->created)) {
       $khtype = $this->type;
-      $wkyr = date('Y',$this->practice_created) . 'W' . date('W',$this->practice_created);
+      $wkyr = date('Y',$this->created) . 'W' . date('W',$this->created);
       $wkof = date('n/j',strtotime($wkyr));
-      $labeltemp = $khtype == 'week' ? 'Weekly Habit, week of '.$wkof : 'Daily Habit, week of '.$wkof;
+      if ($khtype == 'day') {
+        // get practice category
+        //$labeltemp = '';
+      }
+      $labeltemp = $khtype == 'week' ? 'Weekly Practices Scorecard and Journal - Week of '.$wkof : 'Daily Practices Scorecard and Journal - Week of '.$wkof;
     }
     else {
       $labeltemp = '';
     }
-    //$labeltemp = isset($this->practice_created) ? 'Keystone habit '.$this->type.' for '.date('W',$this->practice_created) : '';
+    //$labeltemp = isset($this->created) ? 'Keystone habit '.$this->type.' for '.date('W',$this->created) : '';
     return $labeltemp;
   }
 
   /**
    * Change the default URI from default/id to project/id
    */
+  /*
   protected function defaultUri() {
     return array('path' => 'portal/keystone-habits/' . $this->identifier());
   }
+  */
   
 }

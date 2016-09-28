@@ -28,13 +28,13 @@ function mor_keystone_habits_schema() {
         'not null' => TRUE,
         'default' => 0,
       ),
-      'practice_done' => array(
-        'description' => 'was practice done',
-        'type' => 'int',
-        'not null' => FALSE,
-        'default' => 0
+      'title' => array(
+        'description' => 'practice title',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
       ),
-      'practice_created' => array(
+      'created' => array(
         'description' => 'Date practice entry was created',
         'type' => 'int',
         'default' => 0,
@@ -45,6 +45,22 @@ function mor_keystone_habits_schema() {
   );
 
   return $schema;
+}
+
+/*
+ * hook install to add fields to entity
+ */
+include_once 'mor_keystone_habits_settings.features.field_base.inc';
+include_once 'mor_keystone_habits_settings.features.field_instance.inc';
+function mor_keystone_habits_install() {
+  $field_bases = mor_keystone_habits_settings_field_default_field_bases();
+  $field_instances = mor_keystone_habits_settings_field_default_field_instances();
+  foreach ($field_bases as $field_base) {
+    field_create_field($field_base);
+  }
+  foreach ($field_instances as $field_instance) {
+    field_create_instance($field_instance);
+  }
 }
 
 function mor_keystone_habits_uninstall() {
