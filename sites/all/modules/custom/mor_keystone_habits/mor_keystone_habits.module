@@ -67,14 +67,14 @@ function mor_keystone_habits_menu() {
   $items = array();
   
   $items['portal/leadership/keystone-habits/week'] = array(
-    'title' => 'Keystone Habits Weekly',
+    'title' => 'Weekly Practice Scorecard Summary - Weekly Planning',
     'type' => MENU_CALLBACK,
     'page callback' => 'kh_list',
     'page arguments' => array(3),
     'access arguments' => array('access content'),
   );
   $items['portal/leadership/keystone-habits/day'] = array(
-    'title' => 'Keystone Habits Day',
+    'title' => 'Daily Practice Scorecard Summary',
     'type' => MENU_CALLBACK,
     'page callback' => 'kh_list',
     'page arguments' => array(3),
@@ -139,26 +139,26 @@ function kh_list($bundle) {
     if ($bundle == 'week') {
       $pre_output .= '<table class="kh-week">
       <tr>
-        <th class="week-number"></th>
-        <th class="week-of">Week</th>
+        <th class="week-number">Week</th>
         <th class="note">Note</th>
         <th class="status">Done</th>
         <th class="journal">Jrnl</th>
       </tr>';
     }
     elseif ($bundle == 'day') {
-      if (!$practice_cat = $GLOBALS['practice_category']) {
+      if (!$GLOBALS['practice_category']) {
         $pre_output .= '<p class="messages warning">You need to select a practice category first before entering your daily habits. Visit your <a href="/portal/profile">profile page</a>, click "edit profile" and select the practice category you wish to use. </p>';
       }
-      $pre_output .= render($practice_cat).'
+      $pre_output .= '<h3 class="practice-category">'.render($GLOBALS['practice_category']).'</h3>
       <table class="kh-week">
       <tr>
-        <th class="week-number">W</th>
+        <th class="week-number">Week</th>
         <th class="days">M</th>
         <th class="days">T</th>
         <th class="days">W</th>
         <th class="days">TH</th>
         <th class="days">F</th>
+        <th class="note">Note</th>
         <th class="journal">Jrnl</th>
       </tr>';
     }
@@ -203,9 +203,15 @@ function kh_list($bundle) {
             $khweek = date('W',$khitem->created);
             // 4) if entry matches week then display note, check, and edit link
             if ($khweek == $week) {
+              $icon = '<i class="fa fa-times" aria-hidden="true"></i>';
+              if (isset($khitem->field_practice_done)) {
+                if ($khitem->field_practice_done['und'][0]['value'] == 1) {
+                  $icon = '<i class="fa fa-check" aria-hidden="true"></i>';
+                }
+              }
               $link = $edit_url . $khitem->khid;
-              $icon = isset($khitem->field_practice_done) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
-              $note = isset($khitem->field_note) ? field_view_field('keystone_habits',$khitem,'field_note') : '';
+              //$icon = isset($khitem->field_practice_done) ? '<i class="fa fa-check" aria-hidden="true"></i>' : '<i class="fa fa-times" aria-hidden="true"></i>';
+              $note = isset($khitem->field_note) ? field_view_field('keystone_habits',$khitem,'field_note',array('label'=>'hidden')) : '';
               $days = isset($khitem->field_practice_days) ? $khitem->field_practice_days['und'] : '';
               $active = $note ? 'active' : '';
               $journal = l('<i class="fa fa-pencil-square-o '.$active.'" aria-hidden="true"></i>', $link, array('attributes'=>array('title'=>'Make scorecard edit'), 'html'=>true));
@@ -231,8 +237,7 @@ function kh_list($bundle) {
       if ($bundle == 'week') {
         foreach ($list_array as $list_item) {
           $result .= '<tr class="row row-'.$list_item['week_number'].'">
-          <td class="week-number">' . $list_item['week_number'] . '</td>
-          <td class="week-of">' . $list_item['date'] . '</td>
+          <td class="week-number">' . $list_item['week_number'] . ' - ' . $list_item['date'] . '</td>
           <td class="note">' . $list_item['note'] . '</td>
           <td class="status">' . $list_item['done'] . '</td>
           <td class="journal">' . $list_item['journal'] . '</div>
@@ -247,7 +252,7 @@ function kh_list($bundle) {
           for ($d=0; $d < 5; $d++) {
 
             $day_match = false;
-            $days_output .= '<td>';
+            $days_output .= '<td class="days">';
 
             if ($list_item['days']) {
               foreach($list_item['days'] as $day) {
@@ -336,7 +341,7 @@ function get_practice_category() {
   $userid = $GLOBALS['user_id'];
   $user_obj = user_load($userid);
   $pc_obj = field_get_items('user', $user_obj, 'field_practice_category');
-  $pc_field = field_view_field('user', $user_obj, 'field_practice_category', $pc_obj[0]);
+  $pc_field = field_view_field('user', $user_obj, 'field_practice_category', array('label'=>'hidden'));
   return $pc_field;
 }
 
@@ -479,15 +484,15 @@ function mor_keystone_habits_block_view($delta = '') {
   switch ($delta) {
     case 'kh_weekly_block':
       $output = kh_week_block_view();
-      $block['subject'] = t('Your Required Practices Scorecard');
-      $block['content'] = '<h3>Weekly Planning Practice</h3>
+      $block['subject'] = t('Your Required Weekly Practice Scorecard');
+      $block['content'] = '<h3>Weekly Planning</h3>
         <p><a href="/portal/leadership/keystone-habits/week">Click here</a> to view all past weekly entries.</p>'
         . $output;	// now render the damn thing
       break;
     case 'kh_daily_block':
       $output = kh_day_block_view();
-      $block['subject'] = t('Your Required Practices Scorecard');
-      $block['content'] = '<h3>Daily Planning Practice</h3>
+      $block['subject'] = t('Your Required Daily Practice Scorecard');
+      $block['content'] = '<h3>'.render($GLOBALS['practice_category']).'</h3>
         <p><a href="/portal/leadership/keystone-habits/day">Click here</a> to view all past daily entries.</p>'
         . $output;
       break;

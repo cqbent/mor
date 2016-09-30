@@ -1994,55 +1994,81 @@ body.front {
   background-color: #fff;
   text-align: center;
 }
-/* line 1188, ../sass/pages.scss */
+/* line 1189, ../sass/pages.scss */
 .keystone-habits-list table td.week-number, .keystone-habits-list table td.week-of {
   background-color: #e8ecf7;
 }
-/* line 1197, ../sass/pages.scss */
+/* line 1198, ../sass/pages.scss */
+.page-portal-leadership-keystone-habits .keystone-habits-list table td {
+  width: 12%;
+}
+/* line 1201, ../sass/pages.scss */
+.page-portal-leadership-keystone-habits .keystone-habits-list table td.days {
+  width: 5%;
+}
+/* line 1204, ../sass/pages.scss */
+.page-portal-leadership-keystone-habits .keystone-habits-list table td.note {
+  width: 50%;
+  text-align: left;
+}
+/* line 1210, ../sass/pages.scss */
 .keystone-habits-list .fa {
   color: #c2c2c2;
   font-size: 18px;
 }
-/* line 1200, ../sass/pages.scss */
+/* line 1213, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-times {
   font-size: 24px;
   color: #c2c2c2;
 }
-/* line 1204, ../sass/pages.scss */
+/* line 1217, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-check {
   font-size: 24px;
   color: #000;
 }
-/* line 1208, ../sass/pages.scss */
+/* line 1221, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-pencil-square-o.active {
   color: #000;
 }
 
-/* line 1226, ../sass/pages.scss */
+/* line 1238, ../sass/pages.scss */
+.practice-category {
+  line-height: normal;
+  font-size: 1.5em;
+  font-weight: normal;
+  margin-top: 10px;
+}
+/* line 1243, ../sass/pages.scss */
+.block-mor-keystone-habits .practice-category {
+  display: none;
+}
+
+/* line 1249, ../sass/pages.scss */
 .block-mor-keystone-habits a {
   font-weight: bold;
 }
-/* line 1229, ../sass/pages.scss */
+/* line 1252, ../sass/pages.scss */
 .block-mor-keystone-habits h3, .block-mor-keystone-habits p {
   margin: 1px;
+  line-height: normal;
 }
-/* line 1232, ../sass/pages.scss */
+/* line 1256, ../sass/pages.scss */
 .block-mor-keystone-habits p {
   margin-bottom: 5px;
 }
-/* line 1236, ../sass/pages.scss */
+/* line 1260, ../sass/pages.scss */
 .block-mor-keystone-habits table .note {
   display: none;
 }
-/* line 1239, ../sass/pages.scss */
+/* line 1263, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row {
   display: none;
 }
-/* line 1242, ../sass/pages.scss */
+/* line 1266, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row:nth-last-child(-n+8) {
   display: table-row;
 }
-/* line 1246, ../sass/pages.scss */
+/* line 1270, ../sass/pages.scss */
 .block-mor-keystone-habits select {
   width: 100%;
 }

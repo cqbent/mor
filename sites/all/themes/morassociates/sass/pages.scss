@@ -1184,6 +1184,7 @@ body.front { background-position: center 40px; }
 			padding: 5px;
 			background-color: #fff;
 			text-align: center;
+
 		}
 		td.week-number, td.week-of {
 			background-color: #e8ecf7;
@@ -1191,6 +1192,18 @@ body.front { background-position: center 40px; }
 		&.kh-week {
 			td {
 
+			}
+		}
+		.page-portal-leadership-keystone-habits & {
+			td {
+				width: 12%;
+			}
+			td.days {
+				width: 5%;
+			}
+			td.note {
+				width: 50%;
+				text-align: left;
 			}
 		}
 	}
@@ -1222,12 +1235,23 @@ body.front { background-position: center 40px; }
 	}
 	*/
 }
+.practice-category {
+	line-height: normal;
+	font-size: 1.5em;
+	font-weight: normal;
+	margin-top: 10px;
+	.block-mor-keystone-habits & {
+		display: none;
+	}
+}
 .block-mor-keystone-habits {
+
 	a {
 		font-weight: bold;
 	}
 	h3, p {
 		margin: 1px;
+		line-height: normal;
 	}
 	p {
 		margin-bottom: 5px;
