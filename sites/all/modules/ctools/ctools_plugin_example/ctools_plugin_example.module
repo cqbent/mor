@@ -32,7 +32,7 @@ function ctools_plugin_example_menu() {
 
   $items["admin/settings/ctools_plugin_example"] = array(
     'title' => 'CTools plugin example',
-    'description' => t("Demonstration code, advanced help, and a keystone_habits panel to show how to build ctools plugins."),
+    'description' => t("Demonstration code, advanced help, and a demo panel to show how to build ctools plugins."),
     'page callback' => 'ctools_plugin_example_explanation_page',
     'access arguments' => array('administer site configuration'),
     'type' => MENU_NORMAL_ITEM,
@@ -75,11 +75,11 @@ function ctools_plugin_example_ctools_plugin_api($module, $api) {
  * @return unknown_type
  */
 function ctools_plugin_example_explanation_page() {
-  $content = '<p>' . t("The CTools Plugin Example is simply a developer's keystone_habits of how to create plugins for CTools. It provides no useful functionality for an ordinary user.") . '</p>';
+  $content = '<p>' . t("The CTools Plugin Example is simply a developer's demo of how to create plugins for CTools. It provides no useful functionality for an ordinary user.") . '</p>';
 
   $content .= '<p>' . t(
-    'There is a keystone_habits panel demonstrating much of the functionality provided at
-    <a href="@demo_url">CTools keystone_habits panel</a>, and you can find documentation on the examples at
+    'There is a demo panel demonstrating much of the functionality provided at
+    <a href="@demo_url">CTools demo panel</a>, and you can find documentation on the examples at
     !ctools_plugin_example_help.
     CTools itself provides documentation at !ctools_help. Mostly, though, the code itself is intended to be the teacher.
     You can find it in %path.',

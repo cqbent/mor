@@ -5,7 +5,7 @@
  * @file
  * Sample ctools content type that takes advantage of context.
  *
- * This example uses the context it gets (simplecontext) to keystone_habits how a
+ * This example uses the context it gets (simplecontext) to demo how a
  * ctools content type can access and use context. Note that the simplecontext
  * can be either configured manually into a panel or it can be retrieved via
  * an argument.

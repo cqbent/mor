@@ -3,7 +3,7 @@
 /**
  * @file
  * Sample ctools context type plugin that
- * is used in this keystone_habits to create a relcontext from an existing simplecontext.
+ * is used in this demo to create a relcontext from an existing simplecontext.
  */
 
 /**

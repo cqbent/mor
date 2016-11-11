@@ -6,7 +6,7 @@
  */
 
 /**
- * Menu callback for admin/structure/block/keystone_habits.
+ * Menu callback for admin/structure/block/demo.
  */
 function block_admin_demo($theme = NULL) {
   drupal_add_css(drupal_get_path('module', 'block') . '/block.css');
