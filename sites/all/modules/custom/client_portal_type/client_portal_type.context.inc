@@ -20,7 +20,16 @@ function client_portal_type_context_default_contexts() {
     'path' => array(
       'values' => array(
         'portal/my-leadership-portal*' => 'portal/my-leadership-portal*',
-        'portal/leadership*' => 'portal/leadership*',
+        'portal/leadership' => 'portal/leadership',
+      ),
+    ),
+    'user' => array(
+      'values' => array(
+        'Coach' => 'Coach',
+        'Participant' => 'Participant',
+        'Team Member' => 'Team Member',
+        'administrator' => 'administrator',
+        'editor' => 'editor',
       ),
     ),
   );
@@ -49,18 +58,30 @@ function client_portal_type_context_default_contexts() {
           'module' => 'views',
           'delta' => 'my_readings-block_2',
           'region' => 'sidebar_first',
-          'weight' => '-8',
+          'weight' => '-9',
         ),
-        'stickynote-stickynote_block' => array(
-          'module' => 'stickynote',
-          'delta' => 'stickynote_block',
+        'mor_keystone_habits-kh_weekly_block' => array(
+          'module' => 'mor_keystone_habits',
+          'delta' => 'kh_weekly_block',
+          'region' => 'sidebar_second',
+          'weight' => '-10',
+        ),
+        'mor_keystone_habits-kh_daily_block' => array(
+          'module' => 'mor_keystone_habits',
+          'delta' => 'kh_daily_block',
           'region' => 'sidebar_second',
           'weight' => '-9',
+        ),
+        'mor_stickynote-mor_stickynote_block' => array(
+          'module' => 'mor_stickynote',
+          'delta' => 'mor_stickynote_block',
+          'region' => 'sidebar_second',
+          'weight' => '-8',
         ),
       ),
     ),
   );
-  $context->condition_mode = 0;
+  $context->condition_mode = 1;
 
   // Translatables
   // Included for use with string extractors like potx.
@@ -103,11 +124,11 @@ function client_portal_type_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
-        'stickynote-stickynote_block' => array(
-          'module' => 'stickynote',
-          'delta' => 'stickynote_block',
+        'mor_stickynote-mor_stickynote_block' => array(
+          'module' => 'mor_stickynote',
+          'delta' => 'mor_stickynote_block',
           'region' => 'sidebar_second',
-          'weight' => '-10',
+          'weight' => '-9',
         ),
       ),
     ),
@@ -244,11 +265,11 @@ function client_portal_type_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
-        'stickynote-stickynote_block' => array(
-          'module' => 'stickynote',
-          'delta' => 'stickynote_block',
+        'mor_stickynote-mor_stickynote_block' => array(
+          'module' => 'mor_stickynote',
+          'delta' => 'mor_stickynote_block',
           'region' => 'sidebar_second',
-          'weight' => '-9',
+          'weight' => '-10',
         ),
         'views-portal_calendar-block_2' => array(
           'module' => 'views',

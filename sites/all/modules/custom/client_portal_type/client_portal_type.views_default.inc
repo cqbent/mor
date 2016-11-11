@@ -770,6 +770,20 @@ function client_portal_type_views_default_views() {
     'multiple_to' => '',
     'show_remaining_days' => 0,
   );
+  /* Field: Content: Planning Practice Date */
+  $handler->display->display_options['fields']['field_planning_practice_date']['id'] = 'field_planning_practice_date';
+  $handler->display->display_options['fields']['field_planning_practice_date']['table'] = 'field_data_field_planning_practice_date';
+  $handler->display->display_options['fields']['field_planning_practice_date']['field'] = 'field_planning_practice_date';
+  $handler->display->display_options['fields']['field_planning_practice_date']['label'] = '';
+  $handler->display->display_options['fields']['field_planning_practice_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_planning_practice_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
   /* Sort criterion: Content: Workshop Dates -  start date (field_workshop_dates) */
   $handler->display->display_options['sorts']['field_workshop_dates_value']['id'] = 'field_workshop_dates_value';
   $handler->display->display_options['sorts']['field_workshop_dates_value']['table'] = 'field_data_field_workshop_dates';
@@ -1058,6 +1072,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_meeting_date.field_meeting_date_value' => 'field_data_field_meeting_date.field_meeting_date_value',
     'field_data_field_meeting_date.field_meeting_date_value2' => 'field_data_field_meeting_date.field_meeting_date_value2',
+    'field_data_field_planning_practice_date.field_planning_practice_date_value' => 'field_data_field_planning_practice_date.field_planning_practice_date_value',
     'field_data_field_program_dates.field_program_dates_value' => 'field_data_field_program_dates.field_program_dates_value',
     'field_data_field_program_dates.field_program_dates_value2' => 'field_data_field_program_dates.field_program_dates_value2',
     'field_data_field_workshop_dates.field_workshop_dates_value' => 'field_data_field_workshop_dates.field_workshop_dates_value',
