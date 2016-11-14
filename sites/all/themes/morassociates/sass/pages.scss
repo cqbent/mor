@@ -694,16 +694,28 @@ body.front { background-position: center 40px; }
 /* client portal section */
 .node-type-client-portal, .node-type-portal-content, .node-type-portal-workshop, .section-portal {
 	background: none !important;
+	&.logged-in {
+		header {
+			.menu {
+				li:not(.portal) {
+					display: none;
+				}
+				li:first-child {
+					display: block;
+				}
+			}
+		}
+	}
 	#page {
 		background: none;
 		background-color: #e2e4e6;
+
 		#subhead {
 			position: relative;
 			max-width: 100%;
 			padding: 70px calc((100% - 1000px) / 2) 0;
 			background-image: url(../images/portal_background.jpg);
 			background-size: cover;
-
 		}
 	}
 	#main {
