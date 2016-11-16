@@ -265,6 +265,12 @@ function client_portal_type_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
+        'views-mor_og_members-block_2' => array(
+          'module' => 'views',
+          'delta' => 'mor_og_members-block_2',
+          'region' => 'sidebar_first',
+          'weight' => '-7',
+        ),
         'mor_stickynote-mor_stickynote_block' => array(
           'module' => 'mor_stickynote',
           'delta' => 'mor_stickynote_block',

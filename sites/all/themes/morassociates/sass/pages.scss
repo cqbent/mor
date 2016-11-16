@@ -28,6 +28,10 @@ body.html {
 #page {
 	max-width:100%;
 	background-image:url('/sites/all/themes/morassociates/images/pattern.png');
+	#overlay & {
+		background: none;
+		background-color: #e2e4e6;
+	}
 }
 
 /*
@@ -60,6 +64,9 @@ body.html {
 	position:fixed;
 	z-index:3;
 	width:100%;
+	#overlay & {
+		position: relative;
+	}
 }
 
 #logo { /* Wrapping link for logo */
@@ -302,6 +309,9 @@ span.field-label { /* The inline field label used by the Fences module */
 /* MOR ASSOCIATES STYLES */
 #subhead { 
 	min-height:188px; max-width:1000px; margin:0px auto; position:relative; z-index:2; padding-top:70px;
+	#overlay & {
+		display: none;
+	}
 }
 .field-collection-view { padding:0px; margin:0px; }
 

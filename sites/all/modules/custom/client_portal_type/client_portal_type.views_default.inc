@@ -440,6 +440,10 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -606,6 +610,13 @@ function client_portal_type_views_default_views() {
     'portal_workshop' => 'portal_workshop',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Program Dates - end date (field_program_dates:value2) */
+  $handler->display->display_options['filters']['field_program_dates_value2']['id'] = 'field_program_dates_value2';
+  $handler->display->display_options['filters']['field_program_dates_value2']['table'] = 'field_data_field_program_dates';
+  $handler->display->display_options['filters']['field_program_dates_value2']['field'] = 'field_program_dates_value2';
+  $handler->display->display_options['filters']['field_program_dates_value2']['relationship'] = 'og_group_ref_target_id';
+  $handler->display->display_options['filters']['field_program_dates_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_program_dates_value2']['default_date'] = 'now';
 
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page_1');
@@ -672,6 +683,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['access']['role'] = array(
     3 => '3',
     8 => '8',
+    4 => '4',
     6 => '6',
     5 => '5',
   );
@@ -681,6 +693,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'node';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['empty'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -1249,8 +1262,10 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['title'] = 'Portal People';
   $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['use_more_always'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'perm';
-  $handler->display->display_options['access']['perm'] = 'access user profiles';
+  $handler->display->display_options['access']['type'] = 'role';
+  $handler->display->display_options['access']['role'] = array(
+    6 => '6',
+  );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
   $handler->display->display_options['query']['options']['distinct'] = TRUE;
