@@ -18,8 +18,8 @@ function mor_stickynote_block_contents() {
     'url' => '',
     'uid' => '',
   );
-
   $form = drupal_get_form('mor_stickynote_add_form', $stickynote);
   $output .= '<div id="add-edit-form">' . drupal_render($form) . '</div>';
   return $output;
+
 }

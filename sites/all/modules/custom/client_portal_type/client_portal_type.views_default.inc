@@ -440,10 +440,6 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'node';
-  /* Relationship: Entity Reference: Referenced Entity */
-  $handler->display->display_options['relationships']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
-  $handler->display->display_options['relationships']['og_group_ref_target_id']['table'] = 'og_membership';
-  $handler->display->display_options['relationships']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -561,6 +557,11 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
@@ -679,14 +680,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'My Program';
   $handler->display->display_options['defaults']['access'] = FALSE;
-  $handler->display->display_options['access']['type'] = 'role';
-  $handler->display->display_options['access']['role'] = array(
-    3 => '3',
-    8 => '8',
-    4 => '4',
-    6 => '6',
-    5 => '5',
-  );
+  $handler->display->display_options['access']['type'] = 'perm';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
@@ -704,6 +698,29 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'client_portal' => 'client_portal',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Program Dates - end date (field_program_dates:value2) */
+  $handler->display->display_options['filters']['field_program_dates_value2']['id'] = 'field_program_dates_value2';
+  $handler->display->display_options['filters']['field_program_dates_value2']['table'] = 'field_data_field_program_dates';
+  $handler->display->display_options['filters']['field_program_dates_value2']['field'] = 'field_program_dates_value2';
+  $handler->display->display_options['filters']['field_program_dates_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_program_dates_value2']['default_date'] = 'now';
   $handler->display->display_options['path'] = 'portal/program';
   $handler->display->display_options['menu']['type'] = 'normal';
   $handler->display->display_options['menu']['title'] = 'My Program';
@@ -784,20 +801,6 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['field_meeting_date']['label'] = '';
   $handler->display->display_options['fields']['field_meeting_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_meeting_date']['settings'] = array(
-    'format_type' => 'long',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-    'show_remaining_days' => 0,
-  );
-  /* Field: Content: Planning Practice Date */
-  $handler->display->display_options['fields']['field_planning_practice_date']['id'] = 'field_planning_practice_date';
-  $handler->display->display_options['fields']['field_planning_practice_date']['table'] = 'field_data_field_planning_practice_date';
-  $handler->display->display_options['fields']['field_planning_practice_date']['field'] = 'field_planning_practice_date';
-  $handler->display->display_options['fields']['field_planning_practice_date']['label'] = '';
-  $handler->display->display_options['fields']['field_planning_practice_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_planning_practice_date']['settings'] = array(
     'format_type' => 'long',
     'fromto' => 'both',
     'multiple_number' => '',

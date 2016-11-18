@@ -336,12 +336,6 @@ function client_portal_type_context_default_contexts() {
           'region' => 'sidebar_second',
           'weight' => '-44',
         ),
-        'stickynote-stickynote_block' => array(
-          'module' => 'stickynote',
-          'delta' => 'stickynote_block',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
-        ),
       ),
     ),
   );
