@@ -52,6 +52,14 @@ function client_portal_type_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'program_reflections' => array(
+      'name' => t('Program Reflections'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Reflection Title'),
+      'help' => '',
+    ),
   );
   drupal_alter('node_info', $items);
   return $items;

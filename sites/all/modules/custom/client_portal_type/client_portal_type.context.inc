@@ -180,6 +180,12 @@ function client_portal_type_context_default_contexts() {
           'region' => 'sidebar_first',
           'weight' => '-8',
         ),
+        'views-portal_people-block_5' => array(
+          'module' => 'views',
+          'delta' => 'portal_people-block_5',
+          'region' => 'sidebar_first',
+          'weight' => '-7',
+        ),
         'views-portal_calendar-block_2' => array(
           'module' => 'views',
           'delta' => 'portal_calendar-block_2',

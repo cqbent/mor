@@ -187,7 +187,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['filters']['field_workshop_dates_value2']['table'] = 'field_data_field_workshop_dates';
   $handler->display->display_options['filters']['field_workshop_dates_value2']['field'] = 'field_workshop_dates_value2';
   $handler->display->display_options['filters']['field_workshop_dates_value2']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_workshop_dates_value2']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_workshop_dates_value2']['default_date'] = '-30 day';
 
   /* Display: Workshop Readings */
   $handler = $view->new_display('block', 'Workshop Readings', 'block');
@@ -272,6 +272,10 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['header']['area']['field'] = 'area';
   $handler->display->display_options['header']['area']['content'] = '<h2 class="block-title">Search Results</h2>';
   $handler->display->display_options['header']['area']['format'] = 'full_html';
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['field_client_affiliation_target_id']['id'] = 'field_client_affiliation_target_id';
+  $handler->display->display_options['relationships']['field_client_affiliation_target_id']['table'] = 'field_data_field_client_affiliation';
+  $handler->display->display_options['relationships']['field_client_affiliation_target_id']['field'] = 'field_client_affiliation_target_id';
   /* Field: User: First Name */
   $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
   $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
@@ -368,18 +372,18 @@ function client_portal_type_views_default_views() {
     8 => '8',
   );
   $handler->display->display_options['filters']['rid']['group'] = 1;
-  /* Filter criterion: User: Client Affiliation (field_client_affiliation) */
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['id'] = 'field_client_affiliation_target_id';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['table'] = 'field_data_field_client_affiliation';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['field'] = 'field_client_affiliation_target_id';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['group'] = 1;
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['expose']['operator_id'] = 'field_client_affiliation_target_id_op';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['expose']['label'] = 'Organization';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['expose']['operator'] = 'field_client_affiliation_target_id_op';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['expose']['identifier'] = 'field_client_affiliation_target_id';
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['expose']['remember'] = TRUE;
-  $handler->display->display_options['filters']['field_client_affiliation_target_id']['expose']['remember_roles'] = array(
+  /* Filter criterion: Content: Client Reference (field_client_reference) (reference filter) */
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['id'] = 'field_client_reference_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['table'] = 'field_data_field_client_reference';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['field'] = 'field_client_reference_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['relationship'] = 'field_client_affiliation_target_id';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['group'] = 1;
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['exposed'] = TRUE;
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['expose']['operator_id'] = 'field_client_reference_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['expose']['label'] = 'Organization';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['expose']['operator'] = 'field_client_reference_target_id_entityreference_filter_op';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['expose']['identifier'] = 'field_client_reference_target_id_entityreference_filter';
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['expose']['remember_roles'] = array(
     2 => '2',
     1 => 0,
     3 => 0,
@@ -389,6 +393,7 @@ function client_portal_type_views_default_views() {
     7 => 0,
     8 => 0,
   );
+  $handler->display->display_options['filters']['field_client_reference_target_id_entityreference_filter']['reference_display'] = 'client_list:entityreference_1';
   /* Filter criterion: User: Portal Program (og_user_node) */
   $handler->display->display_options['filters']['og_user_node_target_id']['id'] = 'og_user_node_target_id';
   $handler->display->display_options['filters']['og_user_node_target_id']['table'] = 'og_membership';
@@ -728,6 +733,104 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['menu']['name'] = 'menu-portal-menu';
   $handler->display->display_options['menu']['context'] = 0;
   $handler->display->display_options['menu']['context_only_inline'] = 0;
+
+  /* Display: Workshop List By Context */
+  $handler = $view->new_display('block', 'Workshop List By Context', 'block_3');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'All Workshops and Assignments';
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'workshop-list';
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'none';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  /* Relationship: Entity Reference: Referenced Entity */
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['relationships']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Groups audience */
+  $handler->display->display_options['fields']['og_group_ref']['id'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['table'] = 'og_membership';
+  $handler->display->display_options['fields']['og_group_ref']['field'] = 'og_group_ref';
+  $handler->display->display_options['fields']['og_group_ref']['label'] = '';
+  $handler->display->display_options['fields']['og_group_ref']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['og_group_ref']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['og_group_ref']['settings'] = array(
+    'link' => 0,
+  );
+  $handler->display->display_options['fields']['og_group_ref']['delta_offset'] = '0';
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  /* Field: Content: Workshop Dates */
+  $handler->display->display_options['fields']['field_workshop_dates']['id'] = 'field_workshop_dates';
+  $handler->display->display_options['fields']['field_workshop_dates']['table'] = 'field_data_field_workshop_dates';
+  $handler->display->display_options['fields']['field_workshop_dates']['field'] = 'field_workshop_dates';
+  $handler->display->display_options['fields']['field_workshop_dates']['label'] = '';
+  $handler->display->display_options['fields']['field_workshop_dates']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_workshop_dates']['settings'] = array(
+    'format_type' => 'minimal',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Workshop Dates - end date (field_workshop_dates:value2) */
+  $handler->display->display_options['sorts']['field_workshop_dates_value2']['id'] = 'field_workshop_dates_value2';
+  $handler->display->display_options['sorts']['field_workshop_dates_value2']['table'] = 'field_data_field_workshop_dates';
+  $handler->display->display_options['sorts']['field_workshop_dates_value2']['field'] = 'field_workshop_dates_value2';
+  /* Sort criterion: Content: Post date */
+  $handler->display->display_options['sorts']['created']['id'] = 'created';
+  $handler->display->display_options['sorts']['created']['table'] = 'node';
+  $handler->display->display_options['sorts']['created']['field'] = 'created';
+  $handler->display->display_options['sorts']['created']['order'] = 'DESC';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Groups audience (og_group_ref) */
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['id'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['table'] = 'og_membership';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['field'] = 'og_group_ref_target_id';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['default_argument_type'] = 'og_context';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['og_group_ref_target_id']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'portal_workshop' => 'portal_workshop',
+  );
+  $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filter criterion: Content: Program Dates - end date (field_program_dates:value2) */
+  $handler->display->display_options['filters']['field_program_dates_value2']['id'] = 'field_program_dates_value2';
+  $handler->display->display_options['filters']['field_program_dates_value2']['table'] = 'field_data_field_program_dates';
+  $handler->display->display_options['filters']['field_program_dates_value2']['field'] = 'field_program_dates_value2';
+  $handler->display->display_options['filters']['field_program_dates_value2']['relationship'] = 'og_group_ref_target_id';
+  $handler->display->display_options['filters']['field_program_dates_value2']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_program_dates_value2']['default_date'] = 'now';
   $export['personal_portal'] = $view;
 
   $view = new view();
@@ -801,6 +904,21 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['fields']['field_meeting_date']['label'] = '';
   $handler->display->display_options['fields']['field_meeting_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_meeting_date']['settings'] = array(
+    'format_type' => 'long',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+    'show_remaining_days' => 0,
+  );
+  /* Field: Field: Reflection Date */
+  $handler->display->display_options['fields']['field_reflection_date']['id'] = 'field_reflection_date';
+  $handler->display->display_options['fields']['field_reflection_date']['table'] = 'field_data_field_reflection_date';
+  $handler->display->display_options['fields']['field_reflection_date']['field'] = 'field_reflection_date';
+  $handler->display->display_options['fields']['field_reflection_date']['label'] = '';
+  $handler->display->display_options['fields']['field_reflection_date']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_reflection_date']['hide_empty'] = TRUE;
+  $handler->display->display_options['fields']['field_reflection_date']['settings'] = array(
     'format_type' => 'long',
     'fromto' => 'both',
     'multiple_number' => '',
@@ -1101,6 +1219,7 @@ function client_portal_type_views_default_views() {
     'field_data_field_program_dates.field_program_dates_value2' => 'field_data_field_program_dates.field_program_dates_value2',
     'field_data_field_workshop_dates.field_workshop_dates_value' => 'field_data_field_workshop_dates.field_workshop_dates_value',
     'field_data_field_workshop_dates.field_workshop_dates_value2' => 'field_data_field_workshop_dates.field_workshop_dates_value2',
+    'field_data_field_reflection_date.field_reflection_date_value' => 'field_data_field_reflection_date.field_reflection_date_value',
   );
   /* Contextual filter: OG membership: Group ID */
   $handler->display->display_options['arguments']['gid']['id'] = 'gid';
@@ -1267,7 +1386,7 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['use_more_always'] = FALSE;
   $handler->display->display_options['access']['type'] = 'role';
   $handler->display->display_options['access']['role'] = array(
-    6 => '6',
+    8 => '8',
   );
   $handler->display->display_options['cache']['type'] = 'none';
   $handler->display->display_options['query']['type'] = 'views_query';
@@ -1279,13 +1398,6 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['pager']['options']['id'] = '0';
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['grouping'] = array(
-    0 => array(
-      'field' => 'rid',
-      'rendered' => 1,
-      'rendered_strip' => 0,
-    ),
-  );
   $handler->display->display_options['row_plugin'] = 'fields';
   /* Relationship: OG membership: User from OG membership */
   $handler->display->display_options['relationships']['og_membership_related_user']['id'] = 'og_membership_related_user';
@@ -1623,7 +1735,7 @@ function client_portal_type_views_default_views() {
   /* Display: Participant List */
   $handler = $view->new_display('block', 'Participant List', 'block_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Participants List';
+  $handler->display->display_options['title'] = 'Program Participants';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
   $handler->display->display_options['css_class'] = 'participants-list';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
@@ -1782,6 +1894,13 @@ function client_portal_type_views_default_views() {
   /* Display: Participants by Coach */
   $handler = $view->new_display('block', 'Participants by Coach', 'block_5');
   $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'My Participants';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'list';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
   /* Relationship: OG membership: User from OG membership */
   $handler->display->display_options['relationships']['og_membership_related_user']['id'] = 'og_membership_related_user';
@@ -1796,22 +1915,41 @@ function client_portal_type_views_default_views() {
   $handler->display->display_options['relationships']['reverse_field_portal_coach_user']['table'] = 'users';
   $handler->display->display_options['relationships']['reverse_field_portal_coach_user']['field'] = 'reverse_field_portal_coach_user';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: User: First Name */
+  $handler->display->display_options['fields']['field_first_name']['id'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['table'] = 'field_data_field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['field'] = 'field_first_name';
+  $handler->display->display_options['fields']['field_first_name']['relationship'] = 'reverse_field_portal_coach_user';
+  $handler->display->display_options['fields']['field_first_name']['label'] = '';
+  $handler->display->display_options['fields']['field_first_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_first_name']['element_label_colon'] = FALSE;
+  /* Field: User: Last Name */
+  $handler->display->display_options['fields']['field_last_name']['id'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['table'] = 'field_data_field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['field'] = 'field_last_name';
+  $handler->display->display_options['fields']['field_last_name']['relationship'] = 'reverse_field_portal_coach_user';
+  $handler->display->display_options['fields']['field_last_name']['label'] = '';
+  $handler->display->display_options['fields']['field_last_name']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_last_name']['element_label_colon'] = FALSE;
   /* Field: User: Name */
   $handler->display->display_options['fields']['name']['id'] = 'name';
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'reverse_field_portal_coach_user';
   $handler->display->display_options['fields']['name']['label'] = '';
+  $handler->display->display_options['fields']['name']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['name']['alter']['text'] = '<a href="/portal/program/participant-profile/[name]">[field_first_name] [field_last_name]</a>';
   $handler->display->display_options['fields']['name']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['name']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: User: Uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'users';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
-  $handler->display->display_options['arguments']['uid']['default_action'] = 'empty';
-  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['uid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['uid']['default_argument_type'] = 'current_user';
   $handler->display->display_options['arguments']['uid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['uid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['uid']['summary_options']['items_per_page'] = '25';

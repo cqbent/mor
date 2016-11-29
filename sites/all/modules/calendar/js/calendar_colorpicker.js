@@ -10,7 +10,7 @@
 (function ($) {
   Drupal.behaviors.field_example_colorpicker = {
     attach: function(context) {
-      $(".edit-calendar-colorpicker").live("focus", function(event) {
+      $(".edit-calendar-colorpicker").on("focus", function(event) {
         var edit_field = this;
         var picker = $(this).closest('div').parent().find(".calendar-colorpicker");
 

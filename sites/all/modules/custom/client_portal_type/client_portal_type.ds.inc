@@ -105,6 +105,37 @@ function client_portal_type_ds_layout_settings_info() {
 
   $ds_layout = new stdClass();
   $ds_layout->api_version = 1;
+  $ds_layout->id = 'field_collection_item|field_assignments_readings|token';
+  $ds_layout->entity_type = 'field_collection_item';
+  $ds_layout->bundle = 'field_assignments_readings';
+  $ds_layout->view_mode = 'token';
+  $ds_layout->layout = 'ds_1col';
+  $ds_layout->settings = array(
+    'regions' => array(
+      'ds_content' => array(
+        0 => 'field_ar_title',
+        1 => 'field_ar_media_file',
+        2 => 'field_assignment_reading_link',
+      ),
+    ),
+    'fields' => array(
+      'field_ar_title' => 'ds_content',
+      'field_ar_media_file' => 'ds_content',
+      'field_assignment_reading_link' => 'ds_content',
+    ),
+    'classes' => array(),
+    'wrappers' => array(),
+    'layout_wrapper' => 'div',
+    'layout_attributes' => '',
+    'layout_attributes_merge' => TRUE,
+    'layout_link_attribute' => FALSE,
+    'layout_link_custom' => '',
+    'layout_disable_css' => FALSE,
+  );
+  $export['field_collection_item|field_assignments_readings|token'] = $ds_layout;
+
+  $ds_layout = new stdClass();
+  $ds_layout->api_version = 1;
   $ds_layout->id = 'node|client_portal|default';
   $ds_layout->entity_type = 'node';
   $ds_layout->bundle = 'client_portal';
