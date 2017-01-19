@@ -194,7 +194,6 @@ function get_path_parent_title($path, $item) {
 			->fields('ml' , array('link_title'))
 			->execute()
 			->fetchField();
-	//dsm($path_parent);
 	return $title;
 }
 
@@ -237,7 +236,6 @@ function mor_menu_list_block_view($delta = '') {
 			$block['content'] = $mlinfo;	// now render the damn thing
 			break;
 	}
-	//return dsm($xx[1]);
 	return $block;
 }
 
@@ -246,7 +244,6 @@ function mor_menu_list_block_view($delta = '') {
 function mor_menu_list_preprocess_page(&$variables, $hook) {
 	// find background node with field_menu_reference set to current page's parent menu setion
 	$result = get_background_image();
-	//dsm($result);
 	if ($result && is_array($result['node'])) {
 		$node = node_load(current(array_keys($result['node'])));	// get node data from parent menu page
 		$field = field_get_items('node', $node, 'field_background_image');	// get the background image field data from this node
@@ -266,9 +263,12 @@ function get_background_image() {
 	$result = '';
 	$menutrail = menu_get_active_trail();	// get the menu trail of this page to find the parent menu item
 	if (isset($menutrail[1]['menu_name']) && $menutrail[1]['menu_name'] === 'main-menu')  {
+
 		// iterate through each parent starting with closest and then call get_background_image(). if returns a value then go to next step, otherwise keep trying
 		for ($m = count($menutrail)-1; $m > 0; $m--) {
-			$result = search_background_image($menutrail[$m]['mlid']);
+		  if (isset($menutrail[$m]['mlid'])) {
+        $result = search_background_image($menutrail[$m]['mlid']);
+      }
 			//$xx[] = $menutrail[$m]['mlid'];
 			if ($result) {
 				break;
@@ -290,7 +290,6 @@ function get_background_image() {
 			}
 		}
 	}
-	//dsm($result);
 	return $result;
 }
 

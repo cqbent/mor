@@ -33,3 +33,11 @@ function mor_menu_list_field_schema($field) {
     'indexes' => $indexes,
   );
 }
+
+/**
+ * Set module weight for it to run after menu_trail_by_path.
+ */
+function mor_menu_list_update_7100() {
+  // Set module weight for it to run after menu_trail_by_path
+  db_query("UPDATE {system} SET weight = 8 WHERE name = 'mor_menu_list' AND type = 'module'");
+}
