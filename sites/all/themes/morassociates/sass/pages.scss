@@ -480,7 +480,11 @@ body.page-blog, body.node-type-blog, body.page-taxonomy, body.page-insight-searc
 			}
 		}
 		.node-teaser {
-			img { width:143px; float:left; padding-right:20px; }
+			img {
+				width:143px;
+				//float:left;
+				//padding-right:20px;
+			}
 			.user-picture, .field-name-field-post-icon { 
 				display:block; 
 				img { width:auto; }
@@ -502,7 +506,12 @@ body.page-blog, body.node-type-blog, body.page-taxonomy, body.page-insight-searc
 	.readmore { font-family:$georgia; margin-bottom:1em; font-style:italic; clear:left; }
 	h3.series { display:inline-block; color:#fff; margin:0px; font-size:11px; font-weight:normal; margin-bottom:10px;
 		text-transform:uppercase; background-color:$text-gray; letter-spacing:1px; padding:0px 10px; }
-	.field-name-field-series { display:none; }
+	.field-name-field-series {
+		//display:none;
+		a {
+			color: #fff;
+		}
+	}
 	.field-name-field-categories { @include resize-text(11px); }
 	.field-label { font-weight:normal; }
 	.field-name-body p { margin-top:0px; }
@@ -515,15 +524,32 @@ body.page-blog, body.node-type-blog, body.page-taxonomy, body.page-insight-searc
 		.item-list ul { margin:0px; padding:0px; list-style: none;}
 	}
 }
-
+.section-insight.page-taxonomy-term {
+	.field-name-field-series {
+		display: none;
+	}
+}
 
 .node-type-blog #content .inner {
 	.node {
-		position: initial;
-		.submitted { display:none; }
-		.blog-left-sidebar { 
-			top:0px; 
-			.user-picture { display:block; }
+
+	}
+}
+.node-blog {
+	position: initial;
+
+	.blog-left-sidebar {
+		top:0px;
+		img {
+			float: none;
+		}
+		.user-picture {
+			display:block;
+		}
+	}
+	.node-type-blog & {
+		.submitted {
+			display: none;
 		}
 	}
 }

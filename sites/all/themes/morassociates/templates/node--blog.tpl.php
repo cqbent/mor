@@ -95,7 +95,7 @@
       <?php endif; ?>
       <?php print render($title_prefix); ?>
       <?php if ($node->field_series): ?>
-      	<h3 class="series"><?php print $node->field_series['und'][0]['taxonomy_term']->name; ?></h3>
+      	<h3 class="series"><?php print render($content['field_series']); ?></h3>
       <?php endif; ?>
       <?php if (!$page && $title): ?>
         <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
