@@ -1,0 +1,15 @@
+name = MOR Insights
+description = MOR insights section
+core = 7.x
+package = Features
+version = 7.x-1.0
+dependencies[] = views
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = author_list
+features[views_view][] = categories
+features[views_view][] = insight
+features[views_view][] = insight_landing
+features[views_view][] = likes
+features_exclude[dependencies][ctools] = ctools
+project path = sites/all/modules/custom
