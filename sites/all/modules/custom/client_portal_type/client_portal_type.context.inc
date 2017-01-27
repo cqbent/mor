@@ -40,43 +40,43 @@ function client_portal_type_context_default_contexts() {
           'module' => 'views',
           'delta' => 'mor_member_detail-block_2',
           'region' => 'content',
-          'weight' => '-10',
+          'weight' => '-7',
         ),
         'views-featured_insights-block' => array(
           'module' => 'views',
           'delta' => 'featured_insights-block',
           'region' => 'content',
-          'weight' => '-9',
+          'weight' => '-6',
         ),
         'views-my_interests_readings-block' => array(
           'module' => 'views',
           'delta' => 'my_interests_readings-block',
           'region' => 'content',
-          'weight' => '-8',
-        ),
-        'views-my_readings-block_2' => array(
-          'module' => 'views',
-          'delta' => 'my_readings-block_2',
-          'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-5',
         ),
         'mor_keystone_habits-kh_weekly_block' => array(
           'module' => 'mor_keystone_habits',
           'delta' => 'kh_weekly_block',
-          'region' => 'sidebar_second',
-          'weight' => '-10',
+          'region' => 'sidebar_first',
+          'weight' => '-8',
         ),
         'mor_keystone_habits-kh_daily_block' => array(
           'module' => 'mor_keystone_habits',
           'delta' => 'kh_daily_block',
-          'region' => 'sidebar_second',
-          'weight' => '-9',
+          'region' => 'sidebar_first',
+          'weight' => '-7',
         ),
         'mor_stickynote-mor_stickynote_block' => array(
           'module' => 'mor_stickynote',
           'delta' => 'mor_stickynote_block',
+          'region' => 'sidebar_first',
+          'weight' => '-6',
+        ),
+        'views-my_readings-block_2' => array(
+          'module' => 'views',
+          'delta' => 'my_readings-block_2',
           'region' => 'sidebar_second',
-          'weight' => '-8',
+          'weight' => '-10',
         ),
       ),
     ),
@@ -259,23 +259,23 @@ function client_portal_type_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-personal_portal-block_2' => array(
+        'views-personal_portal-block_3' => array(
           'module' => 'views',
-          'delta' => 'personal_portal-block_2',
+          'delta' => 'personal_portal-block_3',
           'region' => 'sidebar_first',
-          'weight' => '-9',
+          'weight' => '-10',
         ),
         'views-my_readings-block_2' => array(
           'module' => 'views',
           'delta' => 'my_readings-block_2',
           'region' => 'sidebar_first',
-          'weight' => '-8',
+          'weight' => '-9',
         ),
         'views-mor_og_members-block_2' => array(
           'module' => 'views',
           'delta' => 'mor_og_members-block_2',
           'region' => 'sidebar_first',
-          'weight' => '-7',
+          'weight' => '-8',
         ),
         'mor_stickynote-mor_stickynote_block' => array(
           'module' => 'mor_stickynote',
@@ -318,9 +318,9 @@ function client_portal_type_context_default_contexts() {
   $context->reactions = array(
     'block' => array(
       'blocks' => array(
-        'views-personal_portal-block_2' => array(
+        'views-personal_portal-block_3' => array(
           'module' => 'views',
-          'delta' => 'personal_portal-block_2',
+          'delta' => 'personal_portal-block_3',
           'region' => 'sidebar_first',
           'weight' => '-10',
         ),
@@ -328,7 +328,7 @@ function client_portal_type_context_default_contexts() {
           'module' => 'views',
           'delta' => 'portal_people-block_3',
           'region' => 'sidebar_first',
-          'weight' => '-8',
+          'weight' => '-9',
         ),
         'views-workshop_info-block_1' => array(
           'module' => 'views',

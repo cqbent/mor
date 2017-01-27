@@ -27,8 +27,9 @@ function client_portal_type_field_default_field_instances() {
       ),
       'token' => array(
         'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 3,
       ),
     ),

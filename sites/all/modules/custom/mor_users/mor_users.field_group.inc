@@ -124,21 +124,21 @@ function mor_users_field_group_info() {
       0 => 'field_user_title',
       1 => 'field_user_position',
       2 => 'field_organization',
-      3 => 'full_name',
-      4 => 'ds_user_picture',
+      3 => 'ds_user_picture',
     ),
     'format_type' => 'div',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'label' => 'Personal Info',
       'instance_settings' => array(
+        'id' => '',
+        'classes' => 'group-personal-info field-group-div',
         'description' => '',
-        'show_label' => 1,
+        'show_label' => '0',
         'label_element' => 'h3',
         'effect' => 'none',
         'speed' => 'fast',
-        'classes' => 'group-personal-info field-group-div',
-        'id' => '',
       ),
+      'formatter' => 'open',
     ),
   );
   $field_groups['group_personal_info|user|user|default'] = $field_group;

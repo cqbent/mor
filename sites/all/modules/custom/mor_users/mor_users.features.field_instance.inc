@@ -310,10 +310,9 @@ function mor_users_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 6,
+        'type' => 'hidden',
+        'weight' => 9,
       ),
       'profile' => array(
         'label' => 'above',
@@ -405,7 +404,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 14,
+        'weight' => 15,
       ),
       'profile' => array(
         'label' => 'above',
@@ -446,7 +445,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 8,
+        'weight' => 11,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -489,16 +488,9 @@ function mor_users_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'field_collection',
-        'settings' => array(
-          'add' => 'Add',
-          'delete' => 'Delete',
-          'description' => TRUE,
-          'edit' => 'Edit',
-          'view_mode' => 'full',
-        ),
-        'type' => 'field_collection_view',
-        'weight' => 5,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 8,
       ),
       'profile' => array(
         'label' => 'above',
@@ -540,7 +532,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 18,
+        'weight' => 19,
       ),
       'profile' => array(
         'label' => 'above',
@@ -583,7 +575,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 9,
+        'weight' => 12,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -720,7 +712,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 23,
+        'weight' => 22,
       ),
       'profile' => array(
         'label' => 'above',
@@ -765,7 +757,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 24,
+        'weight' => 23,
       ),
       'profile' => array(
         'label' => 'above',
@@ -809,7 +801,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 16,
+        'weight' => 17,
       ),
       'profile' => array(
         'label' => 'above',
@@ -902,7 +894,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 13,
+        'weight' => 14,
       ),
       'profile' => array(
         'label' => 'above',
@@ -942,10 +934,9 @@ function mor_users_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'list',
         'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 27,
+        'type' => 'hidden',
+        'weight' => 25,
       ),
       'profile' => array(
         'label' => 'above',
@@ -988,7 +979,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 15,
+        'weight' => 16,
       ),
       'profile' => array(
         'label' => 'above',
@@ -1032,7 +1023,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 17,
+        'weight' => 18,
       ),
       'profile' => array(
         'label' => 'above',
@@ -1129,7 +1120,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 25,
+        'weight' => 24,
       ),
       'profile' => array(
         'label' => 'above',
@@ -1171,15 +1162,9 @@ function mor_users_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
-        'module' => 'addressfield',
-        'settings' => array(
-          'format_handlers' => array(
-            0 => 'address',
-          ),
-          'use_widget_handlers' => 1,
-        ),
-        'type' => 'addressfield_default',
-        'weight' => 4,
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
       ),
       'profile' => array(
         'label' => 'hidden',
@@ -1392,7 +1377,7 @@ function mor_users_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 11,
+        'weight' => 13,
       ),
       'profile' => array(
         'label' => 'above',

@@ -830,6 +830,9 @@ body.front { background-position: center 40px; }
 			margin: 20px 0;
 			background-color: #fff;
 			padding: 10px 20px;
+			h3, h4 {
+				margin: 0;
+			}
 			.node {
 				margin: 0 0 20px 0;
 				padding: 0;
@@ -1201,13 +1204,13 @@ body.front { background-position: center 40px; }
 		$zen-column-count: 12 !global;
 		&.two-sidebars {
 			#content {
-				@include zen-grid-item(7, 4);
+				@include zen-grid-item(6, 4);
 			}
 			.region-sidebar-first {
 				@include zen-grid-item(3, 1);
 			}
 			.region-sidebar-second {
-				@include zen-grid-item(2, 11);
+				@include zen-grid-item(3, 10);
 			}
 		}
 	}

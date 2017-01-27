@@ -185,7 +185,7 @@
 		}
 
 		// workshop assignments sidebar toggle
-		$('.region-sidebar-first .view-my-readings .field-collection-view').click(function() {
+		$('.sidebar .view-my-readings .field-collection-view').click(function() {
 			if ($(this).hasClass('active')) {
 				$(this).removeClass('active');
 			}

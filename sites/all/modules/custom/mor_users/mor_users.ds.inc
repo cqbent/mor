@@ -17,16 +17,6 @@ function mor_users_ds_field_settings_info() {
   $ds_fieldsetting->bundle = 'user';
   $ds_fieldsetting->view_mode = 'default';
   $ds_fieldsetting->settings = array(
-    'edit_profile' => array(
-      'weight' => '7',
-      'label' => 'above',
-      'format' => 'default',
-    ),
-    'full_name' => array(
-      'weight' => '18',
-      'label' => 'hidden',
-      'format' => 'default',
-    ),
     'ds_user_picture' => array(
       'weight' => '17',
       'label' => 'hidden',
@@ -132,15 +122,10 @@ function mor_users_ds_layout_settings_info() {
         1 => 'field_client_affiliation',
         2 => 'field_phone',
         3 => 'field_user_bio',
-        4 => 'field_user_address',
-        5 => 'field_goals',
-        6 => 'field_360_raters_progress',
-        7 => 'edit_profile',
-        8 => 'ds_user_picture',
-        9 => 'full_name',
-        10 => 'field_user_title',
-        11 => 'field_user_position',
-        12 => 'field_organization',
+        4 => 'ds_user_picture',
+        5 => 'field_user_title',
+        6 => 'field_user_position',
+        7 => 'field_organization',
       ),
     ),
     'fields' => array(
@@ -148,12 +133,7 @@ function mor_users_ds_layout_settings_info() {
       'field_client_affiliation' => 'ds_content',
       'field_phone' => 'ds_content',
       'field_user_bio' => 'ds_content',
-      'field_user_address' => 'ds_content',
-      'field_goals' => 'ds_content',
-      'field_360_raters_progress' => 'ds_content',
-      'edit_profile' => 'ds_content',
       'ds_user_picture' => 'ds_content',
-      'full_name' => 'ds_content',
       'field_user_title' => 'ds_content',
       'field_user_position' => 'ds_content',
       'field_organization' => 'ds_content',
