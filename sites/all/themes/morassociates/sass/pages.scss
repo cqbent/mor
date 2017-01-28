@@ -758,6 +758,11 @@ body.front { background-position: center 40px; }
 		border: none;
 		max-width: 100%;
 		background: none;
+		form {
+			input, select {
+				width: 100%;
+			}
+		}
 		.region-sidebar-first, .region-sidebar-second {
 			color: #666;
 			background: none;
@@ -1202,6 +1207,22 @@ body.front { background-position: center 40px; }
 	}
 	@media all and (min-width: 901px) {
 		$zen-column-count: 12 !global;
+		&.sidebar-first {
+			#content {
+				@include zen-grid-item(9, 4);
+			}
+			.region-sidebar-first {
+				@include zen-grid-item(3, 1);
+			}
+		}
+		&.sidebar-second {
+			#content {
+				@include zen-grid-item(9, 1);
+			}
+			.region-sidebar-second {
+				@include zen-grid-item(3, 10);
+			}
+		}
 		&.two-sidebars {
 			#content {
 				@include zen-grid-item(6, 4);

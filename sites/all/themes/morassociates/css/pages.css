@@ -1456,16 +1456,20 @@ body.front {
   max-width: 100%;
   background: none;
 }
-/* line 761, ../sass/pages.scss */
+/* line 762, ../sass/pages.scss */
+.node-type-client-portal #main form input, .node-type-client-portal #main form select, .node-type-portal-content #main form input, .node-type-portal-content #main form select, .node-type-portal-workshop #main form input, .node-type-portal-workshop #main form select, .section-portal #main form input, .section-portal #main form select {
+  width: 100%;
+}
+/* line 766, ../sass/pages.scss */
 .node-type-client-portal #main .region-sidebar-first, .node-type-client-portal #main .region-sidebar-second, .node-type-portal-content #main .region-sidebar-first, .node-type-portal-content #main .region-sidebar-second, .node-type-portal-workshop #main .region-sidebar-first, .node-type-portal-workshop #main .region-sidebar-second, .section-portal #main .region-sidebar-first, .section-portal #main .region-sidebar-second {
   color: #666;
   background: none;
 }
-/* line 765, ../sass/pages.scss */
+/* line 770, ../sass/pages.scss */
 .node-type-client-portal #main .tabs-primary, .node-type-portal-content #main .tabs-primary, .node-type-portal-workshop #main .tabs-primary, .section-portal #main .tabs-primary {
   padding-top: 60px;
 }
-/* line 768, ../sass/pages.scss */
+/* line 773, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block, .node-type-portal-content #main .block.block-menu-block, .node-type-portal-workshop #main .block.block-menu-block, .section-portal #main .block.block-menu-block {
   z-index: 2;
   position: absolute;
@@ -1476,57 +1480,57 @@ body.front {
   background: none;
   border-bottom: 1px #bbb solid;
 }
-/* line 777, ../sass/pages.scss */
+/* line 782, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu, .node-type-portal-content #main .block.block-menu-block .menu, .node-type-portal-workshop #main .block.block-menu-block .menu, .section-portal #main .block.block-menu-block .menu {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-/* line 781, ../sass/pages.scss */
+/* line 786, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li, .node-type-portal-content #main .block.block-menu-block .menu li, .node-type-portal-workshop #main .block.block-menu-block .menu li, .section-portal #main .block.block-menu-block .menu li {
   float: left;
   padding: 0;
   margin: 0 10px 10px 0;
   color: #408cda;
 }
-/* line 786, ../sass/pages.scss */
+/* line 791, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li:after, .node-type-portal-content #main .block.block-menu-block .menu li:after, .node-type-portal-workshop #main .block.block-menu-block .menu li:after, .section-portal #main .block.block-menu-block .menu li:after {
   content: "|";
   padding-left: 10px;
 }
-/* line 790, ../sass/pages.scss */
+/* line 795, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li.last:after, .node-type-portal-content #main .block.block-menu-block .menu li.last:after, .node-type-portal-workshop #main .block.block-menu-block .menu li.last:after, .section-portal #main .block.block-menu-block .menu li.last:after {
   content: "";
 }
-/* line 793, ../sass/pages.scss */
+/* line 798, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li a, .node-type-portal-content #main .block.block-menu-block .menu li a, .node-type-portal-workshop #main .block.block-menu-block .menu li a, .section-portal #main .block.block-menu-block .menu li a {
   font-weight: bold;
   color: #408cda;
 }
-/* line 796, ../sass/pages.scss */
+/* line 801, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li a.active-trail, .node-type-portal-content #main .block.block-menu-block .menu li a.active-trail, .node-type-portal-workshop #main .block.block-menu-block .menu li a.active-trail, .section-portal #main .block.block-menu-block .menu li a.active-trail {
   color: #666;
 }
-/* line 800, ../sass/pages.scss */
+/* line 805, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li.is-expanded, .node-type-portal-content #main .block.block-menu-block .menu li.is-expanded, .node-type-portal-workshop #main .block.block-menu-block .menu li.is-expanded, .section-portal #main .block.block-menu-block .menu li.is-expanded {
   margin-bottom: 30px;
 }
-/* line 803, ../sass/pages.scss */
+/* line 808, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li ul, .node-type-portal-content #main .block.block-menu-block .menu li ul, .node-type-portal-workshop #main .block.block-menu-block .menu li ul, .section-portal #main .block.block-menu-block .menu li ul {
   position: absolute;
   left: 0;
   bottom: 0;
   font-size: .875em;
 }
-/* line 808, ../sass/pages.scss */
+/* line 813, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li ul li, .node-type-portal-content #main .block.block-menu-block .menu li ul li, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li, .section-portal #main .block.block-menu-block .menu li ul li {
   margin: 0 1px 0 0;
 }
-/* line 810, ../sass/pages.scss */
+/* line 815, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li ul li:after, .node-type-portal-content #main .block.block-menu-block .menu li ul li:after, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li:after, .section-portal #main .block.block-menu-block .menu li ul li:after {
   display: none;
 }
-/* line 813, ../sass/pages.scss */
+/* line 818, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li ul li a, .node-type-portal-content #main .block.block-menu-block .menu li ul li a, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li a, .section-portal #main .block.block-menu-block .menu li ul li a {
   display: block;
   color: #fff;
@@ -1534,41 +1538,41 @@ body.front {
   padding: 4px 10px;
   border-radius: 10px 10px 0 0;
 }
-/* line 819, ../sass/pages.scss */
+/* line 824, ../sass/pages.scss */
 .node-type-client-portal #main .block.block-menu-block .menu li ul li a.active, .node-type-portal-content #main .block.block-menu-block .menu li ul li a.active, .node-type-portal-workshop #main .block.block-menu-block .menu li ul li a.active, .section-portal #main .block.block-menu-block .menu li ul li a.active {
   color: #fff;
   background-color: #666;
 }
-/* line 829, ../sass/pages.scss */
+/* line 834, ../sass/pages.scss */
 .node-type-client-portal #main .block-views, .node-type-client-portal #main .block, .node-type-client-portal #main .view-display-id-page, .node-type-client-portal #main .node, .node-type-client-portal #main .view-mor-member-detail, .node-type-portal-content #main .block-views, .node-type-portal-content #main .block, .node-type-portal-content #main .view-display-id-page, .node-type-portal-content #main .node, .node-type-portal-content #main .view-mor-member-detail, .node-type-portal-workshop #main .block-views, .node-type-portal-workshop #main .block, .node-type-portal-workshop #main .view-display-id-page, .node-type-portal-workshop #main .node, .node-type-portal-workshop #main .view-mor-member-detail, .section-portal #main .block-views, .section-portal #main .block, .section-portal #main .view-display-id-page, .section-portal #main .node, .section-portal #main .view-mor-member-detail {
   margin: 20px 0;
   background-color: #fff;
   padding: 10px 20px;
 }
-/* line 833, ../sass/pages.scss */
+/* line 838, ../sass/pages.scss */
 .node-type-client-portal #main .block-views h3, .node-type-client-portal #main .block-views h4, .node-type-client-portal #main .block h3, .node-type-client-portal #main .block h4, .node-type-client-portal #main .view-display-id-page h3, .node-type-client-portal #main .view-display-id-page h4, .node-type-client-portal #main .node h3, .node-type-client-portal #main .node h4, .node-type-client-portal #main .view-mor-member-detail h3, .node-type-client-portal #main .view-mor-member-detail h4, .node-type-portal-content #main .block-views h3, .node-type-portal-content #main .block-views h4, .node-type-portal-content #main .block h3, .node-type-portal-content #main .block h4, .node-type-portal-content #main .view-display-id-page h3, .node-type-portal-content #main .view-display-id-page h4, .node-type-portal-content #main .node h3, .node-type-portal-content #main .node h4, .node-type-portal-content #main .view-mor-member-detail h3, .node-type-portal-content #main .view-mor-member-detail h4, .node-type-portal-workshop #main .block-views h3, .node-type-portal-workshop #main .block-views h4, .node-type-portal-workshop #main .block h3, .node-type-portal-workshop #main .block h4, .node-type-portal-workshop #main .view-display-id-page h3, .node-type-portal-workshop #main .view-display-id-page h4, .node-type-portal-workshop #main .node h3, .node-type-portal-workshop #main .node h4, .node-type-portal-workshop #main .view-mor-member-detail h3, .node-type-portal-workshop #main .view-mor-member-detail h4, .section-portal #main .block-views h3, .section-portal #main .block-views h4, .section-portal #main .block h3, .section-portal #main .block h4, .section-portal #main .view-display-id-page h3, .section-portal #main .view-display-id-page h4, .section-portal #main .node h3, .section-portal #main .node h4, .section-portal #main .view-mor-member-detail h3, .section-portal #main .view-mor-member-detail h4 {
   margin: 0;
 }
-/* line 836, ../sass/pages.scss */
+/* line 841, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .node, .node-type-client-portal #main .block .node, .node-type-client-portal #main .view-display-id-page .node, .node-type-client-portal #main .node .node, .node-type-client-portal #main .view-mor-member-detail .node, .node-type-portal-content #main .block-views .node, .node-type-portal-content #main .block .node, .node-type-portal-content #main .view-display-id-page .node, .node-type-portal-content #main .node .node, .node-type-portal-content #main .view-mor-member-detail .node, .node-type-portal-workshop #main .block-views .node, .node-type-portal-workshop #main .block .node, .node-type-portal-workshop #main .view-display-id-page .node, .node-type-portal-workshop #main .node .node, .node-type-portal-workshop #main .view-mor-member-detail .node, .section-portal #main .block-views .node, .section-portal #main .block .node, .section-portal #main .view-display-id-page .node, .section-portal #main .node .node, .section-portal #main .view-mor-member-detail .node {
   margin: 0 0 20px 0;
   padding: 0;
 }
-/* line 841, ../sass/pages.scss */
+/* line 846, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .item-list ul, .node-type-client-portal #main .block .item-list ul, .node-type-client-portal #main .view-display-id-page .item-list ul, .node-type-client-portal #main .node .item-list ul, .node-type-client-portal #main .view-mor-member-detail .item-list ul, .node-type-portal-content #main .block-views .item-list ul, .node-type-portal-content #main .block .item-list ul, .node-type-portal-content #main .view-display-id-page .item-list ul, .node-type-portal-content #main .node .item-list ul, .node-type-portal-content #main .view-mor-member-detail .item-list ul, .node-type-portal-workshop #main .block-views .item-list ul, .node-type-portal-workshop #main .block .item-list ul, .node-type-portal-workshop #main .view-display-id-page .item-list ul, .node-type-portal-workshop #main .node .item-list ul, .node-type-portal-workshop #main .view-mor-member-detail .item-list ul, .section-portal #main .block-views .item-list ul, .section-portal #main .block .item-list ul, .section-portal #main .view-display-id-page .item-list ul, .section-portal #main .node .item-list ul, .section-portal #main .view-mor-member-detail .item-list ul {
   margin: 0;
   padding: 0;
 }
-/* line 846, ../sass/pages.scss */
+/* line 851, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .views-row, .node-type-client-portal #main .block .views-row, .node-type-client-portal #main .view-display-id-page .views-row, .node-type-client-portal #main .node .views-row, .node-type-client-portal #main .view-mor-member-detail .views-row, .node-type-portal-content #main .block-views .views-row, .node-type-portal-content #main .block .views-row, .node-type-portal-content #main .view-display-id-page .views-row, .node-type-portal-content #main .node .views-row, .node-type-portal-content #main .view-mor-member-detail .views-row, .node-type-portal-workshop #main .block-views .views-row, .node-type-portal-workshop #main .block .views-row, .node-type-portal-workshop #main .view-display-id-page .views-row, .node-type-portal-workshop #main .node .views-row, .node-type-portal-workshop #main .view-mor-member-detail .views-row, .section-portal #main .block-views .views-row, .section-portal #main .block .views-row, .section-portal #main .view-display-id-page .views-row, .section-portal #main .node .views-row, .section-portal #main .view-mor-member-detail .views-row {
   margin-bottom: 10px;
 }
-/* line 849, ../sass/pages.scss */
+/* line 854, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .views-field-title, .node-type-client-portal #main .block .views-field-title, .node-type-client-portal #main .view-display-id-page .views-field-title, .node-type-client-portal #main .node .views-field-title, .node-type-client-portal #main .view-mor-member-detail .views-field-title, .node-type-portal-content #main .block-views .views-field-title, .node-type-portal-content #main .block .views-field-title, .node-type-portal-content #main .view-display-id-page .views-field-title, .node-type-portal-content #main .node .views-field-title, .node-type-portal-content #main .view-mor-member-detail .views-field-title, .node-type-portal-workshop #main .block-views .views-field-title, .node-type-portal-workshop #main .block .views-field-title, .node-type-portal-workshop #main .view-display-id-page .views-field-title, .node-type-portal-workshop #main .node .views-field-title, .node-type-portal-workshop #main .view-mor-member-detail .views-field-title, .section-portal #main .block-views .views-field-title, .section-portal #main .block .views-field-title, .section-portal #main .view-display-id-page .views-field-title, .section-portal #main .node .views-field-title, .section-portal #main .view-mor-member-detail .views-field-title {
   font-weight: bold;
   display: block;
 }
-/* line 853, ../sass/pages.scss */
+/* line 858, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .block-title, .node-type-client-portal #main .block-views .field-name-title h2, .node-type-client-portal #main .block-views .field-name-full-name, .node-type-client-portal #main .block .block-title, .node-type-client-portal #main .block .field-name-title h2, .node-type-client-portal #main .block .field-name-full-name, .node-type-client-portal #main .view-display-id-page .block-title, .node-type-client-portal #main .view-display-id-page .field-name-title h2, .node-type-client-portal #main .view-display-id-page .field-name-full-name, .node-type-client-portal #main .node .block-title, .node-type-client-portal #main .node .field-name-title h2, .node-type-client-portal #main .node .field-name-full-name, .node-type-client-portal #main .view-mor-member-detail .block-title, .node-type-client-portal #main .view-mor-member-detail .field-name-title h2, .node-type-client-portal #main .view-mor-member-detail .field-name-full-name, .node-type-portal-content #main .block-views .block-title, .node-type-portal-content #main .block-views .field-name-title h2, .node-type-portal-content #main .block-views .field-name-full-name, .node-type-portal-content #main .block .block-title, .node-type-portal-content #main .block .field-name-title h2, .node-type-portal-content #main .block .field-name-full-name, .node-type-portal-content #main .view-display-id-page .block-title, .node-type-portal-content #main .view-display-id-page .field-name-title h2, .node-type-portal-content #main .view-display-id-page .field-name-full-name, .node-type-portal-content #main .node .block-title, .node-type-portal-content #main .node .field-name-title h2, .node-type-portal-content #main .node .field-name-full-name, .node-type-portal-content #main .view-mor-member-detail .block-title, .node-type-portal-content #main .view-mor-member-detail .field-name-title h2, .node-type-portal-content #main .view-mor-member-detail .field-name-full-name, .node-type-portal-workshop #main .block-views .block-title, .node-type-portal-workshop #main .block-views .field-name-title h2, .node-type-portal-workshop #main .block-views .field-name-full-name, .node-type-portal-workshop #main .block .block-title, .node-type-portal-workshop #main .block .field-name-title h2, .node-type-portal-workshop #main .block .field-name-full-name, .node-type-portal-workshop #main .view-display-id-page .block-title, .node-type-portal-workshop #main .view-display-id-page .field-name-title h2, .node-type-portal-workshop #main .view-display-id-page .field-name-full-name, .node-type-portal-workshop #main .node .block-title, .node-type-portal-workshop #main .node .field-name-title h2, .node-type-portal-workshop #main .node .field-name-full-name, .node-type-portal-workshop #main .view-mor-member-detail .block-title, .node-type-portal-workshop #main .view-mor-member-detail .field-name-title h2, .node-type-portal-workshop #main .view-mor-member-detail .field-name-full-name, .section-portal #main .block-views .block-title, .section-portal #main .block-views .field-name-title h2, .section-portal #main .block-views .field-name-full-name, .section-portal #main .block .block-title, .section-portal #main .block .field-name-title h2, .section-portal #main .block .field-name-full-name, .section-portal #main .view-display-id-page .block-title, .section-portal #main .view-display-id-page .field-name-title h2, .section-portal #main .view-display-id-page .field-name-full-name, .section-portal #main .node .block-title, .section-portal #main .node .field-name-title h2, .section-portal #main .node .field-name-full-name, .section-portal #main .view-mor-member-detail .block-title, .section-portal #main .view-mor-member-detail .field-name-title h2, .section-portal #main .view-mor-member-detail .field-name-full-name {
   padding: 10px 20px 20px 20px;
   margin: -10px -20px;
@@ -1587,50 +1591,50 @@ body.front {
   font-weight: bold;
   font-size: 1.25rem;
 }
-/* line 868, ../sass/pages.scss */
+/* line 873, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .view-content h2, .node-type-client-portal #main .block-views .view-content h3, .node-type-client-portal #main .block .view-content h2, .node-type-client-portal #main .block .view-content h3, .node-type-client-portal #main .view-display-id-page .view-content h2, .node-type-client-portal #main .view-display-id-page .view-content h3, .node-type-client-portal #main .node .view-content h2, .node-type-client-portal #main .node .view-content h3, .node-type-client-portal #main .view-mor-member-detail .view-content h2, .node-type-client-portal #main .view-mor-member-detail .view-content h3, .node-type-portal-content #main .block-views .view-content h2, .node-type-portal-content #main .block-views .view-content h3, .node-type-portal-content #main .block .view-content h2, .node-type-portal-content #main .block .view-content h3, .node-type-portal-content #main .view-display-id-page .view-content h2, .node-type-portal-content #main .view-display-id-page .view-content h3, .node-type-portal-content #main .node .view-content h2, .node-type-portal-content #main .node .view-content h3, .node-type-portal-content #main .view-mor-member-detail .view-content h2, .node-type-portal-content #main .view-mor-member-detail .view-content h3, .node-type-portal-workshop #main .block-views .view-content h2, .node-type-portal-workshop #main .block-views .view-content h3, .node-type-portal-workshop #main .block .view-content h2, .node-type-portal-workshop #main .block .view-content h3, .node-type-portal-workshop #main .view-display-id-page .view-content h2, .node-type-portal-workshop #main .view-display-id-page .view-content h3, .node-type-portal-workshop #main .node .view-content h2, .node-type-portal-workshop #main .node .view-content h3, .node-type-portal-workshop #main .view-mor-member-detail .view-content h2, .node-type-portal-workshop #main .view-mor-member-detail .view-content h3, .section-portal #main .block-views .view-content h2, .section-portal #main .block-views .view-content h3, .section-portal #main .block .view-content h2, .section-portal #main .block .view-content h3, .section-portal #main .view-display-id-page .view-content h2, .section-portal #main .view-display-id-page .view-content h3, .section-portal #main .node .view-content h2, .section-portal #main .node .view-content h3, .section-portal #main .view-mor-member-detail .view-content h2, .section-portal #main .view-mor-member-detail .view-content h3 {
   line-height: normal;
   font-size: 1.25em;
   margin: 0 0 10px 0;
 }
-/* line 873, ../sass/pages.scss */
+/* line 878, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .view-content p, .node-type-client-portal #main .block .view-content p, .node-type-client-portal #main .view-display-id-page .view-content p, .node-type-client-portal #main .node .view-content p, .node-type-client-portal #main .view-mor-member-detail .view-content p, .node-type-portal-content #main .block-views .view-content p, .node-type-portal-content #main .block .view-content p, .node-type-portal-content #main .view-display-id-page .view-content p, .node-type-portal-content #main .node .view-content p, .node-type-portal-content #main .view-mor-member-detail .view-content p, .node-type-portal-workshop #main .block-views .view-content p, .node-type-portal-workshop #main .block .view-content p, .node-type-portal-workshop #main .view-display-id-page .view-content p, .node-type-portal-workshop #main .node .view-content p, .node-type-portal-workshop #main .view-mor-member-detail .view-content p, .section-portal #main .block-views .view-content p, .section-portal #main .block .view-content p, .section-portal #main .view-display-id-page .view-content p, .section-portal #main .node .view-content p, .section-portal #main .view-mor-member-detail .view-content p {
   margin-top: 1px;
 }
-/* line 876, ../sass/pages.scss */
+/* line 881, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .view-content .item-list, .node-type-client-portal #main .block-views .view-content .views-list, .node-type-client-portal #main .block .view-content .item-list, .node-type-client-portal #main .block .view-content .views-list, .node-type-client-portal #main .view-display-id-page .view-content .item-list, .node-type-client-portal #main .view-display-id-page .view-content .views-list, .node-type-client-portal #main .node .view-content .item-list, .node-type-client-portal #main .node .view-content .views-list, .node-type-client-portal #main .view-mor-member-detail .view-content .item-list, .node-type-client-portal #main .view-mor-member-detail .view-content .views-list, .node-type-portal-content #main .block-views .view-content .item-list, .node-type-portal-content #main .block-views .view-content .views-list, .node-type-portal-content #main .block .view-content .item-list, .node-type-portal-content #main .block .view-content .views-list, .node-type-portal-content #main .view-display-id-page .view-content .item-list, .node-type-portal-content #main .view-display-id-page .view-content .views-list, .node-type-portal-content #main .node .view-content .item-list, .node-type-portal-content #main .node .view-content .views-list, .node-type-portal-content #main .view-mor-member-detail .view-content .item-list, .node-type-portal-content #main .view-mor-member-detail .view-content .views-list, .node-type-portal-workshop #main .block-views .view-content .item-list, .node-type-portal-workshop #main .block-views .view-content .views-list, .node-type-portal-workshop #main .block .view-content .item-list, .node-type-portal-workshop #main .block .view-content .views-list, .node-type-portal-workshop #main .view-display-id-page .view-content .item-list, .node-type-portal-workshop #main .view-display-id-page .view-content .views-list, .node-type-portal-workshop #main .node .view-content .item-list, .node-type-portal-workshop #main .node .view-content .views-list, .node-type-portal-workshop #main .view-mor-member-detail .view-content .item-list, .node-type-portal-workshop #main .view-mor-member-detail .view-content .views-list, .section-portal #main .block-views .view-content .item-list, .section-portal #main .block-views .view-content .views-list, .section-portal #main .block .view-content .item-list, .section-portal #main .block .view-content .views-list, .section-portal #main .view-display-id-page .view-content .item-list, .section-portal #main .view-display-id-page .view-content .views-list, .section-portal #main .node .view-content .item-list, .section-portal #main .node .view-content .views-list, .section-portal #main .view-mor-member-detail .view-content .item-list, .section-portal #main .view-mor-member-detail .view-content .views-list {
   margin-bottom: 10px;
 }
-/* line 878, ../sass/pages.scss */
+/* line 883, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .view-content .item-list ul, .node-type-client-portal #main .block-views .view-content .views-list ul, .node-type-client-portal #main .block .view-content .item-list ul, .node-type-client-portal #main .block .view-content .views-list ul, .node-type-client-portal #main .view-display-id-page .view-content .item-list ul, .node-type-client-portal #main .view-display-id-page .view-content .views-list ul, .node-type-client-portal #main .node .view-content .item-list ul, .node-type-client-portal #main .node .view-content .views-list ul, .node-type-client-portal #main .view-mor-member-detail .view-content .item-list ul, .node-type-client-portal #main .view-mor-member-detail .view-content .views-list ul, .node-type-portal-content #main .block-views .view-content .item-list ul, .node-type-portal-content #main .block-views .view-content .views-list ul, .node-type-portal-content #main .block .view-content .item-list ul, .node-type-portal-content #main .block .view-content .views-list ul, .node-type-portal-content #main .view-display-id-page .view-content .item-list ul, .node-type-portal-content #main .view-display-id-page .view-content .views-list ul, .node-type-portal-content #main .node .view-content .item-list ul, .node-type-portal-content #main .node .view-content .views-list ul, .node-type-portal-content #main .view-mor-member-detail .view-content .item-list ul, .node-type-portal-content #main .view-mor-member-detail .view-content .views-list ul, .node-type-portal-workshop #main .block-views .view-content .item-list ul, .node-type-portal-workshop #main .block-views .view-content .views-list ul, .node-type-portal-workshop #main .block .view-content .item-list ul, .node-type-portal-workshop #main .block .view-content .views-list ul, .node-type-portal-workshop #main .view-display-id-page .view-content .item-list ul, .node-type-portal-workshop #main .view-display-id-page .view-content .views-list ul, .node-type-portal-workshop #main .node .view-content .item-list ul, .node-type-portal-workshop #main .node .view-content .views-list ul, .node-type-portal-workshop #main .view-mor-member-detail .view-content .item-list ul, .node-type-portal-workshop #main .view-mor-member-detail .view-content .views-list ul, .section-portal #main .block-views .view-content .item-list ul, .section-portal #main .block-views .view-content .views-list ul, .section-portal #main .block .view-content .item-list ul, .section-portal #main .block .view-content .views-list ul, .section-portal #main .view-display-id-page .view-content .item-list ul, .section-portal #main .view-display-id-page .view-content .views-list ul, .section-portal #main .node .view-content .item-list ul, .section-portal #main .node .view-content .views-list ul, .section-portal #main .view-mor-member-detail .view-content .item-list ul, .section-portal #main .view-mor-member-detail .view-content .views-list ul {
   list-style: none;
 }
-/* line 881, ../sass/pages.scss */
+/* line 886, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .view-content .item-list h3, .node-type-client-portal #main .block-views .view-content .views-list h3, .node-type-client-portal #main .block .view-content .item-list h3, .node-type-client-portal #main .block .view-content .views-list h3, .node-type-client-portal #main .view-display-id-page .view-content .item-list h3, .node-type-client-portal #main .view-display-id-page .view-content .views-list h3, .node-type-client-portal #main .node .view-content .item-list h3, .node-type-client-portal #main .node .view-content .views-list h3, .node-type-client-portal #main .view-mor-member-detail .view-content .item-list h3, .node-type-client-portal #main .view-mor-member-detail .view-content .views-list h3, .node-type-portal-content #main .block-views .view-content .item-list h3, .node-type-portal-content #main .block-views .view-content .views-list h3, .node-type-portal-content #main .block .view-content .item-list h3, .node-type-portal-content #main .block .view-content .views-list h3, .node-type-portal-content #main .view-display-id-page .view-content .item-list h3, .node-type-portal-content #main .view-display-id-page .view-content .views-list h3, .node-type-portal-content #main .node .view-content .item-list h3, .node-type-portal-content #main .node .view-content .views-list h3, .node-type-portal-content #main .view-mor-member-detail .view-content .item-list h3, .node-type-portal-content #main .view-mor-member-detail .view-content .views-list h3, .node-type-portal-workshop #main .block-views .view-content .item-list h3, .node-type-portal-workshop #main .block-views .view-content .views-list h3, .node-type-portal-workshop #main .block .view-content .item-list h3, .node-type-portal-workshop #main .block .view-content .views-list h3, .node-type-portal-workshop #main .view-display-id-page .view-content .item-list h3, .node-type-portal-workshop #main .view-display-id-page .view-content .views-list h3, .node-type-portal-workshop #main .node .view-content .item-list h3, .node-type-portal-workshop #main .node .view-content .views-list h3, .node-type-portal-workshop #main .view-mor-member-detail .view-content .item-list h3, .node-type-portal-workshop #main .view-mor-member-detail .view-content .views-list h3, .section-portal #main .block-views .view-content .item-list h3, .section-portal #main .block-views .view-content .views-list h3, .section-portal #main .block .view-content .item-list h3, .section-portal #main .block .view-content .views-list h3, .section-portal #main .view-display-id-page .view-content .item-list h3, .section-portal #main .view-display-id-page .view-content .views-list h3, .section-portal #main .node .view-content .item-list h3, .section-portal #main .node .view-content .views-list h3, .section-portal #main .view-mor-member-detail .view-content .item-list h3, .section-portal #main .view-mor-member-detail .view-content .views-list h3 {
   font-size: 1rem;
 }
-/* line 885, ../sass/pages.scss */
+/* line 890, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .view-content .field-collection-view, .node-type-client-portal #main .block .view-content .field-collection-view, .node-type-client-portal #main .view-display-id-page .view-content .field-collection-view, .node-type-client-portal #main .node .view-content .field-collection-view, .node-type-client-portal #main .view-mor-member-detail .view-content .field-collection-view, .node-type-portal-content #main .block-views .view-content .field-collection-view, .node-type-portal-content #main .block .view-content .field-collection-view, .node-type-portal-content #main .view-display-id-page .view-content .field-collection-view, .node-type-portal-content #main .node .view-content .field-collection-view, .node-type-portal-content #main .view-mor-member-detail .view-content .field-collection-view, .node-type-portal-workshop #main .block-views .view-content .field-collection-view, .node-type-portal-workshop #main .block .view-content .field-collection-view, .node-type-portal-workshop #main .view-display-id-page .view-content .field-collection-view, .node-type-portal-workshop #main .node .view-content .field-collection-view, .node-type-portal-workshop #main .view-mor-member-detail .view-content .field-collection-view, .section-portal #main .block-views .view-content .field-collection-view, .section-portal #main .block .view-content .field-collection-view, .section-portal #main .view-display-id-page .view-content .field-collection-view, .section-portal #main .node .view-content .field-collection-view, .section-portal #main .view-mor-member-detail .view-content .field-collection-view {
   border-bottom: 1px #D3D7D9 solid;
   margin-bottom: 1em;
 }
-/* line 891, ../sass/pages.scss */
+/* line 896, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .upcoming-dates h3, .node-type-client-portal #main .block .upcoming-dates h3, .node-type-client-portal #main .view-display-id-page .upcoming-dates h3, .node-type-client-portal #main .node .upcoming-dates h3, .node-type-client-portal #main .view-mor-member-detail .upcoming-dates h3, .node-type-portal-content #main .block-views .upcoming-dates h3, .node-type-portal-content #main .block .upcoming-dates h3, .node-type-portal-content #main .view-display-id-page .upcoming-dates h3, .node-type-portal-content #main .node .upcoming-dates h3, .node-type-portal-content #main .view-mor-member-detail .upcoming-dates h3, .node-type-portal-workshop #main .block-views .upcoming-dates h3, .node-type-portal-workshop #main .block .upcoming-dates h3, .node-type-portal-workshop #main .view-display-id-page .upcoming-dates h3, .node-type-portal-workshop #main .node .upcoming-dates h3, .node-type-portal-workshop #main .view-mor-member-detail .upcoming-dates h3, .section-portal #main .block-views .upcoming-dates h3, .section-portal #main .block .upcoming-dates h3, .section-portal #main .view-display-id-page .upcoming-dates h3, .section-portal #main .node .upcoming-dates h3, .section-portal #main .view-mor-member-detail .upcoming-dates h3 {
   margin-bottom: 0;
 }
-/* line 896, ../sass/pages.scss */
+/* line 901, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .workshop-list .views-row, .node-type-client-portal #main .block .workshop-list .views-row, .node-type-client-portal #main .view-display-id-page .workshop-list .views-row, .node-type-client-portal #main .node .workshop-list .views-row, .node-type-client-portal #main .view-mor-member-detail .workshop-list .views-row, .node-type-portal-content #main .block-views .workshop-list .views-row, .node-type-portal-content #main .block .workshop-list .views-row, .node-type-portal-content #main .view-display-id-page .workshop-list .views-row, .node-type-portal-content #main .node .workshop-list .views-row, .node-type-portal-content #main .view-mor-member-detail .workshop-list .views-row, .node-type-portal-workshop #main .block-views .workshop-list .views-row, .node-type-portal-workshop #main .block .workshop-list .views-row, .node-type-portal-workshop #main .view-display-id-page .workshop-list .views-row, .node-type-portal-workshop #main .node .workshop-list .views-row, .node-type-portal-workshop #main .view-mor-member-detail .workshop-list .views-row, .section-portal #main .block-views .workshop-list .views-row, .section-portal #main .block .workshop-list .views-row, .section-portal #main .view-display-id-page .workshop-list .views-row, .section-portal #main .node .workshop-list .views-row, .section-portal #main .view-mor-member-detail .workshop-list .views-row {
   margin-bottom: 10px;
 }
-/* line 899, ../sass/pages.scss */
+/* line 904, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .workshop-list .views-field-title, .node-type-client-portal #main .block .workshop-list .views-field-title, .node-type-client-portal #main .view-display-id-page .workshop-list .views-field-title, .node-type-client-portal #main .node .workshop-list .views-field-title, .node-type-client-portal #main .view-mor-member-detail .workshop-list .views-field-title, .node-type-portal-content #main .block-views .workshop-list .views-field-title, .node-type-portal-content #main .block .workshop-list .views-field-title, .node-type-portal-content #main .view-display-id-page .workshop-list .views-field-title, .node-type-portal-content #main .node .workshop-list .views-field-title, .node-type-portal-content #main .view-mor-member-detail .workshop-list .views-field-title, .node-type-portal-workshop #main .block-views .workshop-list .views-field-title, .node-type-portal-workshop #main .block .workshop-list .views-field-title, .node-type-portal-workshop #main .view-display-id-page .workshop-list .views-field-title, .node-type-portal-workshop #main .node .workshop-list .views-field-title, .node-type-portal-workshop #main .view-mor-member-detail .workshop-list .views-field-title, .section-portal #main .block-views .workshop-list .views-field-title, .section-portal #main .block .workshop-list .views-field-title, .section-portal #main .view-display-id-page .workshop-list .views-field-title, .section-portal #main .node .workshop-list .views-field-title, .section-portal #main .view-mor-member-detail .workshop-list .views-field-title {
   font-weight: bold;
 }
-/* line 903, ../sass/pages.scss */
+/* line 908, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .field-name-field-portal-logo, .node-type-client-portal #main .block .field-name-field-portal-logo, .node-type-client-portal #main .view-display-id-page .field-name-field-portal-logo, .node-type-client-portal #main .node .field-name-field-portal-logo, .node-type-client-portal #main .view-mor-member-detail .field-name-field-portal-logo, .node-type-portal-content #main .block-views .field-name-field-portal-logo, .node-type-portal-content #main .block .field-name-field-portal-logo, .node-type-portal-content #main .view-display-id-page .field-name-field-portal-logo, .node-type-portal-content #main .node .field-name-field-portal-logo, .node-type-portal-content #main .view-mor-member-detail .field-name-field-portal-logo, .node-type-portal-workshop #main .block-views .field-name-field-portal-logo, .node-type-portal-workshop #main .block .field-name-field-portal-logo, .node-type-portal-workshop #main .view-display-id-page .field-name-field-portal-logo, .node-type-portal-workshop #main .node .field-name-field-portal-logo, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-portal-logo, .section-portal #main .block-views .field-name-field-portal-logo, .section-portal #main .block .field-name-field-portal-logo, .section-portal #main .view-display-id-page .field-name-field-portal-logo, .section-portal #main .node .field-name-field-portal-logo, .section-portal #main .view-mor-member-detail .field-name-field-portal-logo {
   float: right;
 }
-/* line 906, ../sass/pages.scss */
+/* line 911, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .field-name-field-client-reference, .node-type-client-portal #main .block .field-name-field-client-reference, .node-type-client-portal #main .view-display-id-page .field-name-field-client-reference, .node-type-client-portal #main .node .field-name-field-client-reference, .node-type-client-portal #main .view-mor-member-detail .field-name-field-client-reference, .node-type-portal-content #main .block-views .field-name-field-client-reference, .node-type-portal-content #main .block .field-name-field-client-reference, .node-type-portal-content #main .view-display-id-page .field-name-field-client-reference, .node-type-portal-content #main .node .field-name-field-client-reference, .node-type-portal-content #main .view-mor-member-detail .field-name-field-client-reference, .node-type-portal-workshop #main .block-views .field-name-field-client-reference, .node-type-portal-workshop #main .block .field-name-field-client-reference, .node-type-portal-workshop #main .view-display-id-page .field-name-field-client-reference, .node-type-portal-workshop #main .node .field-name-field-client-reference, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-client-reference, .section-portal #main .block-views .field-name-field-client-reference, .section-portal #main .block .field-name-field-client-reference, .section-portal #main .view-display-id-page .field-name-field-client-reference, .section-portal #main .node .field-name-field-client-reference, .section-portal #main .view-mor-member-detail .field-name-field-client-reference {
   margin-top: 10px;
 }
@@ -1640,168 +1644,168 @@ body.front {
   display: block;
   clear: both;
 }
-/* line 909, ../sass/pages.scss */
+/* line 914, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .field-name-field-client-reference .field-items .field-item, .node-type-client-portal #main .block .field-name-field-client-reference .field-items .field-item, .node-type-client-portal #main .view-display-id-page .field-name-field-client-reference .field-items .field-item, .node-type-client-portal #main .node .field-name-field-client-reference .field-items .field-item, .node-type-client-portal #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item, .node-type-portal-content #main .block-views .field-name-field-client-reference .field-items .field-item, .node-type-portal-content #main .block .field-name-field-client-reference .field-items .field-item, .node-type-portal-content #main .view-display-id-page .field-name-field-client-reference .field-items .field-item, .node-type-portal-content #main .node .field-name-field-client-reference .field-items .field-item, .node-type-portal-content #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item, .node-type-portal-workshop #main .block-views .field-name-field-client-reference .field-items .field-item, .node-type-portal-workshop #main .block .field-name-field-client-reference .field-items .field-item, .node-type-portal-workshop #main .view-display-id-page .field-name-field-client-reference .field-items .field-item, .node-type-portal-workshop #main .node .field-name-field-client-reference .field-items .field-item, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item, .section-portal #main .block-views .field-name-field-client-reference .field-items .field-item, .section-portal #main .block .field-name-field-client-reference .field-items .field-item, .section-portal #main .view-display-id-page .field-name-field-client-reference .field-items .field-item, .section-portal #main .node .field-name-field-client-reference .field-items .field-item, .section-portal #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item {
   float: left;
   margin-right: 10px;
   width: 50px;
 }
-/* line 913, ../sass/pages.scss */
+/* line 918, ../sass/pages.scss */
 .node-type-client-portal #main .block-views .field-name-field-client-reference .field-items .field-item .node, .node-type-client-portal #main .block .field-name-field-client-reference .field-items .field-item .node, .node-type-client-portal #main .view-display-id-page .field-name-field-client-reference .field-items .field-item .node, .node-type-client-portal #main .node .field-name-field-client-reference .field-items .field-item .node, .node-type-client-portal #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-content #main .block-views .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-content #main .block .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-content #main .view-display-id-page .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-content #main .node .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-content #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-workshop #main .block-views .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-workshop #main .block .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-workshop #main .view-display-id-page .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-workshop #main .node .field-name-field-client-reference .field-items .field-item .node, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item .node, .section-portal #main .block-views .field-name-field-client-reference .field-items .field-item .node, .section-portal #main .block .field-name-field-client-reference .field-items .field-item .node, .section-portal #main .view-display-id-page .field-name-field-client-reference .field-items .field-item .node, .section-portal #main .node .field-name-field-client-reference .field-items .field-item .node, .section-portal #main .view-mor-member-detail .field-name-field-client-reference .field-items .field-item .node {
   background: none;
   margin: 0;
 }
-/* line 922, ../sass/pages.scss */
+/* line 927, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field.field-label-above .field-label, .node-type-portal-content #main .view-mor-member-detail .field.field-label-above .field-label, .node-type-portal-workshop #main .view-mor-member-detail .field.field-label-above .field-label, .section-portal #main .view-mor-member-detail .field.field-label-above .field-label {
   margin-top: 1em;
 }
-/* line 927, ../sass/pages.scss */
+/* line 932, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-group-fieldset h3, .node-type-portal-content #main .view-mor-member-detail .field-group-fieldset h3, .node-type-portal-workshop #main .view-mor-member-detail .field-group-fieldset h3, .section-portal #main .view-mor-member-detail .field-group-fieldset h3 {
   margin-bottom: 0;
 }
-/* line 931, ../sass/pages.scss */
+/* line 936, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail p, .node-type-portal-content #main .view-mor-member-detail p, .node-type-portal-workshop #main .view-mor-member-detail p, .section-portal #main .view-mor-member-detail p {
   margin-top: 0;
 }
-/* line 934, ../sass/pages.scss */
+/* line 939, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .group-personal-info, .node-type-portal-content #main .view-mor-member-detail .group-personal-info, .node-type-portal-workshop #main .view-mor-member-detail .group-personal-info, .section-portal #main .view-mor-member-detail .group-personal-info {
   float: left;
   width: 50%;
 }
-/* line 938, ../sass/pages.scss */
+/* line 943, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .group-contact-info, .node-type-portal-content #main .view-mor-member-detail .group-contact-info, .node-type-portal-workshop #main .view-mor-member-detail .group-contact-info, .section-portal #main .view-mor-member-detail .group-contact-info {
   float: right;
 }
-/* line 941, ../sass/pages.scss */
+/* line 946, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .group-goals-progress, .node-type-client-portal #main .view-mor-member-detail .group-bio-interests, .node-type-portal-content #main .view-mor-member-detail .group-goals-progress, .node-type-portal-content #main .view-mor-member-detail .group-bio-interests, .node-type-portal-workshop #main .view-mor-member-detail .group-goals-progress, .node-type-portal-workshop #main .view-mor-member-detail .group-bio-interests, .section-portal #main .view-mor-member-detail .group-goals-progress, .section-portal #main .view-mor-member-detail .group-bio-interests {
   clear: both;
 }
-/* line 944, ../sass/pages.scss */
+/* line 949, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-ds-user-picture, .node-type-portal-content #main .view-mor-member-detail .field-name-ds-user-picture, .node-type-portal-workshop #main .view-mor-member-detail .field-name-ds-user-picture, .section-portal #main .view-mor-member-detail .field-name-ds-user-picture {
   float: left;
   margin-right: 20px;
   width: 100px;
 }
-/* line 949, ../sass/pages.scss */
+/* line 954, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-full-name, .node-type-portal-content #main .view-mor-member-detail .field-name-full-name, .node-type-portal-workshop #main .view-mor-member-detail .field-name-full-name, .section-portal #main .view-mor-member-detail .field-name-full-name {
   font-weight: bold;
 }
-/* line 951, ../sass/pages.scss */
+/* line 956, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-full-name p, .node-type-portal-content #main .view-mor-member-detail .field-name-full-name p, .node-type-portal-workshop #main .view-mor-member-detail .field-name-full-name p, .section-portal #main .view-mor-member-detail .field-name-full-name p {
   margin: 0;
 }
-/* line 956, ../sass/pages.scss */
+/* line 961, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-field-goals .field-label, .node-type-portal-content #main .view-mor-member-detail .field-name-field-goals .field-label, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-goals .field-label, .section-portal #main .view-mor-member-detail .field-name-field-goals .field-label {
   text-transform: uppercase;
 }
-/* line 961, ../sass/pages.scss */
+/* line 966, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity, .node-type-portal-content #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity, .section-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity {
   margin-bottom: 10px;
 }
-/* line 963, ../sass/pages.scss */
+/* line 968, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label, .node-type-portal-content #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label, .section-portal #main .view-mor-member-detail .field-name-field-goals .field-items .field-item .entity .field-label {
   text-transform: none;
 }
-/* line 972, ../sass/pages.scss */
+/* line 977, ../sass/pages.scss */
 .node-type-client-portal #main .view-mor-member-detail .field-name-field-practice .field-item .field-label, .node-type-portal-content #main .view-mor-member-detail .field-name-field-practice .field-item .field-label, .node-type-portal-workshop #main .view-mor-member-detail .field-name-field-practice .field-item .field-label, .section-portal #main .view-mor-member-detail .field-name-field-practice .field-item .field-label {
   width: auto;
 }
-/* line 979, ../sass/pages.scss */
+/* line 984, ../sass/pages.scss */
 .node-type-client-portal #main .my-goals-details .item-list li, .node-type-portal-content #main .my-goals-details .item-list li, .node-type-portal-workshop #main .my-goals-details .item-list li, .section-portal #main .my-goals-details .item-list li {
   margin-bottom: 1em;
 }
-/* line 981, ../sass/pages.scss */
+/* line 986, ../sass/pages.scss */
 .node-type-client-portal #main .my-goals-details .item-list li:before, .node-type-portal-content #main .my-goals-details .item-list li:before, .node-type-portal-workshop #main .my-goals-details .item-list li:before, .section-portal #main .my-goals-details .item-list li:before {
   content: "";
   display: block;
   height: 1px;
 }
-/* line 986, ../sass/pages.scss */
+/* line 991, ../sass/pages.scss */
 .node-type-client-portal #main .my-goals-details .item-list li .field-collection-container, .node-type-client-portal #main .my-goals-details .item-list li .field-collection-view, .node-type-portal-content #main .my-goals-details .item-list li .field-collection-container, .node-type-portal-content #main .my-goals-details .item-list li .field-collection-view, .node-type-portal-workshop #main .my-goals-details .item-list li .field-collection-container, .node-type-portal-workshop #main .my-goals-details .item-list li .field-collection-view, .section-portal #main .my-goals-details .item-list li .field-collection-container, .section-portal #main .my-goals-details .item-list li .field-collection-view {
   border: none;
 }
-/* line 989, ../sass/pages.scss */
+/* line 994, ../sass/pages.scss */
 .node-type-client-portal #main .my-goals-details .item-list li > .field-collection-view, .node-type-portal-content #main .my-goals-details .item-list li > .field-collection-view, .node-type-portal-workshop #main .my-goals-details .item-list li > .field-collection-view, .section-portal #main .my-goals-details .item-list li > .field-collection-view {
   border-bottom: 1px #D3D7D9 solid;
 }
-/* line 996, ../sass/pages.scss */
+/* line 1001, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .views-label-field-assignments-readings, .node-type-portal-content #main .view-my-readings .views-label-field-assignments-readings, .node-type-portal-workshop #main .view-my-readings .views-label-field-assignments-readings, .section-portal #main .view-my-readings .views-label-field-assignments-readings {
   text-transform: uppercase;
   display: block;
   margin-bottom: 10px;
 }
-/* line 1003, ../sass/pages.scss */
+/* line 1008, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .field-collection-view .field, .node-type-portal-content #main .view-my-readings .field-collection-view .field, .node-type-portal-workshop #main .view-my-readings .field-collection-view .field, .section-portal #main .view-my-readings .field-collection-view .field {
   display: none;
 }
-/* line 1006, ../sass/pages.scss */
+/* line 1011, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .field-collection-view .field-name-field-ar-title, .node-type-portal-content #main .view-my-readings .field-collection-view .field-name-field-ar-title, .node-type-portal-workshop #main .view-my-readings .field-collection-view .field-name-field-ar-title, .section-portal #main .view-my-readings .field-collection-view .field-name-field-ar-title {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
   cursor: pointer;
 }
-/* line 1011, ../sass/pages.scss */
+/* line 1016, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .field-collection-view .field-name-field-ar-title .field-item:after, .node-type-portal-content #main .view-my-readings .field-collection-view .field-name-field-ar-title .field-item:after, .node-type-portal-workshop #main .view-my-readings .field-collection-view .field-name-field-ar-title .field-item:after, .section-portal #main .view-my-readings .field-collection-view .field-name-field-ar-title .field-item:after {
   content: '+';
   padding-left: 5px;
 }
-/* line 1017, ../sass/pages.scss */
+/* line 1022, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .field-collection-view.active .field, .node-type-portal-content #main .view-my-readings .field-collection-view.active .field, .node-type-portal-workshop #main .view-my-readings .field-collection-view.active .field, .section-portal #main .view-my-readings .field-collection-view.active .field {
   display: block;
 }
-/* line 1020, ../sass/pages.scss */
+/* line 1025, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .field-collection-view.active .field-name-field-ar-title .field-item:after, .node-type-portal-content #main .view-my-readings .field-collection-view.active .field-name-field-ar-title .field-item:after, .node-type-portal-workshop #main .view-my-readings .field-collection-view.active .field-name-field-ar-title .field-item:after, .section-portal #main .view-my-readings .field-collection-view.active .field-name-field-ar-title .field-item:after {
   content: '-';
 }
-/* line 1030, ../sass/pages.scss */
+/* line 1035, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .field-items .field-item, .node-type-portal-content #main .view-my-readings .field-items .field-item, .node-type-portal-workshop #main .view-my-readings .field-items .field-item, .section-portal #main .view-my-readings .field-items .field-item {
   margin-bottom: 5px;
 }
-/* line 1034, ../sass/pages.scss */
+/* line 1039, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .views-label, .node-type-portal-content #main .view-my-readings .views-label, .node-type-portal-workshop #main .view-my-readings .views-label, .section-portal #main .view-my-readings .views-label {
   font-weight: bold;
 }
-/* line 1037, ../sass/pages.scss */
+/* line 1042, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings .media-youtube-player, .node-type-portal-content #main .view-my-readings .media-youtube-player, .node-type-portal-workshop #main .view-my-readings .media-youtube-player, .section-portal #main .view-my-readings .media-youtube-player {
   width: 100%;
 }
-/* line 1040, ../sass/pages.scss */
+/* line 1045, ../sass/pages.scss */
 .node-type-client-portal #main .view-my-readings ul, .node-type-portal-content #main .view-my-readings ul, .node-type-portal-workshop #main .view-my-readings ul, .section-portal #main .view-my-readings ul {
   margin: 0;
   padding: 0;
 }
-/* line 1050, ../sass/pages.scss */
+/* line 1055, ../sass/pages.scss */
 .node-type-client-portal #main .participants-search .item-list .views-row, .node-type-portal-content #main .participants-search .item-list .views-row, .node-type-portal-workshop #main .participants-search .item-list .views-row, .section-portal #main .participants-search .item-list .views-row {
   margin-bottom: 20px;
   padding-bottom: 20px;
   border-bottom: 1px #bbb solid;
 }
-/* line 1054, ../sass/pages.scss */
+/* line 1059, ../sass/pages.scss */
 .node-type-client-portal #main .participants-search .item-list .views-row .views-field-name, .node-type-portal-content #main .participants-search .item-list .views-row .views-field-name, .node-type-portal-workshop #main .participants-search .item-list .views-row .views-field-name, .section-portal #main .participants-search .item-list .views-row .views-field-name {
   font-weight: bold;
 }
-/* line 1061, ../sass/pages.scss */
+/* line 1066, ../sass/pages.scss */
 .node-type-client-portal #main .participants-list .views-row, .node-type-portal-content #main .participants-list .views-row, .node-type-portal-workshop #main .participants-list .views-row, .section-portal #main .participants-list .views-row {
   margin: 0;
 }
-/* line 1068, ../sass/pages.scss */
+/* line 1073, ../sass/pages.scss */
 .node-type-client-portal #content .inner, .node-type-portal-content #content .inner, .node-type-portal-workshop #content .inner, .section-portal #content .inner {
   border-left: 1px #BBB solid;
   padding-left: 20px;
 }
-/* line 1073, ../sass/pages.scss */
+/* line 1078, ../sass/pages.scss */
 .node-type-client-portal #content .node .block-views .views-row, .node-type-portal-content #content .node .block-views .views-row, .node-type-portal-workshop #content .node .block-views .views-row, .section-portal #content .node .block-views .views-row {
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 1px #BBB solid;
 }
-/* line 1074, ../sass/pages.scss */
+/* line 1079, ../sass/pages.scss */
 .node-type-client-portal #content .field-name-og-group-ref, .node-type-portal-content #content .field-name-og-group-ref, .node-type-portal-workshop #content .field-name-og-group-ref, .section-portal #content .field-name-og-group-ref {
   position: absolute;
   top: -5px;
 }
-/* line 1076, ../sass/pages.scss */
+/* line 1081, ../sass/pages.scss */
 .node-type-client-portal #content .field-name-og-group-ref a, .node-type-portal-content #content .field-name-og-group-ref a, .node-type-portal-workshop #content .field-name-og-group-ref a, .section-portal #content .field-name-og-group-ref a {
   display: inline-block;
   margin: 0px;
@@ -1813,130 +1817,186 @@ body.front {
   letter-spacing: 1px;
   padding: 5px 10px;
 }
-/* line 1078, ../sass/pages.scss */
+/* line 1083, ../sass/pages.scss */
 .node-type-client-portal #content .field-name-og-group-ref a:hover, .node-type-portal-content #content .field-name-og-group-ref a:hover, .node-type-portal-workshop #content .field-name-og-group-ref a:hover, .section-portal #content .field-name-og-group-ref a:hover {
   background-color: #6699d1;
 }
-/* line 1081, ../sass/pages.scss */
+/* line 1086, ../sass/pages.scss */
 .node-type-client-portal #content .view-mor-og-content .view-filters, .node-type-portal-content #content .view-mor-og-content .view-filters, .node-type-portal-workshop #content .view-mor-og-content .view-filters, .section-portal #content .view-mor-og-content .view-filters {
   display: none;
 }
-/* line 1082, ../sass/pages.scss */
+/* line 1087, ../sass/pages.scss */
 .node-type-client-portal #content .view-mor-og-content .views-row, .node-type-portal-content #content .view-mor-og-content .views-row, .node-type-portal-workshop #content .view-mor-og-content .views-row, .section-portal #content .view-mor-og-content .views-row {
   border-bottom: 1px #BBB solid;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
-/* line 1085, ../sass/pages.scss */
+/* line 1090, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .date-nav.item-list, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list, .section-portal #content .view-portal-calendar .date-nav.item-list {
   margin: 0;
   padding: 0;
 }
-/* line 1088, ../sass/pages.scss */
+/* line 1093, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-next, .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-prev, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-next, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-prev, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-next, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-prev, .section-portal #content .view-portal-calendar .date-nav.item-list .date-next, .section-portal #content .view-portal-calendar .date-nav.item-list .date-prev {
   padding: 5px 10px;
 }
-/* line 1090, ../sass/pages.scss */
+/* line 1095, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-next a, .node-type-client-portal #content .view-portal-calendar .date-nav.item-list .date-prev a, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-next a, .node-type-portal-content #content .view-portal-calendar .date-nav.item-list .date-prev a, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-next a, .node-type-portal-workshop #content .view-portal-calendar .date-nav.item-list .date-prev a, .section-portal #content .view-portal-calendar .date-nav.item-list .date-next a, .section-portal #content .view-portal-calendar .date-nav.item-list .date-prev a {
   margin: 0;
 }
-/* line 1095, ../sass/pages.scss */
+/* line 1100, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .inner, .node-type-portal-content #content .view-portal-calendar .inner, .node-type-portal-workshop #content .view-portal-calendar .inner, .section-portal #content .view-portal-calendar .inner {
   border: none;
 }
-/* line 1099, ../sass/pages.scss */
+/* line 1104, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .views-field .date-display-single, .node-type-client-portal #content .view-portal-calendar .views-field .date-display-range, .node-type-client-portal #content .view-portal-calendar .views-field .date-display-start, .node-type-client-portal #content .view-portal-calendar .views-field .date-display-end, .node-type-portal-content #content .view-portal-calendar .views-field .date-display-single, .node-type-portal-content #content .view-portal-calendar .views-field .date-display-range, .node-type-portal-content #content .view-portal-calendar .views-field .date-display-start, .node-type-portal-content #content .view-portal-calendar .views-field .date-display-end, .node-type-portal-workshop #content .view-portal-calendar .views-field .date-display-single, .node-type-portal-workshop #content .view-portal-calendar .views-field .date-display-range, .node-type-portal-workshop #content .view-portal-calendar .views-field .date-display-start, .node-type-portal-workshop #content .view-portal-calendar .views-field .date-display-end, .section-portal #content .view-portal-calendar .views-field .date-display-single, .section-portal #content .view-portal-calendar .views-field .date-display-range, .section-portal #content .view-portal-calendar .views-field .date-display-start, .section-portal #content .view-portal-calendar .views-field .date-display-end {
   font-weight: normal;
 }
-/* line 1102, ../sass/pages.scss */
+/* line 1107, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .views-field.views-field-title, .node-type-portal-content #content .view-portal-calendar .views-field.views-field-title, .node-type-portal-workshop #content .view-portal-calendar .views-field.views-field-title, .section-portal #content .view-portal-calendar .views-field.views-field-title {
   font-weight: bold;
 }
-/* line 1108, ../sass/pages.scss */
+/* line 1113, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-calendar .multi-day .contents, .node-type-portal-content #content .view-portal-calendar .multi-day .contents, .node-type-portal-workshop #content .view-portal-calendar .multi-day .contents, .section-portal #content .view-portal-calendar .multi-day .contents {
   font-weight: bold;
 }
-/* line 1115, ../sass/pages.scss */
+/* line 1120, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings > .field-items > .field-item {
   border-bottom: 1px #bbbbbb solid;
 }
-/* line 1118, ../sass/pages.scss */
+/* line 1123, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-label, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-label {
   font-size: 1.5em;
   font-weight: normal;
   margin-bottom: 10px;
 }
-/* line 1125, ../sass/pages.scss */
+/* line 1130, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.even, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item.odd {
   margin-bottom: 20px;
 }
-/* line 1128, ../sass/pages.scss */
+/* line 1133, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-ar-title {
   font-size: 1.25em;
   font-weight: bold;
   margin-bottom: 10px;
 }
-/* line 1133, ../sass/pages.scss */
+/* line 1138, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item a {
   font-weight: bold;
 }
-/* line 1136, ../sass/pages.scss */
+/* line 1141, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item p {
   margin-top: 0;
 }
-/* line 1140, ../sass/pages.scss */
+/* line 1145, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item .field-name-field-file-image-title-text .field-item {
   font-weight: bold;
   margin: 10px 0 0 0;
 }
-/* line 1145, ../sass/pages.scss */
+/* line 1150, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file {
   display: block;
   margin-bottom: 5px;
 }
-/* line 1148, ../sass/pages.scss */
+/* line 1153, ../sass/pages.scss */
 .node-type-client-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .node-type-portal-content #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .node-type-portal-workshop #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a, .section-portal #content .node-portal-workshop .field-name-field-assignments-readings .field-items .field-item span.file a {
   font-weight: bold;
 }
-/* line 1157, ../sass/pages.scss */
+/* line 1162, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list, .node-type-portal-content #content .view-portal-people .item-list, .node-type-portal-workshop #content .view-portal-people .item-list, .section-portal #content .view-portal-people .item-list {
   margin-bottom: 2em;
 }
-/* line 1160, ../sass/pages.scss */
+/* line 1165, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list ul li, .node-type-portal-content #content .view-portal-people .item-list ul li, .node-type-portal-workshop #content .view-portal-people .item-list ul li, .section-portal #content .view-portal-people .item-list ul li {
   padding-bottom: 10px;
   margin-bottom: 10px;
   border-bottom: 1px #bbb solid;
 }
-/* line 1166, ../sass/pages.scss */
+/* line 1171, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-picture, .node-type-portal-content #content .view-portal-people .item-list .views-field-picture, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-picture, .section-portal #content .view-portal-people .item-list .views-field-picture {
   float: left;
   margin-right: 20px;
 }
-/* line 1170, ../sass/pages.scss */
+/* line 1175, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-name, .node-type-portal-content #content .view-portal-people .item-list .views-field-name, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-name, .section-portal #content .view-portal-people .item-list .views-field-name {
   font-weight: bold;
 }
-/* line 1173, ../sass/pages.scss */
+/* line 1178, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-field-user-bio, .node-type-portal-content #content .view-portal-people .item-list .views-field-field-user-bio, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-field-user-bio, .section-portal #content .view-portal-people .item-list .views-field-field-user-bio {
   margin-top: 10px;
 }
-/* line 1175, ../sass/pages.scss */
+/* line 1180, ../sass/pages.scss */
 .node-type-client-portal #content .view-portal-people .item-list .views-field-field-user-bio p, .node-type-portal-content #content .view-portal-people .item-list .views-field-field-user-bio p, .node-type-portal-workshop #content .view-portal-people .item-list .views-field-field-user-bio p, .section-portal #content .view-portal-people .item-list .views-field-field-user-bio p {
   margin: 0;
 }
-/* line 1185, ../sass/pages.scss */
+/* line 1190, ../sass/pages.scss */
 .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-client-portal .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-content .region-sidebar-second .block-stickynote #stickynote-list li, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list ul, .node-type-portal-workshop .region-sidebar-second .block-stickynote #stickynote-list li, .section-portal .region-sidebar-second .block-stickynote #stickynote-list ul, .section-portal .region-sidebar-second .block-stickynote #stickynote-list li {
   margin: 0;
   padding: 0;
   list-style: none;
 }
-/* line 1200, ../sass/pages.scss */
+/* line 1205, ../sass/pages.scss */
 .node-type-client-portal #footer, .node-type-portal-content #footer, .node-type-portal-workshop #footer, .section-portal #footer {
   display: none;
 }
 @media all and (min-width: 901px) {
-  /* line 1206, ../sass/pages.scss */
+  /* line 1211, ../sass/pages.scss */
+  .node-type-client-portal.sidebar-first #content, .node-type-portal-content.sidebar-first #content, .node-type-portal-workshop.sidebar-first #content, .section-portal.sidebar-first #content {
+    float: left;
+    width: 75%;
+    margin-left: 25%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  /* line 1214, ../sass/pages.scss */
+  .node-type-client-portal.sidebar-first .region-sidebar-first, .node-type-portal-content.sidebar-first .region-sidebar-first, .node-type-portal-workshop.sidebar-first .region-sidebar-first, .section-portal.sidebar-first .region-sidebar-first {
+    float: left;
+    width: 25%;
+    margin-left: 0%;
+    margin-right: -25%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  /* line 1219, ../sass/pages.scss */
+  .node-type-client-portal.sidebar-second #content, .node-type-portal-content.sidebar-second #content, .node-type-portal-workshop.sidebar-second #content, .section-portal.sidebar-second #content {
+    float: left;
+    width: 75%;
+    margin-left: 0%;
+    margin-right: -75%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  /* line 1222, ../sass/pages.scss */
+  .node-type-client-portal.sidebar-second .region-sidebar-second, .node-type-portal-content.sidebar-second .region-sidebar-second, .node-type-portal-workshop.sidebar-second .region-sidebar-second, .section-portal.sidebar-second .region-sidebar-second {
+    float: left;
+    width: 25%;
+    margin-left: 75%;
+    margin-right: -100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+    word-wrap: break-word;
+  }
+  /* line 1227, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars #content, .node-type-portal-content.two-sidebars #content, .node-type-portal-workshop.two-sidebars #content, .section-portal.two-sidebars #content {
     float: left;
     width: 50%;
@@ -1950,7 +2010,7 @@ body.front {
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 1209, ../sass/pages.scss */
+  /* line 1230, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars .region-sidebar-first, .node-type-portal-content.two-sidebars .region-sidebar-first, .node-type-portal-workshop.two-sidebars .region-sidebar-first, .section-portal.two-sidebars .region-sidebar-first {
     float: left;
     width: 25%;
@@ -1964,7 +2024,7 @@ body.front {
     box-sizing: border-box;
     word-wrap: break-word;
   }
-  /* line 1212, ../sass/pages.scss */
+  /* line 1233, ../sass/pages.scss */
   .node-type-client-portal.two-sidebars .region-sidebar-second, .node-type-portal-content.two-sidebars .region-sidebar-second, .node-type-portal-workshop.two-sidebars .region-sidebar-second, .section-portal.two-sidebars .region-sidebar-second {
     float: left;
     width: 25%;
@@ -1980,13 +2040,13 @@ body.front {
   }
 }
 
-/* line 1218, ../sass/pages.scss */
+/* line 1239, ../sass/pages.scss */
 #block-views-og-post-reflection-block-1 {
   position: absolute;
   right: 0px;
 }
 
-/* line 1225, ../sass/pages.scss */
+/* line 1246, ../sass/pages.scss */
 .block-keystone-habits, .keystone-habits-list {
   /*
   a {
@@ -2010,7 +2070,7 @@ body.front {
   */
 }
 
-/* line 1247, ../sass/pages.scss */
+/* line 1268, ../sass/pages.scss */
 .keystone-habits-list {
   /*
   ul {
@@ -2025,101 +2085,101 @@ body.front {
   }
   */
 }
-/* line 1248, ../sass/pages.scss */
+/* line 1269, ../sass/pages.scss */
 .keystone-habits-list table {
   width: 100%;
 }
-/* line 1250, ../sass/pages.scss */
+/* line 1271, ../sass/pages.scss */
 .keystone-habits-list table tr {
   border-bottom: 1px #ccc solid;
 }
-/* line 1253, ../sass/pages.scss */
+/* line 1274, ../sass/pages.scss */
 .keystone-habits-list table th {
   font-weight: normal;
   text-align: center;
   padding: 5px;
 }
-/* line 1258, ../sass/pages.scss */
+/* line 1279, ../sass/pages.scss */
 .keystone-habits-list table td {
   padding: 5px;
   background-color: #fff;
   text-align: center;
 }
-/* line 1264, ../sass/pages.scss */
+/* line 1285, ../sass/pages.scss */
 .keystone-habits-list table td.week-number, .keystone-habits-list table td.week-of {
   background-color: #e8ecf7;
 }
-/* line 1273, ../sass/pages.scss */
+/* line 1294, ../sass/pages.scss */
 .page-portal-leadership-keystone-habits .keystone-habits-list table td {
   width: 12%;
 }
-/* line 1276, ../sass/pages.scss */
+/* line 1297, ../sass/pages.scss */
 .page-portal-leadership-keystone-habits .keystone-habits-list table td.days {
   width: 5%;
 }
-/* line 1279, ../sass/pages.scss */
+/* line 1300, ../sass/pages.scss */
 .page-portal-leadership-keystone-habits .keystone-habits-list table td.note {
   width: 50%;
   text-align: left;
 }
-/* line 1285, ../sass/pages.scss */
+/* line 1306, ../sass/pages.scss */
 .keystone-habits-list .fa {
   color: #c2c2c2;
   font-size: 18px;
 }
-/* line 1288, ../sass/pages.scss */
+/* line 1309, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-times {
   font-size: 24px;
   color: #c2c2c2;
 }
-/* line 1292, ../sass/pages.scss */
+/* line 1313, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-check {
   font-size: 24px;
   color: #000;
 }
-/* line 1296, ../sass/pages.scss */
+/* line 1317, ../sass/pages.scss */
 .keystone-habits-list .fa.fa-pencil-square-o.active {
   color: #000;
 }
 
-/* line 1313, ../sass/pages.scss */
+/* line 1334, ../sass/pages.scss */
 .practice-category {
   line-height: normal;
   font-size: 1.5em;
   font-weight: normal;
   margin-top: 10px;
 }
-/* line 1318, ../sass/pages.scss */
+/* line 1339, ../sass/pages.scss */
 .block-mor-keystone-habits .practice-category {
   display: none;
 }
 
-/* line 1324, ../sass/pages.scss */
+/* line 1345, ../sass/pages.scss */
 .block-mor-keystone-habits a {
   font-weight: bold;
 }
-/* line 1327, ../sass/pages.scss */
+/* line 1348, ../sass/pages.scss */
 .block-mor-keystone-habits h3, .block-mor-keystone-habits p {
   margin: 1px;
   line-height: normal;
 }
-/* line 1331, ../sass/pages.scss */
+/* line 1352, ../sass/pages.scss */
 .block-mor-keystone-habits p {
   margin-bottom: 5px;
 }
-/* line 1335, ../sass/pages.scss */
+/* line 1356, ../sass/pages.scss */
 .block-mor-keystone-habits table .note {
   display: none;
 }
-/* line 1338, ../sass/pages.scss */
+/* line 1359, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row {
   display: none;
 }
-/* line 1341, ../sass/pages.scss */
+/* line 1362, ../sass/pages.scss */
 .block-mor-keystone-habits table tr.row:nth-last-child(-n+8) {
   display: table-row;
 }
-/* line 1345, ../sass/pages.scss */
+/* line 1366, ../sass/pages.scss */
 .block-mor-keystone-habits select {
   width: 100%;
 }
