@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the MOR Feeds feature.
+ */
+
+include_once 'mor_feeds.features.inc';
