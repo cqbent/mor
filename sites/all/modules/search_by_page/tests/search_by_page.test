@@ -2955,6 +2955,7 @@ class SearchByPageIntlTest extends SearchByPageTester {
         $this->searchPerm($this->envinfo1),
         'administer site configuration', 'administer permissions',
         'administer languages', 'translate interface',
+        'translate user-defined strings', 'translate admin strings',
       ));
 
     $this->drupalLogin($this->superuser);

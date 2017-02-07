@@ -56,6 +56,7 @@ function search_by_page_schema() {
       'page_data' => array(
         'description' => 'Page contents as of last index',
         'type' => 'text',
+        'size' => 'medium',
         'not null' => FALSE,
       ),
       'environment' => array(
@@ -321,6 +322,19 @@ function search_by_page_update_7003() {
   db_add_field('sbp_path', 'page_data', array(
       'description' => 'Page contents as of last index',
       'type' => 'text',
+      'not null' => FALSE,
+    ));
+}
+
+/**
+ * Increase size of page_data field.
+ */
+function search_by_page_update_7004() {
+  // Lengthen page_data field to medium.
+  db_change_field('sbp_path', 'page_data', 'page_data', array(
+      'description' => 'Page contents as of last index',
+      'type' => 'text',
+      'size' => 'medium',
       'not null' => FALSE,
     ));
 

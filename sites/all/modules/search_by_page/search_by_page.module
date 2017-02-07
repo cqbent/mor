@@ -1034,15 +1034,17 @@ function template_preprocess_search_by_page_form(&$variables) {
   // Provide variables named after form keys so themers can print each
   // element independently.
   foreach (element_children($variables['form']) as $key) {
-    $type = $variables['form'][$key]['#type'];
-    if ($type == 'hidden' || $type == 'token') {
-      $hidden[] = drupal_render($variables['form'][$key]);
-    }
-    else {
-      // See if this renders to something (e.g. not a 'value' type).
-      $markup = drupal_render($variables['form'][$key]);
-      if ($markup) {
-        $variables['search'][$key] = $markup;
+    if (isset($variables['form'][$key]['#type'])) {
+      $type = $variables['form'][$key]['#type'];
+      if ($type == 'hidden' || $type == 'token') {
+        $hidden[] = drupal_render($variables['form'][$key]);
+      }
+      else {
+        // See if this renders to something (e.g. not a 'value' type).
+        $markup = drupal_render($variables['form'][$key]);
+        if ($markup) {
+          $variables['search'][$key] = $markup;
+        }
       }
     }
   }
@@ -1637,15 +1639,24 @@ function _search_by_page_rebuild_all_paths($reset_items = FALSE) {
  * Maintains a set of blocked users for each of these roles, and adds/removes
  * users from this set as they appear/disappear from the list of needed users.
  *
+ * @param int $role
+ *    (optional) If this is passed in, instead of reading the paths table, only
+ *    this role is assumed to be needed. Pass in the role ID.
+ *
  * @return
  *   Array indexed by role name. Each element is a loaded user object having
  *   that role, with the status bit temporarily (in-memory) set to 1. Includes
  *   an entry for the anonymous role.
  */
-function _search_by_page_indexing_users() {
-  // Figure out which roles are currently in our paths table.
+function _search_by_page_indexing_users($role = NULL) {
+  // Figure out which roles are currently in our paths table, or passed in.
   $allroles = user_roles();
-  $roles_needed = db_query('SELECT role FROM {sbp_path} GROUP BY role')->fetchCol();
+  if ($role) {
+    $roles_needed = array($role);
+  }
+  else {
+    $roles_needed = db_query('SELECT role FROM {sbp_path} GROUP BY role')->fetchCol();
+  }
 
   // Figure out which users we already have.
   $accounts_have = db_query('SELECT rid, uid FROM {sbp_index_users}')->fetchAllKeyed();

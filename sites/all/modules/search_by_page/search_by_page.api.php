@@ -98,28 +98,33 @@ function hook_sbp_paths($environment) {
  * the module can also return rendered content to be indexed, if desired.
  *
  * @param $id
- *    The ID corresponding to the path. This is the ID number you
- *    returned in hook_sbp_paths(), for this path.
+ *   The ID corresponding to the path. This is the ID number you
+ *   returned in hook_sbp_paths(), for this path.
  * @param $environment
  *   ID of environment currently being indexed or searched.
  * @param $keys
- *    The keywords being searched for (useful in extracting a snippet). NULL
- *    indicates this call is for search indexing.
+ *   The keywords being searched for (useful in extracting a snippet). NULL
+ *   indicates this call is for search indexing.
  *
  * @return
- *    - If for some reason this path should not be displayed or indexed,
- *      return NULL or zero.
- *    - If $keys is null, return an associative array for search
- *      indexing, with component 'title' (the page title) and optional
- *      component 'content' (an override of the page content, to avoid
- *      standard Drupal rendering).
- *    - If keywords are not null, return an associative array of fields
- *      suitable for display on search results screen for this path. See
- *      the Drupal documentation for hook_search() for a list of what
- *      the fields are. The 'title' component must be given.  The 'link'
- *      component should be omitted (it is handled by the main
- *      search_by_page module).  The search_by_page_excerpt() function may be
- *      useful in extracting a 'snippet'.
+ *   One of the following:
+ *   - If for some reason this path should not be displayed or indexed,
+ *     return NULL or zero.
+ *   - If $keys is NULL, return an associative array for search
+ *     indexing, with the following elements:
+ *     - title: Page title.
+ *     - content: (optional) Override of the page content, to avoid
+ *       standard Drupal rendering.
+ *   - If $keys is not NULL, return an associative array of fields suitable
+ *     for display on the search results screen for this path. See the Core
+ *     documentation for hook_search() for a list of what the fields are. Some
+ *     notes on the fields:
+ *     - title: Required.
+ *     - link: Should be omitted (it is handled by the main search_by_page
+ *       module.
+ *     - snippet: Suggested. See also search_by_page_excerpt().
+ *     - object: An object (such as node, user, or file object) related to
+ *       the results.
  *
  * @see hook_sbp_paths()
  */

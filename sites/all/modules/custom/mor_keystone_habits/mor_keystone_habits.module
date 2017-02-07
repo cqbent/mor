@@ -182,8 +182,8 @@ function kh_list($bundle) {
     if ($pdate) {
       $pdate_start = strtotime($pdate['year'].'W'.$pdate['week']);
       $currweek = date('W'); $curryear = date('Y'); // b) get current date
-      // c) set date range to # weeks between current and progam week
-      $date_range = $currweek < $pdate['week'] ? $pdate['week'] - $currweek + 52 : $currweek - $pdate['week'];
+      // c) set date range to # weeks between current week and program start week
+      $date_range = $currweek < $pdate['week'] ? $currweek - $pdate['week'] + 52 : $currweek - $pdate['week'];
 
       $icon_check = '<i class="fa fa-check" aria-hidden="true"></i>';
       $icon_x = '<i class="fa fa-times" aria-hidden="true"></i>';

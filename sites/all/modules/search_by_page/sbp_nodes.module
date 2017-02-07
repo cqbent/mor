@@ -134,6 +134,7 @@ function sbp_nodes_sbp_details($id, $environment, $keys = NULL) {
     'title' => search_by_page_strip_tags($node->title, $environment),
     'user' => theme('username', array('account' => $node)),
     'date' => $node->changed,
+    'object' => $node,
   );
 
   if (!$keys) {

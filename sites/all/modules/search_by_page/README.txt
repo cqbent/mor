@@ -12,7 +12,6 @@ Contents of this file:
 - Theming
 - Users and roles
 - Other suggestions
-- Copyright and License
 
 
 -- How it works --
@@ -206,10 +205,3 @@ drupal.org to find stemmers for other languages.)  Stemmers enable matching on
 inflected forms of words (verb forms, plurals, etc.), so they should give you
 matches for "quaking" and "quakes" if you search for "quake". They wouldn't give
 you a match for "earthquake", however.
-
-
--- Copyright and License --
-
-Copyright 2009-2010 Jennifer Hodgdon, Poplar ProductivityWare LLC
-
-Licensed under the GNU Public License

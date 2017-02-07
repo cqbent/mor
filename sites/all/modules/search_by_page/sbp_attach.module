@@ -15,6 +15,9 @@
  * also saves information in a DB table for future reference.
  */
 function sbp_attach_sbp_paths($environment) {
+  global $user;
+  $save_user = $user;
+
   // Make a list of the previously-existing information, so we can remove
   // any we don't still need at the end.
   $prev_objs = db_query('SELECT * FROM {sbpa_attachments} WHERE environment = :env', array(':env' => $environment))->fetchAll();
@@ -85,14 +88,17 @@ function sbp_attach_sbp_paths($environment) {
   // Important: Make sure to refresh the entity loading cache, because other
   // cron things could have loaded and then modified the objects. For
   // instance, doing a node_view() will remove all non-displayed files from
-  // file fields, sigh.
+  // file fields, sigh. Also be sure to use the indexing user here.
   entity_get_controller('node')->resetCache();
+  $users = _search_by_page_indexing_users($role);
+  $user = array_shift($users);
 
   foreach ($fieldtypes as $field_name) {
     $query = new EntityFieldQuery;
     $query
       ->entityCondition('entity_type', 'node', '=')
       ->entityCondition('bundle', $bundles, 'IN')
+      ->addTag('DANGEROUS_ACCESS_CHECK_OPT_OUT')
       ->fieldCondition($field_name);
 
     $results = $query->execute();
@@ -169,6 +175,11 @@ function sbp_attach_sbp_paths($environment) {
       }
     }
   }
+
+  // Set the global $user back to what it was.
+  $user = $save_user;
+  drupal_static_reset('user_access');
+  entity_get_controller('node')->resetCache();
 
   // Now take care of anything left over in $prev_objs - should be removed
   // now from our table. Search by Page will take care of removing from
@@ -294,6 +305,8 @@ function sbp_attach_sbp_details($id, $environment, $keys = NULL) {
 
   // Construct information for this entry.
   $ret = array();
+
+  $ret['object'] = $file;
 
   $use_desc = search_by_page_setting_get('sbp_attach_use_description', $environment, 0);
   $prepend_node_title = search_by_page_setting_get('sbp_attach_prepend_node_title', $environment, 0);
