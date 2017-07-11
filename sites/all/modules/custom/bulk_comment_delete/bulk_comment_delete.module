@@ -1,0 +1,75 @@
+<?php
+/**
+ * @file
+ * module file for bulk comment delete
+ * 1) admin form to trigger comment delete process
+ * 2) comment delete function:
+ *    a) query blog comments that contain links in them
+ *    b) add ids to list of comments to delete
+ *    c) run comment_delete function with list of ids as array
+ *    d) limit each process to # of comments
+ */
+
+function bulk_comment_delete_menu() {
+  $items['admin/config/system/bulk_comment_delete'] = array(
+    'title' => 'Bulk Comment Delete',
+    'description' => 'Run the bulk comment delete process',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('bulk_comment_delete_form'),
+    'access arguments' => array('administer site configuration')
+  );
+  return $items;
+}
+
+function bulk_comment_delete_form($form, &$form_state) {
+  $form['delete_amount'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Maximum number of comments to remove per process'),
+    '#description' => t('Enter the number of comments to remove per process.'),
+    '#size' => 10,
+    '#default_value' => 10,
+  );
+  $form['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Submit'),
+  );
+  return $form;
+}
+
+function bulk_comment_delete_form_submit($form, &$form_state) {
+  /*
+   * 1) run delete process
+   * 2) generate message
+   */
+  $deleted_comments = bulk_delete_comments_process($form_state['values']['delete_amount']);
+  $message = '@var1 spam comments deleted from the system';
+  $variables = array('@var1' => $deleted_comments);
+  drupal_set_message(t($message, $variables));
+  watchdog('bulk_comment_delete', $message, $variables, WATCHDOG_NOTICE);
+}
+
+function bulk_delete_comments_process($limit = 10) {
+  /*
+   * 1) run db query for all comments containing links and limited to form field in argument
+   */
+  $ids = array();
+  $count = 0;
+  //$limit = $amount ? $form_state['values']['delete_amount'] : 10;
+  $query = "SELECT cid FROM {comment} c  INNER JOIN {field_data_comment_body} cb on c.cid = cb.entity_id WHERE 
+    cb.comment_body_value LIKE '%<a href=%' LIMIT ".$limit;
+  $result = db_query($query);
+  if ($result) {
+    while ($row = $result->fetchAssoc()) {
+      $count++;
+      comment_delete($row['cid']);
+    }
+  }
+  //dsm($ids);
+  return $count;
+}
+
+function bulk_comment_delete_cron() {
+  $deleted_comments = bulk_delete_comments_process(1000);
+  $variables = array('@var1' => $deleted_comments);
+  watchdog('bulk_comment_delete', '@var1 spam comments deleted from the system', $variables, WATCHDOG_NOTICE);
+}
