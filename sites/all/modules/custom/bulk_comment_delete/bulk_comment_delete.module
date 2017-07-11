@@ -73,3 +73,48 @@ function bulk_comment_delete_cron() {
   $variables = array('@var1' => $deleted_comments);
   watchdog('bulk_comment_delete', '@var1 spam comments deleted from the system', $variables, WATCHDOG_NOTICE);
 }
+
+function bulk_comment_delete_setup_batch($number) {
+  /*
+   * batch setup process:
+   * 1) break up delete process into X number of chunks;
+   * 2) setup operations array to call function for each chunk
+   * 3) put all info into batch array and set set batch finish function
+   */
+
+  // x / ? = 1000
+  $chunks = $number > 1000 ? ceil($number/1000) : 1;
+  $chunk_number = floor($number/$chunks);
+  $operations = array();
+  for($i = 0; $i < $chunks; $i++) {
+    $operations[] = array('process_delete_chunk', array($chunk_number, t('(Performing @operation of @operation_total comment delete operations)', array('@operation' => $i, '@operation_total' => $chunks))));
+  }
+  $batch = array(
+    'operations' => $operations,
+    'finished' => 'bulk_comment_delete_batch_finished',
+  );
+  batch_set($batch);
+  //return $batch;
+  //Because we are doing this on the back-end, we set progressive to false.
+  $batch['progressive'] = FALSE;
+
+  //Start processing the batch operations.
+  drush_backend_batch_process();
+}
+
+function process_delete_chunk($number, $operation_details, &$context) {
+  /*
+   * call delete process function, update context
+   */
+  $count = bulk_delete_comments_process($number);
+  $context['message'] = $operation_details . ' - number deleted: '.$count;
+}
+
+function bulk_comment_delete_batch_finished($success, $results, $operations) {
+  if ($success) {
+    print(t('Finished delete process'));
+  }
+  else {
+    print(t('An error occurred in process'));
+  }
+}
