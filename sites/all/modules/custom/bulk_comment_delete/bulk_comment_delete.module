@@ -56,9 +56,9 @@ function bulk_delete_comments_process($limit = 10) {
   $count = 0;
   //$limit = $amount ? $form_state['values']['delete_amount'] : 10;
   $query = "SELECT * FROM {comment} c INNER JOIN {field_data_comment_body} cb ON c.cid = cb.entity_id 
-    WHERE cb.comment_body_value REGEXP 'url=|viagra|http=' OR 
+    WHERE cb.comment_body_value REGEXP 'url=|viagra|http|sex|drug|gay|porn' OR 
     c.subject NOT REGEXP '[A-Za-z0-9]' OR
-    c.subject LIKE '%http%' OR c.mail LIKE '%.ru%' LIMIT ".$limit;
+    c.subject REGEXP 'url=|viagra|http|sex|drug|gay|porn' OR c.mail LIKE '%.ru%' LIMIT ".$limit;
   $result = db_query($query);
   if ($result) {
     while ($row = $result->fetchAssoc()) {
